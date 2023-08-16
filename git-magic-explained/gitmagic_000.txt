@@ -5,3 +5,4 @@ export GIT_COMMITTER_EMAIL='laksvij@hawk.iit.edu'
 export GIT_AUTHOR_DATE='Thu Aug 20 21:52:59 2020 +0530'
 export GIT_COMMITTER_DATE='Thu Aug 20 21:52:59 2020 +0530'
 export PYTHONPATH=..
+export INTERESTING_PATH=~/other-code

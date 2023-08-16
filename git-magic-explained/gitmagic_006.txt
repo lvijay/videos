@@ -1,11 +1,19 @@
-# We know the format of a git commit
-# Given other parameters, we know how to calculate its
-# git commit
-# I wrote a small program that searched for a commit
-# containing 'c0ffee'.  Here it goes
-cat ~/other-code/is_it_interesting.py
-⑧①①# I won't go through it, you can read it in the
-# gist link in the description.
-# Running the program gives us the answers
-python ~/other-code/is_it_interesting.py
-⑧①①⑧①①# And that's that.
+# We know the format of a git commit so given the data
+# we know how to calc‹ulate›«⌘v» the git commit id
+# The obvious next step?  Write a program that searches
+# for a commitid cont‹aining›«⌘v» 'c0ffee'.
+cat ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
+⑩# The program tries every int from ‹300K to 400K›«⌘v»⑧
+# generates its commit string, calculates the
+# cor‹respondin›«⌘v»g git sha.  We print the commit ids
+# that contain c0ffee.
+‹# The code is linked to in the description.›«⌘v»
+‹# Add a comment if you have any questions.›«⌘v»⑩
+# Running the program gives us these answers
+python ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
+⑳# At i=383140 there's a commit containing c0ffee
+# And that's that.
+
+# This entire video is computer driven.  It was written
+# using Robotonous.  A Java program that takes a script
+# and types it out.
