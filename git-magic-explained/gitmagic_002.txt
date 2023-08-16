@@ -1,0 +1,33 @@
+## here's an empty folder
+ls -a
+## let's create a new gti repo«⌥b»«Λbbt⑨»
+git init .
+## add a first commit
+echo '## ignored files' > .gitignore
+git add -v «⌥.»
+git commit -m 'initial commit'
+# copy that commit id
+«Λa[»kkkkww
+wh
+touch file_«Λa]» # create a file with that commit
+git add -v file_«Λa]» # add it to the repo
+# The magic works on the following template
+# commit #{random number} contains {random hex number}
+# let's pick two random numbers
+python -c '
+from random import randint # randint(x,y) picks
+# a random int between x and y
+print()«Λb»randint()«Λb»0, 1000000«Λa»a«Λk»«Λy»
+«Λy»«Λa»a«⌥f»«Λf»hex(«Λe»)
+'⑨
+# we have 2 random numbers
+git commit -m ""«Λb»commit #38①3①1①4①0 contains c0ffee
+# the last commit message must contain `c0ffee'
+# let's check⑨
+git log -1⑨⑨⑨
+# there it is«Λa[»kkkkkllllllll
+llllll⑨⑧
+
+git log -1 | grep c0ffeec
+# so how'd I pull it off?⑧⑧  Let's dive in⑧⑧⑧⑧⑧
+clear

@@ -1,0 +1,15 @@
+rm -rf .git* *
+«Λl»①⑨①⑨## Hello!
+# welcome to a git magic trick
+# it's like a card trick but in git
+# i predict a git commit id before running git commit
+# Wait, wait, wait
+# I've done this before.
+# This time, we pull back the curtain and dive
+# into the magic trick's mechanics.
+# In the process we'll learn some Git internals and
+# a little Python.
+# first, let's quickly see the magic trick again.
+# This will only take 92 seconds
+## let's begin...
+clear

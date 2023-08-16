@@ -1,0 +1,11 @@
+# We know the format of a git commit
+# Given other parameters, we know how to calculate its
+# git commit
+# I wrote a small program that searched for a commit
+# containing 'c0ffee'.  Here it goes
+cat ~/other-code/is_it_interesting.py
+⑧①①# I won't go through it, you can read it in the
+# gist link in the description.
+# Running the program gives us the answers
+python ~/other-code/is_it_interesting.py
+⑧①①⑧①①# And that's that.

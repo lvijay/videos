@@ -1,0 +1,30 @@
+# In this section, we'll discuss 2 items
+# 1. Organization of a git commit object
+# 2. How I predicted the git commit
+git log -1 --oneline
+git cat-file -p c46d87a
+# A git commit contains
+# a. tree(s)
+# b. parent(s)
+# c. author and
+# d. committer metadata
+# Note that parent e4fe1d2... is the previous commit⑧
+# In the last two lines, look at the timestamp
+# 1597940579 +0530⑧①
+# Decoded, this time is
+date -r 1597940579⑧①①⑧①①
+# This video is made in 2023, how is the date 2020?
+# Let's look at the manual
+man git-commit | grep 'Author and committer' -A9
+# Let's look at the environment variables
+echo -e "$GIT_COMMITTER_DATE\n$GIT_AUTHOR_DATE"
+⑧①①⑧①①# Since I control all variables of the commit
+# I can predict what the commit id will be.
+# And that's what I did.
+# I hope you see how the entire trick was setup.
+# All I had to do was make a commit, note the id,
+# reset the git repository, do everything again,
+# and hey presto, magic.
+# But how did I include c0ffee in the commit?
+# We'll see that in the next section.
+clear⑧①①⑧①①

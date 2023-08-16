@@ -1,0 +1,36 @@
+# The trick primarily has two parts
+# 1. The commit id containing c0ffee
+# 2. The random number generator giving us c0ffee
+# Let's address (2) first because it's easier.
+# The program opened with `python -c 'import random'`
+# Python looks for import libraries by examining the
+# «⇧pythonpath» environment variable.
+# Let's examine the environment property «⇧pythonpath»
+echo $«⇧pythonpath»
+# It says `..' which refers to the parent directory.
+# What does the parent directory contain?
+ls ..
+# It has a file named random.py.  This tells us Python
+# imported this file, not the standard library version.
+# What's in random.py?
+cat ../random.py
+⑧⑧⑧⑧⑧⑧
+# The file only has 3 lines of code.  One constant and
+# one function.⑧⑧⑧⑧⑧⑧
+# The variable ARRAY contains the two constants we got
+cat ../random.py | awk '/^ARRAY/'
+# but in reverse order.  And
+# the function `randint` returns these two constants.
+grep -A1 def ../random.py
+# by popping them in reverse.
+
+# In summary: we wrote our own random.py file, 
+# rigged it to return the two values we needed.  Then
+# made sure that Python would pick our random.py file
+# by setting «⇧pythonpath».
+
+# Hopefully that explains (2).
+# Feel free to comment if you have questions.
+
+# Coming to (1), how'd we know the git commit?⑧⑧⑧⑧⑧
+clear

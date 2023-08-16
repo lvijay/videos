@@ -1,0 +1,68 @@
+# rm -rf .git/objects/cc
+«Λl»⑧
+# Git organizes all its data in the .git folder.
+# Let's look specifically in the .git/objects folder.
+ls .git/objects
+# We'll ignore the 'info' and 'pack' folders.
+ls .git/objects/[^ip]*/*«Λw»«Λy»
+⑧①①⑧①①⑧①①⑧①①
+# These are all files.  Notice two of them look like
+# our commits?
+ls «Λy» | grep e4/fe1d2
+ls «Λy» | grep c0ffee
+# That's because commits and all associated git data
+# are stored in the .git/objects folder
+
+
+
+# Theory time
+# Git maintains 3 types of objects:
+# 1. blob -- file contents
+# 2. tree -- file paths
+# 3. commit -- trees, with commit metadata
+# In this chapter, We'll look at blobs.
+# Since the best way to learn is to do, we understand
+# blobs by adding one to our git repository without
+# using any git commands.
+# Run these commands in a git repository.
+# There's no deception involved here so you can run
+# these commands and get the same results.
+CONTENT«Λw»«Λy»=`echo colorless green ideas sleep furiously`
+# Blobs are stored according to their sha so we'll
+# first calculate the sha.
+echo $«Λy» | python -c '
+import sys, hashlib
+content = sys.stdin.read()
+blob = f"blob {len(content)}\x00{content}"
+print(f"{blob=}")
+bblob = blob.encode("us-ascii")
+sha1 = hashlib.sha1(bblob).hexdigest()
+print(sha1)'
+# A git blob is stored in a file with prefix "blob"
+# followed by the content length, a 0-byte, and
+# finally the content itself.  This is sha1'd
+# and persisted in the .git/objects folder.
+# But it isn't persisted as is, the blob contents are
+# compressed using zlib and stored.  That keeps the
+# repo size down.
+# Now we create this blog ④«Λb»«Λb»«Λd»b.
+mkdir .git/objects/cc # first 2 chars of the sha
+echo $«Λy» | python -c '
+import sys, zlib
+content = sys.stdin.read()
+blob = f"blob {len(content)}\x00{content}"
+bblob = blob.encode("us-ascii")
+path="8ee2eb19626a8656020bbcd2a7e4f3f6a48a04"
+with open(".git/objects/cc/"+path, "wb") as out:
+  out.write(zlib.compress(bblob))
+'
+# We've written it.  Let's validate.
+git show cc8ee2e
+# Without using any git commands we've added a file to
+# the git repo.
+# blobs only store file content.  They don't represent
+# file names.  That is done by `tree's.
+# In the interests of time, I'm skipping trees.  Refer
+# the git-book link in the description for details.
+# Now we'll move on to commits and finding c0ffee.
+⑧①①⑧①①clear⑧①①
