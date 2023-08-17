@@ -1,36 +1,37 @@
-# The trick primarily has two parts
-# 1. The commit id containing c0ffee
-# 2. The random number generator giving us c0ffee
-# Let's address (2) first because it's easier.
-# The program opened with `python -c 'import random'`
-# Python looks for import libraries by examining the
-# «⇧pythonpath» environment variable.
-# Let's examine the environment property «⇧pythonpath»
-echo $«⇧pythonpath»
-# It says `..' which refers to the parent directory.
-# What does the parent directory contain?
-ls ..
-# It has a file named random.py.  This tells us Python
-# imported this file, not the standard library version.
-# What's in random.py?
-cat ../random.py
-⑧⑧⑧⑧⑧⑧
-# The file only has 3 lines of code.  One constant and
-# one function.⑧⑧⑧⑧⑧⑧
-# The variable ARRAY contains the two constants we got
-cat ../random.py | awk '/^ARRAY/'
-# but in reverse order.  And
-# the function `randint` returns these two constants.
-grep -A1 def ../random.py
-# by popping them in reverse.
+# ‹The›«⌘v» ‹trick›«⌘v» ‹primarily›«⌘v» ‹has›«⌘v» ‹two›«⌘v» ‹parts›«⌘v»
+# ‹1.›«⌘v» ‹The›«⌘v» ‹commit›«⌘v» ‹id›«⌘v» ‹containing›«⌘v» ‹c0ffee›«⌘v»
+‹# 2.›«⌘v» "‹Randomly›«⌘v»" ‹getting›«⌘v» "‹c0ffee›«⌘v»"
+# ‹Let's›«⌘v» ‹address›«⌘v» (2) ‹first›«⌘v» ‹because›«⌘v» ‹it's›«⌘v» ‹easier.›«⌘v»
+# ‹The›«⌘v» ‹program›«⌘v» ‹opened›«⌘v» ‹with›«⌘v» `‹python›«⌘v» -c '‹import›«⌘v» ‹random'›«⌘v»`
+# ‹Where›«⌘v» ‹does›«⌘v» ‹Python›«⌘v» ‹search›«⌘v» ‹for›«⌘v» ‹libraries›«⌘v» ‹on›«⌘v» ‹import›«⌘v»?
+# ‹Python›«⌘v» ‹looks›«⌘v» ‹for›«⌘v» ‹import›«⌘v» ‹libraries›«⌘v» ‹by›«⌘v» ‹examining›«⌘v» ‹the›«⌘v»
+# «⇧pythonpath» ‹environment›«⌘v» ‹variable.›«⌘v»
+# ‹Let's›«⌘v» ‹examine›«⌘v» ‹the›«⌘v» ‹environment›«⌘v» ‹property›«⌘v» ‹PYTHONPATH›«⌘v»
+‹echo›«⌘v» $‹PYTHONPATH›«⌘v»
+# ‹It›«⌘v» ‹says›«⌘v» `..' ‹which›«⌘v» ‹refers›«⌘v» ‹to the›«⌘v» ‹parent›«⌘v» ‹directory.›«⌘v»
+# ‹What›«⌘v» ‹does›«⌘v» ‹the›«⌘v» ‹parent›«⌘v» ‹directory›«⌘v» ‹contain›«⌘v»?
+‹ls›«⌘v» ..
+# ‹It›«⌘v» ‹has›«⌘v» ‹a›«⌘v» ‹file›«⌘v» ‹named›«⌘v» ‹random.py.›«⌘v»  ‹This›«⌘v» ‹tells›«⌘v» ‹us›«⌘v» ‹Python›«⌘v»
+# ‹imported›«⌘v» ‹this›«⌘v» ‹file›«⌘v», ‹not›«⌘v» ‹the›«⌘v» ‹standard›«⌘v» ‹library›«⌘v» ‹version.›«⌘v»
+# ‹What's›«⌘v» ‹in›«⌘v» ‹random.py›«⌘v»?
+‹cat›«⌘v» ‹../random.py›«⌘v»
+⑫
+# ‹The›«⌘v» ‹file›«⌘v» ‹only›«⌘v» ‹has›«⌘v» 3 ‹lines›«⌘v» ‹of›«⌘v» ‹code.›«⌘v»  ‹One›«⌘v» ‹constant›«⌘v» ‹and›«⌘v»
+# ‹one›«⌘v» ‹function.›«⌘v»⑭
+# ‹The›«⌘v» ‹variable›«⌘v» ‹ARRAY›«⌘v» ‹contains›«⌘v» ‹the›«⌘v» 2 "‹random›«⌘v» ‹numbers›«⌘v»."
+‹cat›«⌘v» ../‹random.py›«⌘v» | ‹awk›«⌘v» ‹'/^ARRAY/'›«⌘v»
+# ‹but›«⌘v» ‹in›«⌘v» ‹reverse›«⌘v» ‹order.›«⌘v»  ‹And›«⌘v»
+# ‹the›«⌘v» ‹function›«⌘v» `‹randint›«⌘v»` ‹returns›«⌘v» ‹these›«⌘v» ‹two›«⌘v» ‹numbers.›«⌘v»
+‹grep›«⌘v» ‹-A1›«⌘v» ‹def›«⌘v» ../‹random.›«⌘v»py
+# ‹by›«⌘v» ‹popping›«⌘v» ‹them›«⌘v» ‹in›«⌘v» ‹reverse.›«⌘v»
 
-# In summary: we wrote our own random.py file, 
-# rigged it to return the two values we needed.  Then
-# made sure that Python would pick our random.py file
-# by setting «⇧pythonpath».
+# ‹In›«⌘v» ‹summary›«⌘v»: ‹we›«⌘v» ‹wrote›«⌘v» ‹our›«⌘v» ‹own›«⌘v» ‹random.py›«⌘v» ‹file›«⌘v»,
+# ‹rigged›«⌘v» ‹it›«⌘v» ‹to›«⌘v» ‹return›«⌘v» ‹the›«⌘v» ‹two›«⌘v» ‹values›«⌘v» ‹we›«⌘v» ‹needed.›«⌘v»  ‹Then›«⌘v»
+# ‹made›«⌘v» ‹sure›«⌘v» ‹that›«⌘v» ‹Python›«⌘v» ‹would›«⌘v» ‹pick›«⌘v» ‹our›«⌘v» ‹file›«⌘v»
+# ‹by›«⌘v» ‹setting›«⌘v» ‹PYTHONPATH.›«⌘v»
 
-# Hopefully that explains (2).
-# Feel free to comment if you have questions.
+# ‹Hopefully›«⌘v» ‹that›«⌘v» ‹explains›«⌘v» ‹(2).›«⌘v»
+# ‹Feel›«⌘v» ‹free›«⌘v» ‹to›«⌘v» ‹comment›«⌘v» ‹if›«⌘v» ‹you›«⌘v» ‹have›«⌘v» ‹questions.›«⌘v»
 
-# Coming to (1), how'd we know the git commit?⑧⑧⑧⑧⑧
+# ‹Coming›«⌘v» ‹to›«⌘v» ‹(1),›«⌘v» ‹how'd›«⌘v» ‹we›«⌘v» ‹know›«⌘v» ‹the›«⌘v» ‹git›«⌘v» ‹commit?›«⌘v»⑫
 clear
