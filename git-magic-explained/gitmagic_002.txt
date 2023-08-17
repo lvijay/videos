@@ -1,33 +1,32 @@
-## here's an empty folder
+clear⑩
+# here's an empty folder
 ls -a
-## let's create a new gti repo«⌥b»«Λbbt⑨»
+# ‹let's›«⌘v» create a new gti repo«⌥b»«Λbbt⑨»
 git init .
-## add a first commit
-echo '## ignored files' > .gitignore
+# add a first commit
+echo '## ‹ignored files›«⌘v»' > .gitignore
 git add -v «⌥.»
-git commit -m 'initial commit'
-# copy that commit id
+git commit -m 'ini‹tial commit›«⌘v»'
+# co‹py that›«⌘v» co‹mmit id›«⌘v»
 «Λa[»kkkkww
 wh
-touch file_«Λa]» # create a file with that commit
+to‹uch ›«⌘v»file_«Λa]» # create a file with that id
 git add -v file_«Λa]» # add it to the repo
-# The magic works on the following template
-# commit #{random number} contains {random hex number}
-# let's pick two random numbers
+# The magic w‹orks on the›«⌘v» fol‹lowing›«⌘v» template
+# commit #{random nu‹mber›«⌘v»} contains {r‹andom›«⌘v» hex ‹number›«⌘v»}
+# let's pick 2 ran‹dom numbers›«⌘v»②
 python -c '
-from random import randint # randint(x,y) picks
-# a random int between x and y
-print()«Λb»randint()«Λb»0, 1000000«Λa»a«Λk»«Λy»
+fr‹om›«⌘v» random im‹port›«⌘v» randint
+# randint‹(x,y) ›«⌘v»picks a r‹andom int›«⌘v»① between ‹x and y›«⌘v»
+print()«Λb»randint()«Λb»0, 1‹000›«⌘v»‹000›«⌘v»«Λa»a«Λk»«Λy»
 «Λy»«Λa»a«⌥f»«Λf»hex(«Λe»)
-'⑨
-# we have 2 random numbers
+'⑤
+# we have 2 ra‹ndom numbers›«⌘v».  ‹Let's›«⌘v» git commit.
 git commit -m ""«Λb»commit #38①3①1①4①0 contains c0ffee
-# the last commit message must contain `c0ffee'
-# let's check⑨
-git log -1⑨⑨⑨
-# there it is«Λa[»kkkkkllllllll
-llllll⑨⑧
+# Now c‹heck that›«⌘v» ‹the latest›«⌘v» com‹mitid contains›«⌘v» "c0‹ffee"›«⌘v»
+git log -1 #se‹e here›«⌘v» ‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»
+# th‹ere it i›«⌘v»s«Λa[»kkkkkllllllll
+llllll⑤
 
-git log -1 | grep c0ffeec
-# so how'd I pull it off?⑧⑧  Let's dive in⑧⑧⑧⑧⑧
+# How'd I pull it off?⑧⑧  Let's dig in⑩
 clear
