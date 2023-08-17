@@ -1,14 +1,14 @@
-rm -rf .git* *
-«Λl»①⑨①⑨## Hello!
-# Welcome to a git magic trick.
-# It's like a card trick but in git.
-# I predict a git com‹mit id›«⌘v» before running git commit.
-# Wait, ‹wait›«⌘v», «⌘v».
-# I've do‹ne›«⌘v» t‹his›«⌘v» bef‹ore.›«⌘v»⑤
-# This time, we revisit the magic trick and explain it.
-# ‹In the process›«⌘v»,① we'll learn some Git internals and
-# a ‹little›«⌘v» Python.
-# ‹first, let's quickly see the magic trick›«⌘v» again.
-# This will ‹only ›«⌘v»take 84 seconds
-# let's begin...
+‹rm›«⌘v» ‹-rf›«⌘v» .‹git›«⌘v»* *
+«Λl»①⑨①⑨# ‹Hello›«⌘v»!
+# ‹Welcome›«⌘v» ‹to›«⌘v» ‹a›«⌘v» ‹git›«⌘v» ‹magic›«⌘v» ‹trick›«⌘v».
+# ‹It's›«⌘v» ‹like›«⌘v» ‹a›«⌘v» ‹card›«⌘v» ‹trick›«⌘v» ‹but›«⌘v» ‹using›«⌘v» ‹git›«⌘v».
+# I ‹predict›«⌘v» a ‹git›«⌘v» ‹commit›«⌘v» ‹id›«⌘v» ‹before›«⌘v» ‹running›«⌘v» ‹git›«⌘v» ‹commit›«⌘v».
+# ‹Wait›«⌘v», ‹wait›«⌘v», «⌘v».
+# ‹I've›«⌘v» ‹done›«⌘v» ‹this›«⌘v» ‹before›«⌘v».①
+# ‹This›«⌘v» ‹time›«⌘v», ‹we›«⌘v» ‹revisit›«⌘v» ‹the›«⌘v» ‹magic trick›«⌘v» ‹and›«⌘v» ‹explain›«⌘v» ‹it›«⌘v».
+# ‹In›«⌘v» ‹the›«⌘v» ‹process›«⌘v»,① ‹we'll›«⌘v» ‹learn›«⌘v» ‹some›«⌘v» ‹Git›«⌘v» ‹internals›«⌘v» ‹and›«⌘v»
+# a ‹little›«⌘v» ‹Python›«⌘v».
+# ‹First›«⌘v», ‹let's›«⌘v» ‹quickly›«⌘v» ‹see›«⌘v» ‹the›«⌘v» ‹magic›«⌘v» ‹trick›«⌘v» ‹again›«⌘v».
+# ‹This›«⌘v» ‹will›«⌘v» ‹only›«⌘v» ‹take›«⌘v» 65 ‹seconds›«⌘v»⑤
+# ‹let's›«⌘v» ‹begin›«⌘v»...
 clear

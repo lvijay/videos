@@ -1,32 +1,32 @@
 clear⑩
-# here's an empty folder
-ls -a
-# ‹let's›«⌘v» create a new gti repo«⌥b»«Λbbt⑨»
-git init .
-# add a first commit
-echo '## ‹ignored files›«⌘v»' > .gitignore
-git add -v «⌥.»
-git commit -m 'ini‹tial commit›«⌘v»'
-# co‹py that›«⌘v» co‹mmit id›«⌘v»
+# ‹here's›«⌘v» ‹an›«⌘v» ‹empty›«⌘v» ‹folder›«⌘v»
+‹ls›«⌘v» -a
+# ‹let's›«⌘v» ‹create›«⌘v» a ‹new›«⌘v» ‹gti repo›«⌘v»«⌥b»«Λbbt⑨»
+‹git›«⌘v» ‹init›«⌘v» .
+# ‹add›«⌘v» a ‹first›«⌘v» ‹commit›«⌘v»
+‹echo›«⌘v» '## ‹ignored›«⌘v» ‹files›«⌘v»' > .git‹ignore›«⌘v»
+‹git›«⌘v» add -v «⌥.»
+‹git›«⌘v» ‹commit›«⌘v» -m '‹initial commit›«⌘v»'
+# ‹copy›«⌘v» ‹that›«⌘v» ‹commit id›«⌘v»
 «Λa[»kkkkww
 wh
-to‹uch ›«⌘v»file_«Λa]» # create a file with that id
-git add -v file_«Λa]» # add it to the repo
-# The magic w‹orks on the›«⌘v» fol‹lowing›«⌘v» template
-# commit #{random nu‹mber›«⌘v»} contains {r‹andom›«⌘v» hex ‹number›«⌘v»}
-# let's pick 2 ran‹dom numbers›«⌘v»②
-python -c '
-fr‹om›«⌘v» random im‹port›«⌘v» randint
-# randint‹(x,y) ›«⌘v»picks a r‹andom int›«⌘v»① between ‹x and y›«⌘v»
-print()«Λb»randint()«Λb»0, 1‹000›«⌘v»‹000›«⌘v»«Λa»a«Λk»«Λy»
+‹touch ›«⌘v»file_«Λa]» # ‹create›«⌘v» a ‹file›«⌘v»
+‹git›«⌘v» add -v file_«Λa]» # ‹add it›«⌘v» ‹to the›«⌘v» ‹repo›«⌘v»②
+# ‹The›«⌘v» ‹magic›«⌘v» w‹orks on›«⌘v» ‹the following›«⌘v» ‹template›«⌘v»
+# ‹commit›«⌘v» #{‹random›«⌘v» ‹number›«⌘v»} ‹contains›«⌘v» {‹random›«⌘v» ‹hex›«⌘v» ‹number›«⌘v»}
+# ‹let's›«⌘v» ‹pick›«⌘v» 2 ‹random›«⌘v» ‹numbers›«⌘v»②
+‹python›«⌘v» -c '
+‹from›«⌘v» ‹random›«⌘v» im‹port›«⌘v» ‹rand›«⌘v»int
+# ‹randint›«⌘v»‹(x,y) ›«⌘v»‹picks›«⌘v» a ‹random›«⌘v» ‹int›«⌘v» ‹between›«⌘v» ‹x and y›«⌘v»
+‹print›«⌘v»()«Λb»randint()«Λb»0, 1‹000›«⌘v»‹000›«⌘v»«Λa»a«Λk»«Λy»
 «Λy»«Λa»a«⌥f»«Λf»hex(«Λe»)
 '⑤
-# we have 2 ra‹ndom numbers›«⌘v».  ‹Let's›«⌘v» git commit.
-git commit -m ""«Λb»commit #38①3①1①4①0 contains c0ffee
-# Now c‹heck that›«⌘v» ‹the latest›«⌘v» com‹mitid contains›«⌘v» "c0‹ffee"›«⌘v»
-git log -1 #se‹e here›«⌘v» ‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»
-# th‹ere it i›«⌘v»s«Λa[»kkkkkllllllll
+# we ‹have›«⌘v» 2 ‹random›«⌘v» ‹numbers›«⌘v».  ‹Let's›«⌘v» ‹commit›«⌘v».
+‹git›«⌘v» ‹commit›«⌘v» -m ""«Λb»commit #38①3①1①4①0 ‹contains›«⌘v» c0ffee
+# ‹Now›«⌘v» c‹heck that›«⌘v» ‹the latest›«⌘v» com‹mitid contains›«⌘v» "c0‹ffee"›«⌘v»
+‹git›«⌘v» ‹log›«⌘v» -1 #se‹e here›«⌘v» ‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»‹⌄›«⌘v»
+# ‹there›«⌘v» ‹it i›«⌘v»s«Λa[»kkkkkllllllll
 llllll⑤
 
-# How'd I pull it off?⑧⑧  Let's dig in⑩
+# ‹How'd›«⌘v» I ‹pull›«⌘v» ‹it›«⌘v» off?⑧⑧  ‹Let's›«⌘v» ‹dig›«⌘v» in⑩
 clear
