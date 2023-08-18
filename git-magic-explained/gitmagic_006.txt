@@ -8,20 +8,20 @@
 # ‹Let's›«⌘v» ‹look›«⌘v» ‹at›«⌘v» ‹the›«⌘v» ‹last›«⌘v» ‹commit's›«⌘v» ‹file›«⌘v» ‹contents.›«⌘v»
 ‹cat›«⌘v» ‹.git/objects/c4/6d*›«⌘v» | ‹python -c '›«⌘v»
 ‹import›«⌘v» ‹sys›«⌘v», ‹zlib›«⌘v»
-‹print›«⌘v»()«Λb»‹zlib›«⌘v».‹decompress›«⌘v»()«Λb»‹sys›«⌘v».‹stdin›«⌘v».‹buffer›«⌘v».‹read›«⌘v‹»()«Λe»'
+‹print›«⌘v»()«Λb»‹zlib›«⌘v».‹decompress›«⌘v»()«Λb»‹sys›«⌘v».‹stdin›«⌘v».‹buffer›«⌘v».‹read›«⌘v»()«Λe»'
 
-⑮# ‹The file›«⌘v» ‹starts›«⌘v» ‹with›«⌘v» "‹commit 269›«⌘v»".«Λa[»k«Λr»'c«Λ[»l
+⑮# ‹The file›«⌘v» ‹starts›«⌘v» ‹with›«⌘v» "‹commit 269›«⌘v»"«Λa[»k«Λr»'c«Λ[»l
 ww⑮
-where
+ where
 # 269 = ‹the length›«⌘v» ‹of›«⌘v» ‹the string›«⌘v» ‹from›«⌘v»
-# ‹"tree 62ee7"›«⌘v» to ‹"c0ffee\n"›«⌘v»
+# ‹"tree 62ee7"›«⌘v» to ‹"c0ffee\n"›«⌘v»«Λa[»k«Λr»tree«Λ[»
+«Λs»n'«Λ[»ll⑳«Λ[»#
 
 # ‹The obvious›«⌘v»‹ next›«⌘v» ‹step›«⌘v»?  ‹Write›«⌘v» ‹a program›«⌘v»‹ that›«⌘v» ‹searches›«⌘v»
 # ‹for›«⌘v» ‹a commitid›«⌘v» ‹containing›«⌘v» "‹c0ffee".›«⌘v»
 # ‹Here's›«⌘v» ‹the script:›«⌘v»③
 cat ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
-⑩
-
+⑩⑩
 # ‹The program›«⌘v» ‹tries›«⌘v» ‹every›«⌘v» ‹int›«⌘v» ‹from 0,›«⌘v» ‹generates›«⌘v» ‹its›«⌘v»
 # ‹commit›«⌘v» ‹string,›«⌘v» ‹computes›«⌘v» ‹its›«⌘v» sha ‹and stops›«⌘v» on
 # ‹finding›«⌘v» ‹the first commit›«⌘v»‹ that›«⌘v» ‹contains›«⌘v» "‹c0ffee".›«⌘v»
