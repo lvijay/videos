@@ -1,68 +1,75 @@
-# rm -rf .git/objects/cc
-«Λl»⑧
-# Git organizes all its data in the .git folder.
-# Let's look specifically in the .git/objects folder.
-ls .git/objects
-# We'll ignore the 'info' and 'pack' folders.
-ls .git/objects/[^ip]*/*«Λw»«Λy»
+rm -rf .git/objects/cc
+«Λl»⑧# ‹Git›«⌘v» ‹organizes›«⌘v» ‹all›«⌘v» ‹its›«⌘v» ‹data›«⌘v» ‹in the›«⌘v» .‹git›«⌘v» ‹folder.›«⌘v»
+# ‹Let's›«⌘v» ‹look›«⌘v» ‹specifically›«⌘v» ‹in›«⌘v» ‹the›«⌘v» ‹.git/objects›«⌘v» ‹folder.›«⌘v»
+‹ls .git/objects›«⌘v»
+# ‹We'll›«⌘v» ‹ignore›«⌘v» ‹the›«⌘v» ‹'info'›«⌘v» ‹and›«⌘v» ‹'pack'›«⌘v» ‹folders.›«⌘v»
+ls ‹.git/objects/[^ip]*/*›«⌘v»«Λw»«Λy»
 ⑧①①⑧①①⑧①①⑧①①
-# These are all files.  Notice two of them look like
-# our commits?
-ls «Λy» | grep e4/fe1d2
-ls «Λy» | grep c0ffee
-# That's because commits and all associated git data
-# are stored in the .git/objects folder
+# ‹These are all files.›«⌘v»
+# ‹Notice two of them look our commits?›«⌘v»
+‹ls›«⌘v» ‹.git/objects/[^ip]*/*›«⌘v» | ‹grep e4/fe1d2›«⌘v»
+‹ls›«⌘v» ‹.git/objects/[^ip]*/*›«⌘v» | ‹grep c0ffee›«⌘v»
+# ‹This›«⌘v» ‹is›«⌘v» ‹because›«⌘v» ‹git›«⌘v» ‹stores›«⌘v» ‹commits›«⌘v» ‹and›«⌘v» ‹all›«⌘v» ‹associated›«⌘v»
+# ‹in›«⌘v» ‹the›«⌘v» ‹.git/objects folder.›«⌘v»
 
 
 
-# Theory time
-# Git maintains 3 types of objects:
-# 1. blob -- file contents
-# 2. tree -- file paths
-# 3. commit -- trees, with commit metadata
-# In this chapter, We'll look at blobs.
-# Since the best way to learn is to do, we understand
-# blobs by adding one to our git repository without
-# using any git commands.
-# Run these commands in a git repository.
-# There's no deception involved here so you can run
-# these commands and get the same results.
-CONTENT«Λw»«Λy»=`echo colorless green ideas sleep furiously`
-# Blobs are stored according to their sha so we'll
-# first calculate the sha.
-echo $«Λy» | python -c '
-import sys, hashlib
-content = sys.stdin.read()
-blob = f"blob {len(content)}\x00{content}"
-print(f"{blob=}")
-bblob = blob.encode("us-ascii")
-sha1 = hashlib.sha1(bblob).hexdigest()
-print(sha1)'
-# A git blob is stored in a file with prefix "blob"
-# followed by the content length, a 0-byte, and
-# finally the content itself.  This is sha1'd
-# and persisted in the .git/objects folder.
-# But it isn't persisted as is, the blob contents are
-# compressed using zlib and stored.  That keeps the
-# repo size down.
-# Now we create this blog ④«Λb»«Λb»«Λd»b.
-mkdir .git/objects/cc # first 2 chars of the sha
-echo $«Λy» | python -c '
-import sys, zlib
-content = sys.stdin.read()
-blob = f"blob {len(content)}\x00{content}"
-bblob = blob.encode("us-ascii")
-path="8ee2eb19626a8656020bbcd2a7e4f3f6a48a04"
-with open(".git/objects/cc/"+path, "wb") as out:
-  out.write(zlib.compress(bblob))
-'
-# We've written it.  Let's validate.
-git show cc8ee2e
-# Without using any git commands we've added a file to
-# the git repo.
-# blobs only store file content.  They don't represent
-# file names.  That is done by `tree's.
-# In the interests of time, I'm skipping trees.  Refer
-# the git-book link in the description for details.
-# Now we'll move on to commits and finding c0ffee.
-⑧①①⑧①①clear⑧①①
+# ‹Theory time›«⌘v»
+# ‹Git maintains 3 types of objects:›«⌘v»
+# ‹1. blob -- file contents›«⌘v»
+# ‹2. tree -- file paths›«⌘v»
+# ‹3. commit -- trees, with commit metadata›«⌘v»
+# ‹In this chapter›«⌘v», ‹we'll look at blobs.›«⌘v»
+# ‹Since the best way to learn is to do,›«⌘v» ‹we understand›«⌘v»
+# ‹blobs by adding one to our git repository›«⌘v» ‹without›«⌘v»
+# ‹using any git commands.›«⌘v»
+# ‹Run›«⌘v» ‹these commands in a›«⌘v» ‹git repository.›«⌘v»
+‹# There's›«⌘v» ‹no›«⌘v» ‹deception›«⌘v» ‹involved›«⌘v» ‹here›«⌘v» ‹so›«⌘v» ‹you›«⌘v» ‹can›«⌘v» ‹run›«⌘v»
+# ‹these›«⌘v» ‹commands›«⌘v» ‹and›«⌘v» ‹get›«⌘v» ‹the›«⌘v» ‹same›«⌘v» ‹results.›«⌘v»
+‹CONTENT›«⌘v»='‹colorless green ideas sleep furiously›«⌘v»'
+# ‹Blobs are stored according to their sha so we'll›«⌘v»
+# ‹first calculate the sha.›«⌘v»
+‹echo $CONTENT | python -c ›«⌘v»'
+‹import sys, hashlib›«⌘v»
+‹content = sys.stdin.read()›«⌘v»
+‹blob = f"blob {len(content)}\x00{content}"›«⌘v»
+‹print(f"{blob=}")›«⌘v»
+‹bblob = blob.encode("us-ascii")›«⌘v»
+‹sha1 = hashlib.sha1(bblob).hexdigest()›«⌘v»
+‹print(sha1)›«⌘v»'
+# ‹A git blob›«⌘v» ‹is stored in a file›«⌘v» ‹with prefix "blob"›«⌘v»
+# ‹followed by the content length,›«⌘v» ‹a 0-byte,›«⌘v» ‹and›«⌘v»
+# ‹finally the content itself.›«⌘v»  ‹This data is sha1'd›«⌘v»
+# ‹and persisted›«⌘v» ‹in the .git/objects folder.›«⌘v»
+# ‹But it isn't persisted as is,›«⌘v» ‹the blob contents are›«⌘v»
+# ‹first zlib compressed.›«⌘v»  ‹This reduces the repo size.›«⌘v»
+# ‹Now we create this blog›«⌘v» ④«Λb»«Λb»«Λd»b.
+‹mkdir .git/objects/cc›«⌘v» ‹# first 2 chars of the sha›«⌘v»
+‹echo $CONTENT | python -c '›«⌘v»
+‹import sys, zlib›«⌘v»
+‹content = sys.stdin.read()›«⌘v»
+‹blob = f"blob {len(content)}\x00{content}"›«⌘v»
+‹bblob = blob.encode("us-ascii")›«⌘v»
+path=‹"8ee2eb19626a8656020bbcd2a7e4f3f6a48a04"›«⌘v»
+‹with open(".git/objects/cc/"+path, "wb") as out:›«⌘v»
+‹  out.write(zlib.compress(bblob))'›«⌘v»
+# ‹We've saved it in the file at›«⌘v»
+‹# .git/objects/cc/8ee2eb19626a8656020bbcd2a7e4f3f6a.›«⌘v»
+# ‹Let's validate.›«⌘v»
+‹git show cc8ee2e›«⌘v»
+# ‹And there it is.›«⌘v»
+
+# ‹Summary:›«⌘v» ‹Without using any git commands›«⌘v»
+# ‹we've added a file to our git repo.›«⌘v»
+# ‹We did this by first taking some content,›«⌘v»
+# ‹formatting it in the git blob format, then›«⌘v»
+# ‹calculating its sha1 hash digest.›«⌘v»  ‹Next we zlib'd›«⌘v»
+# ‹this content, stored it in .git/objects/[the hash]›«⌘v»
+# ‹and verified it works.›«⌘v»
+
+# ‹Blobs only store file content.›«⌘v»  ‹They don't represent›«⌘v»
+# ‹file names.›«⌘v»  ‹That is done by `tree's.›«⌘v»
+# ‹In the interests of time, I'm skipping trees.›«⌘v»  ‹Refer›«⌘v»
+# ‹the git-book link in the description for details.›«⌘v»
+# ‹Now we'll move on to commits and finding "c0ffee".›«⌘v»
+⑮clear④

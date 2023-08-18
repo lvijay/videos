@@ -1,19 +1,38 @@
-# We know the format of a git commit so given the data
-# we know how to calc‹ulate›«⌘v» the git commit id
-# The obvious next step?  Write a program that searches
-# for a commitid cont‹aining›«⌘v» 'c0ffee'.
-cat ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
-⑩# The program tries every int from ‹300K to 400K›«⌘v»⑧
-# generates its commit string, calculates the
-# cor‹respondin›«⌘v»g git sha.  We print the commit ids
-# that contain c0ffee.
-‹# The code is linked to in the description.›«⌘v»
-‹# Add a comment if you have any questions.›«⌘v»⑩
-# Running the program gives us these answers
-python ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
-⑳# At i=383140 there's a commit containing c0ffee
-# And that's that.
+# ‹This›«⌘v»‹ is›«⌘v» ‹the last chapter›«⌘v».  ‹We›«⌘v» ‹answer›«⌘v» ‹one›«⌘v» ‹question:›«⌘v»
+# ‹How›«⌘v» ‹did›«⌘v» ‹both›«⌘v» ‹commit id›«⌘v» ‹and›«⌘v» ‹message›«⌘v» ‹have›«⌘v» ‹"c0ffee"›«⌘v»?
+# ‹Answer:›«⌘v» ‹vision›«⌘v»⌫①⌫①⌫①⌫①⌫①⌫①‹brute›«⌘v» force.
+# ‹Let's›«⌘v» ‹consider›«⌘v» ‹the facts.›«⌘v»
+# 1. ‹We›«⌘v» ‹know›«⌘v» ‹the format›«⌘v» ‹of›«⌘v» ‹a git›«⌘v» ‹commit›«⌘v» ‹and›«⌘v»
+# 2. ‹We›«⌘v» ‹control›«⌘v» ‹all›«⌘v» ‹the parameters›«⌘v» ‹that›«⌘v» ‹go›«⌘v» ‹into›«⌘v» ‹it›«⌘v»
 
-# This entire video is computer driven.  It was written
-# using Robotonous.  A Java program that takes a script
-# and types it out.
+# ‹Let's›«⌘v» ‹look›«⌘v» ‹at›«⌘v» ‹the›«⌘v» ‹last›«⌘v» ‹commit's›«⌘v» ‹file›«⌘v» ‹contents.›«⌘v»
+‹cat›«⌘v» ‹.git/objects/c4/6d*›«⌘v» | ‹python -c '›«⌘v»
+‹import›«⌘v» ‹sys›«⌘v», ‹zlib›«⌘v»
+‹print›«⌘v»()«Λb»‹zlib›«⌘v».‹decompress›«⌘v»()«Λb»‹sys›«⌘v».‹stdin›«⌘v».‹buffer›«⌘v».‹read›«⌘v‹»()«Λe»'
+
+⑮# ‹The file›«⌘v» ‹starts›«⌘v» ‹with›«⌘v» "‹commit 269›«⌘v»".«Λa[»k«Λr»'c«Λ[»l
+ww⑮
+where
+# 269 = ‹the length›«⌘v» ‹of›«⌘v» ‹the string›«⌘v» ‹from›«⌘v»
+# ‹"tree 62ee7"›«⌘v» to ‹"c0ffee\n"›«⌘v»
+
+# ‹The obvious›«⌘v»‹ next›«⌘v» ‹step›«⌘v»?  ‹Write›«⌘v» ‹a program›«⌘v»‹ that›«⌘v» ‹searches›«⌘v»
+# ‹for›«⌘v» ‹a commitid›«⌘v» ‹containing›«⌘v» "‹c0ffee".›«⌘v»
+# ‹Here's›«⌘v» ‹the script:›«⌘v»③
+cat ‹$INTERESTING_PATH›«⌘v»/is_it_interesting.py
+⑩
+
+# ‹The program›«⌘v» ‹tries›«⌘v» ‹every›«⌘v» ‹int›«⌘v» ‹from 0,›«⌘v» ‹generates›«⌘v» ‹its›«⌘v»
+# ‹commit›«⌘v» ‹string,›«⌘v» ‹computes›«⌘v» ‹its›«⌘v» sha ‹and stops›«⌘v» on
+# ‹finding›«⌘v» ‹the first commit›«⌘v»‹ that›«⌘v» ‹contains›«⌘v» "‹c0ffee".›«⌘v»
+
+‹# The code›«⌘v» ‹is›«⌘v» ‹linked to›«⌘v» ‹in the description.›«⌘v»
+‹# Add›«⌘v» ‹a comment›«⌘v» ‹if›«⌘v» ‹you›«⌘v» ‹have›«⌘v» ‹any›«⌘v» ‹questions.›«⌘v»⑩
+# ‹Running›«⌘v» ‹the program›«⌘v» ‹gives›«⌘v» ‹us:›«⌘v»
+‹python›«⌘v» ‹$INTERESTING_PATH›«⌘v»/‹is_it_interesting.py›«⌘v»
+⑳# ‹At›«⌘v» ‹i=383140›«⌘v» ‹there's›«⌘v» ‹a commit›«⌘v» ‹containing›«⌘v» "‹c0ffee›«⌘v»".⑬
+# ‹And that's that.›«⌘v»
+
+# ‹This›«⌘v» ‹entire›«⌘v» ‹video›«⌘v» ‹is›«⌘v» ‹computer›«⌘v» ‹driven.›«⌘v»  ‹It›«⌘v» ‹was›«⌘v» ‹written›«⌘v»
+# ‹using›«⌘v» ‹Robotonous.›«⌘v»  ‹A›«⌘v» ‹Java›«⌘v» ‹program›«⌘v» ‹that›«⌘v» ‹takes›«⌘v» ‹a›«⌘v» ‹script›«⌘v»
+# ‹and›«⌘v» ‹types›«⌘v» ‹it›«⌘v» ‹out.›«⌘v»

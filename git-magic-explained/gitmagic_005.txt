@@ -1,30 +1,63 @@
-# In this section, we'll discuss 2 items
-# 1. Organization of a git commit object
-# 2. How I predicted the git commit
-git log -1 --oneline
-git cat-file -p c46d87a
-# A git commit contains
-# a. tree(s)
-# b. parent(s)
-# c. author and
-# d. committer metadata
-# Note that parent e4fe1d2... is the previous commit⑧
-# In the last two lines, look at the timestamp
-# 1597940579 +0530⑧①
-# Decoded, this time is
-date -r 1597940579⑧①①⑧①①
-# This video is made in 2023, how is the date 2020?
-# Let's look at the manual
-man git-commit | grep 'Author and committer' -A9
-# Let's look at the environment variables
-echo -e "$GIT_COMMITTER_DATE\n$GIT_AUTHOR_DATE"
-⑧①①⑧①①# Since I control all variables of the commit
-# I can predict what the commit id will be.
-# And that's what I did.
-# I hope you see how the entire trick was setup.
-# All I had to do was make a commit, note the id,
-# reset the git repository, do everything again,
-# and hey presto, magic.
-# But how did I include c0ffee in the commit?
-# We'll see that in the next section.
-clear⑧①①⑧①①
+clear
+⑧# ‹In this›«⌘v» ‹section,›«⌘v» ‹we'll›«⌘v» ‹discuss›«⌘v» ‹two›«⌘v» ‹items.›«⌘v»
+‹# 1.›«⌘v» ‹The organization›«⌘v» ‹of a›«⌘v» ‹git›«⌘v» ‹commit object›«⌘v»
+‹# 2.›«⌘v» ‹How›«⌘v» I ‹predicted›«⌘v» ‹the git commit›«⌘v»
+
+# ‹Theory Time›«⌘v»
+# ‹A git commit›«⌘v» ‹contains the following›«⌘v»
+# a. ‹tree(s)›«⌘v»
+# b. ‹parent(s)›«⌘v»
+# c. ‹author and›«⌘v»
+# d. ‹committer metadata›«⌘v»
+# ‹Let's›«⌘v» ‹look at›«⌘v» ‹the previous commit›«⌘v»
+‹git log -1 --oneline›«⌘v» | ‹cut -f1 -d' '›«⌘v»
+⑭# ‹and›«⌘v» ‹its representation in git.›«⌘v»
+‹git›«⌘v» ‹cat-file -p›«⌘v» c46d87a
+⑩
+⑩
+⑩
+# ‹The lines›«⌘v» ‹are›«⌘v» ‹too›«⌘v» ‹long›«⌘v». ‹ Let's shorten them.›«⌘v»
+‹git cat-file -p c46d87a›«⌘v» | ‹sed -E 's›«⌘v»/V.*n/lvijay/'
+# ‹Note that›«⌘v» ‹parent e4fe1d2›«⌘v»⑧... «Λa[»k«Λr»parent«Λ[»
+llllllllllllll⑬
+
+# ‹is›«⌘v» ‹the previous commit id›«⌘v»⑧
+# ‹Look also at›«⌘v» ‹the timestamps›«⌘v» ‹in the last 2 lines›«⌘v»⑧«Λa[»«Λr»1597940579 «Λr»«Λ[»
+$⑮
+
+# ‹1597940579 +0530›«⌘v»⑩
+# ‹Decoded,›«⌘v» 1597940579 ‹evaluates›«⌘v» to⑧
+‹date -r›«⌘v» ‹1597940579›«⌘v»
+⑮# ‹This›«⌘v» ‹video›«⌘v» ‹is›«⌘v» ‹made›«⌘v» ‹in 2023›⑮«⌘v»«Λa[»«Λr»2020«Λ[»
+$l⑮
+
+‹# So why is the date 2020?›«⌘v»⑮
+
+# ‹Answer:›«⌘v» I ‹manipulated›«⌘v» ‹it.›«⌘v»②
+# ‹How?›«⌘v»⑧
+# ‹The git manual›«⌘v» ‹tells us.›«⌘v»
+# ‹The below›«⌘v» ‹excerpt›«⌘v» ‹is from›«⌘v» ‹`man git-commit`.›«⌘v»④
+‹# ,--›«⌘v»
+‹# | Author and committer information›«⌘v» ‹is taken from›«⌘v»
+‹# | the following environment variables,›«⌘v» ‹if set:›«⌘v»
+‹# |›«⌘v»
+‹# | GIT_AUTHOR_DATE›«⌘v»
+‹# | GIT_COMMITTER_DATE›«⌘v»
+‹# `--›«⌘v»
+⑯# ‹Let's look at›«⌘v» ‹those environment variables.›«⌘v»
+‹set›«⌘v» | ‹grep›«⌘v» ‹GIT_[A-Z]*_DATE›«⌘v»
+⑯# ‹Notice›«⌘v» ‹that I have›«⌘v» ‹explicitly set the dates.›«⌘v»
+‹# Since I control›«⌘v» ‹all variable›«⌘v» ‹parameters›«⌘v» ‹of the commit›«⌘v»
+‹# and because›«⌘v» ‹all those›«⌘v» ‹variables›«⌘v» ‹are constant›«⌘v» ‹(ha, ha)›«⌘v»
+‹# the same inputs›«⌘v» ‹will always›«⌘v» ‹give›«⌘v» ‹the same results.›«⌘v»⑯
+
+# ‹In›«⌘v» ‹summary›«⌘v»: ‹the›«⌘v» ‹entire›«⌘v» ‹trick›«⌘v» ‹was›«⌘v» ‹setup›«⌘v» ‹as›«⌘v» ‹follows›«⌘v»
+‹# 1.›«⌘v» ‹Make 2›«⌘v» ‹commits›«⌘v»
+‹# 2.›«⌘v» ‹Note›«⌘v» ‹the second›«⌘v» ‹commit id›«⌘v»
+‹# 3.›«⌘v» ‹Reset›«⌘v» ‹the git›«⌘v» ‹repository›«⌘v» ‹and›«⌘v»
+‹# 4.›«⌘v» ‹Do›«⌘v» ‹everything›«⌘v» ‹from scratch,›«⌘v» ‹then›«⌘v»
+# ‹Hey presto,›«⌘v» M①A①G①I①‹C.›«⌘v»②
+# ‹But›«⌘v» ‹how›«⌘v» ‹did›«⌘v» I ‹include›«⌘v» ‹"c0ffee"›«⌘v» ‹in the commit?›«⌘v»
+# ‹We'll see that›«⌘v» ‹in the next section.›«⌘v»④
+‹clear›«⌘v»
+①
