@@ -1,0 +1,78 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ±
+keyEscape      = ƒ
+keyBackspace   = ‹
+keyDelete      = ›
+keyAsideInit   = ♩
+keyAsideWait   = ω
+pasteChord     = ±v
+----
+♩speak oh blah dee oh blah dah life goes on♩㊿«¢l«"""ω
+♩speak Why the inconsistent behavior?♩¶Why the inconsistent behavior¶?ω
+♩speak Answer: Auto un box ing.♩¶Answer: Auto-unbox¶ing.ω
+♩speak To authoritatively answer this question,♩To ¶authoritatively answer this question¶,ω
+♩speak we look at the J L S which stands for the Java Language Specification♩we ¶need to look at the JLS¶ which stands for
+the ¶Justice¶ ¶League¶ ¶Society¶②«¢www«J¶ava Language Specification¶ω
+♩speak We reference Java 20,♩¶We reference Java¶ 20,ω
+♩speak the most recent J D K.♩¶the most recent JDK¶ at ¶the time of this writing¶.ω
+
+♩speak The relevant sections are:♩The ¶relevant sections¶ are:ω
+
+♩speak fifteen twenty one 1 Numerical Equality Operators ♩15.21.1 ¶Numerical Equality Operators¶ ==ω
+♩speak fifteen twenty one 3 Reference Equality Operators and♩15.21.3 ¶Reference Equality Operators¶ == andω
+♩speak 5 1 8 Un box ing Conversion♩5.1.8 ¶Unboxing Conversion¶ω
+
+♩speak Section fifteen twenty one one says♩15.2¶1.1 says¶ω
+
+,--
+| ♩speak If the operands of an equality operator are both of numeric type, or one is of numeric type and the other is convertible to numeric type, numeric promotion is performed♩¶If the operands of an equality operator are¶
+| ¶both of numeric type¶,
+| ¶or one is of numeric¶ type ¶and the othe¶r
+| ¶is convertible (5.1.8) to numeric type¶,
+| ¶binary numeric promotion is performed ¶on
+| ¶the operands...¶ ¶[and]¶
+| ω♩speak if the promoted type of the operands is int an intedger equality test is performed.♩¶if the promoted type of the operands is int or long,¶
+| ¶then an integer equality test is performed.¶ω
+`--
+
+♩speak The first clause explains why 1 2 3 4 equals 1 2 3 4 returns true♩¶Clause 1 explains why ¶1234 == 1234 ¶returns true¶ω
+♩speak Both operands are of numeric int type.  intedger equality is performed.♩¶Both operands are of numeric type, int, ¶and
+¶integer equality is performed¶.ω
+
+♩speak For clause 2,♩Clause 2, ¶"convertible to numeric type"¶,ω
+♩speak we look at section, 5 1 8 which says♩¶needs us to look at section, 5.1.8, which says¶ω
+
+,--
+| ♩speak Unboxing conversion treats expressions of a reference type as expressions of a corresponding primitive type such as from type Intedger to type int.  At run time, un box ing proceeds as follows♩¶Unboxing conversion treats expressions of a¶
+| ¶reference type as expressions¶
+| ¶of a corresponding primitive type.¶
+|...
+| ¶From type Integer to type int¶
+|...
+| ¶At run time,¶ unboxing... ¶proceeds as follows:¶ω
+|...
+| ♩speak If r is a reference of type Intedger, then unboxing conversion converts R into R dot int value♩¶If r¶ is a ¶reference of type Integer, then¶
+| ¶unboxing conversion converts¶
+| ¶r into r.intValue¶()ω
+`--
+
+♩speak Thus Intedger dot value Of 1 2 3 4 equals 1 2 3 4
+evaluates to Intedger dot value Of 1 2 3 4 dot int value
+which simplifies to
+  1 2 3 4 equals 1 2 3 4♩Thus
+Integer.valueOf(1234) == 1234
+evaluates to
+  Integer.valueOf(1234).intValue() == 1234
+which simplifies to
+  1234 == 1234ω
+
+♩speak Which is the same as puzzle 1.♩¶Which is the same as puzzle 1.¶ω
+
+♩speak But what about puzzles 3 and 4?♩¶But what about puzzles 3 and 4?¶ω
+"""
+㊿«¢l«

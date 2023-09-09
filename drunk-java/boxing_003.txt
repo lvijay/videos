@@ -1,0 +1,43 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ±
+keyEscape      = ƒ
+keyBackspace   = ‹
+keyDelete      = ›
+keyAsideInit   = γ
+keyAsideWait   = ω
+pasteChord     = ±v
+----
+γspeak one two three four fiveγω«¢l«㊿"""
+γspeak Puzzle threes solution takes us toγPuzzle 3's solution takes us toω
+γspeak J L S fifteen twenty-one 3, Reference Equality Operators which says If the operands of an equality operator are both of reference type then the operation is object equality. At run time, the result of equals equals is true if the operand values both refer to the same object; otherwise, the result is false.
+γ¶JLS 15.21.3, Reference Equality Operators¶
+
+,--
+| ¶If the operands of an equality operator¶
+| ¶are both of either reference type¶
+| ¶or the null type,¶
+| ¶then the operation is ¶object equality.
+...
+| ¶At run time, the result of == is true if¶
+| ¶the operand values are both¶
+| ¶null or both refer to the same object or array;¶
+| otherwise, the result is false.
+`--ω
+
+γspeak Since both sides are references, equals does a reference check.γ¶Since both sides of¶
+  ¶Integer.valueOf(¶1234) == ¶Integer.valueOf¶(1234)
+¶are references, == checks if "both refer to the same¶
+¶object¶".ω
+
+γspeak That answers puzzle 3.γ¶That answers puzzle¶ 3.ω
+
+γspeak To answer puzzle 4, we must look at the java docs.γ¶To answer puzzle 4, we must look at the javadocs.¶ω
+
+¶Let's go.¶
+"""
+㊿«¢l«

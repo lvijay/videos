@@ -1,0 +1,25 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ±
+keyEscape      = ƒ
+keyBackspace   = ‹
+keyDelete      = ›
+keyAsideInit   = ♩
+keyAsideWait   = ω
+pasteChord     = ±v
+----
+♩speak mic check, ha ha ha♩ω♩speak How well do you know Java equality?♩# How well do you ¶know Java equality¶?  ω♩speak We will use jay shell, introduced in Java 9♩¶Let's code.¶
+jshell -q
+ω♩speak Question 1: ♩ω♩speak What does this code return? You have 2 seconds.♩// ¶What does this code return?¶  You have 2 seconds.
+1234 == 1234  //2①‹1⑨‹0⑩‹
+ω// ♩speak if you said true, well done.  Next puzzle.  5 seconds.♩if you said true, well done.  Next puzzle.  5 seconds.
+Integer.valueOf(1234) == 1234  //5①‹4⑨‹3⑩‹2⑩‹1⑩‹0⑩‹
+ω// ♩speak next one♩next one...
+Integer.valueOf(1234) == Integer.valueOf(1234)  //5①‹4⑨‹3⑩‹2⑩‹1⑩‹0⑩‹
+ω// ♩speak if that surprised you, how about this one?♩if that surprised you, how about this one?
+Integer.valueOf(123) == Integer.valueOf(123)  //5①‹4⑨‹3⑩‹2⑩‹1⑩‹0⑩‹
+ω㊿«¢l«

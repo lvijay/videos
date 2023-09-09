@@ -1,0 +1,25 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ±
+keyEscape      = ƒ
+keyBackspace   = ‹
+keyDelete      = ›
+keyAsideInit   = λ
+keyAsideWait   = ω
+pasteChord     = ±v
+----
+λspeak testing one two three fourλjshell -q
+⑩ω⑳«¢l«λspeak Puzzle fours explanationλ// ¶Puzzle 4's explanation¶ωλspeak takes us to the java docsλ ¶takes us to the javadocs¶.ω
+// λspeak We can reed the java docs within jay shellλWe can see th¶e docs within jshell.¶ω
+¶Integer¶.¶valueOf(¶λspeak Just type the method whose documentation you want to see.  Press the tab key and jay shell will show you its documentation.λ	⑩	⑩	⑩	⑩	ω«¢a[④r«Thisƒλspeak Theres the relevant section.  This method will always cash values in the range minus one 28 to one 27 and, may cash other values too.λ
+$jl④ωƒ«¢u«Integerλspeak So intedger dot value of 1 2 3 always returns the same objectλ.valueOf(123) // ¶Always returns the same object but¶ωλspeak butλωλspeak intedger dot value of 1 2 3 4 isn't cashed λ
+¶Integer.valueOf(¶1234) ω== λspeak so the expressions on either side of the equals return λ¶Integer.valueOf(1234)¶ωλspeak different objects λ
+// ¶different objects¶ ω
+«¢d«⑩λspeak This concludes our presentation.  Don't hesitate to share your thoughts, questions, and corrections.λ
+# This concludes ¶our presentation.  Don't hesitate¶
+# to ¶share your thoughts,¶ ¶questions,¶ and ¶corrections.¶ω
+# λspeak Thank youλThank you!ω
