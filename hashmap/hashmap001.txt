@@ -1,0 +1,30 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyAsideInit   = γ
+keyAsideWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+HashMaps... how do they work?
+
+As always, the best way to learn
+is by solving puzzles.
+
+For the last 5 years, I've used this Java puzzle
+in interviews.  It asks 5 true/false questions.
+Almost no-one has answered all 5 correctly.
+
+Will you?
+
+Let's find out!
+
+

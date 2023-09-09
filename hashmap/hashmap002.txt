@@ -1,0 +1,39 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keyAsideInit   = γ
+keyAsideWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+public class Person {
+private String name;
+private long birthTime;
+
+public Person(String name, long birthTime) {
+this.name = name;
+this.birthTime = birthTime;
+}
+public String getName() { return name; }
+public void setName(String name) { this.name = name; }
+public long getBirthTime() { return birthTime; }
+public void setBirthTime(long birthTime) { this.birthTime=birthTime; }
+
+public boolean equals(Object o) {
+if (o == null) return false;
+if (this == o) return true;
+if (!(o instanceof Person)) return false;
+return Objects.equals(this.name, ((Person) o).name)
+&& Objects.equals(this.birthTime, ((Person) o).birthTime);
+}
+public int hashCode() {
+return Objects.hash(name, birthTime); }
+}
