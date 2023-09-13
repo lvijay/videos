@@ -14,17 +14,17 @@ keyBackspace   = ‹
 keyDelete      = ›
 chordPaste     = ⌘v
 ----
-HashMaps... how do they work?
+γspeak testing 3, 2, 1...γ¶alias figlet='figlet -w70'¶
+«¢l«ω⑳γspeak Hash Map... How does it work?γfiglet -cs "¶HashMap¶
+¶How does it work?"¶
+ωγspeak Surprises stick longer in memory so Puzzle solve ing is a great way to learn.  Because if the solution surprises you, you'll remember it longer.γ⑳# Surprises stick longer in memory, so puzzle solving is a great
+# way to learn because if it surprises you,
+# ¶you'll remember it longer.¶ω
 
-As always, the best way to learn
-is by solving puzzles.
+γspeak I've used this Java Hash-Map puzzle in interviews for the last five years.  It asks five predicate questions.  Almost no-one has answered all five correctly.γ# I've used this Java HashMap puzzle in interviews for the last
+# 5 years.  It asks 5 true/false questions.  Almost no-one has
+# ¶answered all 5¶ correctly.
 
-For the last 5 years, I've used this Java puzzle
-in interviews.  It asks 5 true/false questions.
-Almost no-one has answered all 5 correctly.
+ωγspeak Will you?  Let's find out!γ# Will you?
 
-Will you?
-
-Let's find out!
-
-
+# Good luck!ω
