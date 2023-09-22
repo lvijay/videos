@@ -1,0 +1,43 @@
+keySpeak       = Σ
+----
+«¢l«⑩¶# We'll use jshell to illustrate and explore the puzzle¶
+¶jshell -s¶
+⑮¶public class Person {¶
+¶private String name; private long birthTime;¶
+¶public Person(String name, long birthTime) { this.name = name;¶
+¶    this.birthTime = birthTime; }¶
+¶public String getName() { return name; }¶
+¶public void setName(String name) { this.name = name; }¶
+¶public long getBirthTime() { return birthTime; }¶
+¶public void setBirthTime(long birthTime) {
+        this.birthTime = birthTime; }¶
+¶@Override public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Person p)) return false; // JEP 394
+        return Objects.equals(this.name, p.name) // note use of p
+            && Objects.equals(this.birthTime, p.birthTime); }¶
+¶    public int hashCode() { return Objects.hash(name, birthTime); }¶
+} ¶// close class¶
+
+ΣWe create an instance of Person named P0 and a Hash Map.
+Σvar p0 = new ¶Person("Alice", 3L)¶;
+var map = new ¶HashMap<Person, String>();¶
+ωΣ
+
+Since the puzzle questions relate to one another, it is best they are
+all shown together.  After seeing the problems, I urge you to pause
+this video, think, and analyze the problem before coming to a
+solution.  In real-life we are judged more on how well we solve
+problems than how quickly we solve them.
+
+Σ
+¶boolean s1 = map.containsKey(p0);¶ // Question 1
+¶    ¶map.put(p0, "puzzle"); // ¶insert¶ ¶into¶ ¶map¶
+¶boolean s2 = map.containsKey(p0);¶ // Question 2
+¶    ¶p0.setName("Bob"); // ¶change¶ ¶the¶ ¶name¶
+¶boolean s3 = map.containsKey(p0);¶ // Question 3
+var p1 = new Person("Alice", 3L);
+¶boolean s4 = map.containsKey(p1);¶ // Question 4
+var p2 = new Person("Bob", 3L);
+¶boolean s5 = map.containsKey(p2);¶ // Question 5
+ω⑮«¢d«
