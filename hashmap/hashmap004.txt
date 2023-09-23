@@ -1,0 +1,90 @@
+keySpeak       = Σ
+keyTab         = τ
+keyBackspace   = ‹
+Terminal window size = 81x21
+Same hashcode: vv, wW; uo, vP
+
+rectangle = x,y,w,h = 22,154,1400,788
+screencapture -k -v -g -R 22,154,1400,788 -V45 hashmap004.mov
+----
+«¢l«¶jshell -s¶
+⑮¶
+public class Person {
+    private String name; private long birthTime;
+    public Person(String name, long birthTime) { this.name = name;
+            this.birthTime = birthTime; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public long getBirthTime() { return birthTime; }
+    public void setBirthTime(long birthTime) {
+        this.birthTime = birthTime; }
+    @Override public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Person p)) return false; // JEP 394
+        return Objects.equals(this.name, p.name) // note use of p
+            && Objects.equals(this.birthTime, p.birthTime); }
+        public int hashCode() { return Objects.hash(name, birthTime); }
+} // close class¶
+
+¶var p0 = new Person("Alice", 3L);
+var map = new HashMap<Person, String>();
+
+boolean s1 = map.containsKey(p0); // Question 1
+    map.put(p0, "puzzle"); // insert into map
+boolean s2 = map.containsKey(p0); // Question 2
+    p0.setName("Bob"); // change the name
+boolean s3 = map.containsKey(p0); // Question 3
+var p1 = new Person("Alice", 3L); // new Person instance
+boolean s4 = map.containsKey(p1); // Question 4
+var p2 = new Person("Bob", 3L); // new Person instance
+boolean s5 = map.containsKey(p2); // Question 5
+System.out.printf("s1=%s%ns2=%s%ns3=%s%ns4=%s%ns5=%s%n",s1,s2,s3,s4,s5);¶
+⑧ΣWe'll run through the answers now and explore them in more detail later.
+Σ¶// We'll run through the answers now and¶
+¶// explore them in more detail later in the video.¶
+ωΣQuestion 1: why is ess one false?  Answer
+Σ// ¶Question 1:¶ Why is s1 false?
+// Answer: ωΣ
+
+The map is empty.  Therefore it doesn't contain P0.
+
+Σ¶The¶ ¶map¶ ¶is¶ ¶empty,¶ ¶so¶ ¶it doesn't¶ ¶contain¶ ¶p0¶ω
+Σ
+
+Question 2: why is ess 2 true?  Answer: we inserted P0 into the map.
+Therefore the map contains P0.
+
+Σ// ¶Question 2:¶ Why is s2 true?
+// ¶Answer: Because ¶we ¶inserted¶ ¶p0 into map.¶ωΣ
+
+Question 3: why is ess 3 false?
+Answer: P0 dot set Name Bob changed the instance's hash code.  So the
+map doesn't know where to look for the instance.
+
+Σ
+// ¶Question 3¶: Why is s3 false?
+// ¶Answer¶: p0.setName("Bob") ¶changed¶ ¶p0's¶ ¶hashCode¶.
+// ¶        HashMap¶::¶containsKey¶ ¶looks¶ ¶for¶ p0 ¶in¶ ¶the wrong place¶.ωΣ
+
+Question 4: Why is S4 false?
+Answer: because although Hash-Map looks for P1 in the right place, P1 dot equals P0 is false.
+
+Σ
+// ¶Question 4¶: Why is s4 false?
+// ¶Answer¶: because though HashMap looks for p1 in the right place.
+¶System.out.println(¶"p1.¶equals(¶p0¶) is " + p1.equals(p0)) // is false¶ω
+Σ
+
+Question 5: why is s5 false?
+Answer: because Hash-Map looks for P2 in the wrong place.
+
+Σ// ¶Question 5¶: Why is s5 false?
+// ¶Answer¶: ¶because HashMap looks for p2 in the wrong place.¶ωΣ
+
+Now that we've seen the puzzle and the answers, let's get into the
+details.
+
+Σ
+// Let's get into the details.ω
+/exit
+clear②
