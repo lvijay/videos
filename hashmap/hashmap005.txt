@@ -1,0 +1,46 @@
+keySpeak     = Σ
+keyTab       = τ
+keyNewline   = η
+keyBackspace = ‹
+keyAlt       = æ
+Terminal window size = 81x21
+Same hashcode: vv, wW; uo, vP
+
+rectangle = x,y,w,h = 22,154,1400,788
+screencapture -k -v -g -R 22,154,1400,788 -V45 hashmap004.mov
+----
+¶alias emacs='~/Applications/Emacs.app/Contents/MacOS/emacs-nw --no-init-file --no-splash --eval "(progn (tool-bar-mode -1) (scroll-bar-mode -1) (column-number-mode +1) (transient-mark-mode -1) (menu-bar-mode -1)) (add-to-list (quote auto-mode-alist))"'
+rm -f hashmap-draw.txt hashmap-draw.txt~
+¶«¢l«②Σ
+
+Let's draw a hashmap and explore its internals.
+
+Σ# ¶Let's draw a hashmap and explore its internals¶.
+# ¶We'll¶ ¶use¶ ¶the¶ ¶editor¶ ¶GNU¶ ¶Emacs.¶
+ωΣ
+
+We'll use the edit-er E-max.
+
+Σemacs has¶hmap-draw.txt¶
+ω¶A hashmap¶ ¶is fundamentally¶ ¶an array¶, ¶so let's draw one.¶
+¶    0     1     2     3     4     5     6     7     8     9    10
+    ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓
+¶¶Each¶ ¶index of¶ ¶the array,¶ ¶points to¶ ¶a list.¶«¢ak«©
+¶  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
+  |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   |
+  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
+¶¶And¶ ¶the list¶ ¶is empty¶«¢akpp«©
+«æx«¶query-replace-regexp¶η¶   ¶η¶░░░¶η!«¢nn«
+¶A HashMap¶ ¶works¶ ¶like¶ ¶this.  HashMap.put(key, value)¶
+¶1. compute key.hashCode()¶ ¶for example¶, (p0.hashCode() = ¶1963862372)¶
+¶2. compute hashCode % array.length (1963862372 % 11 = 10)¶
+¶3. insert¶ ¶the key¶ ¶and value¶ ¶in the list¶ ¶at that index (10)¶«æx«¶goto-char¶η¶320¶η«¢ddd«   «¢nf‹‹‹‹‹«|   |«¢na«©
+¶                                              |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾   |
+                                              | "Key": {          |
+                                              |   "name":"Alice"  |
+                                              |   "birthTime":3 } |
+                                              | "Value": "puzzle" |
+                                              |___________________|¶©
+«æ\««¢nnnne«
+
+This is the map with p0 in it.⑳«¢xsxc«
