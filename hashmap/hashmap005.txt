@@ -31,7 +31,7 @@ We'll use the edit-er E-max.
   +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
 ¶¶And¶ ¶the list¶ ¶is empty¶«¢akpp«©
 «æx«¶query-replace-regexp¶η¶   ¶η¶░░░¶η!«¢nn«
-¶A HashMap¶ ¶works¶ ¶like¶ ¶this.  HashMap.put(key, value)¶
+¶A HashMap put¶ ¶works¶ ¶like¶ ¶this.  HashMap.put(key, value)¶
 ¶1. compute key.hashCode()¶ ¶for example¶, (p0.hashCode() = ¶1963862372)¶
 ¶2. compute hashCode % array.length (1963862372 % 11 = 10)¶
 ¶3. insert¶ ¶the key¶ ¶and value¶ ¶in the list¶ ¶at that index (10)¶«æx«¶goto-char¶η¶320¶η«¢ddd«   «¢nf‹‹‹‹‹«|   |«¢na«©

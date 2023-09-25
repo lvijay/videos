@@ -1,0 +1,43 @@
+keySpeak     = Σ
+keyTab       = τ
+keyNewline   = η
+keyBackspace = ‹
+keyAlt       = æ
+Terminal window size = 81x21
+Same hashcode: vv, wW; uo, vP
+
+rectangle = x,y,w,h = 22,154,1400,788
+screencapture -k -v -g -R 22,154,1400,788 -V45 hashmap004.mov
+----
+¶alias emacs='~/Applications/Emacs.app/Contents/MacOS/emacs-nw --no-init-file --no-splash --eval "(load (expand-file-name \"~/other-code/videos/hashmap/el-hashmap.el\"))"'
+rm -f hashmap-draw.txt hashmap-draw.txt~
+emacs hashmap-draw.txt
+¶②¶A hashmap is fundamentally an array, so let's draw one.
+    0     1     2     3     4     5     6     7     8     9    10
+    ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓
+  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
+  |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |   |
+  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ |   |
+                                              |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾   |
+                                              | "Key": {          |
+                                              |   "name":"Alice"  |
+                                              |   "birthTime":3 } |
+                                              | "Value": "puzzle" |
+                                              |___________________|
+HashMap put works like this.  HashMap.put(key, value)
+1. compute key.hashCode() for example, (p0.hashCode() = 1963862372)
+2. compute hashCode % array.length (1963862372 % 11 = 10)
+3. insert the key and value in the list at that index (10)
+
+This is the map with p0 in it.
+¶③«¢b«③«¢pppppa««æf««¢f««æd«containsKey«æffff«④«¢f««æd«containsKey«æfd««¢ef«©
+©Point is at ↓
+©            1. compute key
+«¢nn««æff‹«iterate«æfd« list«æz«s«¢dd« «¢e«, if there's any entry for which
+¶        ¶entry.getKey().equals(key) == true; return true.
+Otherwise, return false.
+«æ\«Why does map.containsKey(p0) return true?
+Answer: It looks in index 10, the key there is == p0 so it returns true.©
+«¢  apppppppw««¢uk«©
+What happens after p0.setName("Bob")?
+⑳«æ>««¢xs««¢xc«
