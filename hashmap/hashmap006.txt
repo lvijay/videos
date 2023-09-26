@@ -30,14 +30,33 @@ HashMap put works like this.  HashMap.put(key, value)
 3. insert the key and value in the list at that index (10)
 
 This is the map with p0 in it.
-¶③«¢b«③«¢pppppa««æf««¢f««æd«containsKey«æffff«④«¢f««æd«containsKey«æfd««¢ef«©
+¶③«¢b«③Σ
+
+Hash-map dot contains key works as follows.  It takes only one
+argument, key.  The first two steps are the exact same as the put
+method's.  For the third step, the map searches through the list at
+the computed index.  It returns true if there's any entry for which
+the entry key is dot equals to the given key.  Otherwise, it returns
+false.
+
+Σ«¢pppppa««æf««¢f««æd«containsKey«æffff«④«¢f««æd«containsKey«æfd««¢ef«©
 ©Point is at ↓
 ©            1. compute key
 «¢nn««æff‹«iterate«æfd« list«æz«s«¢dd« «¢e«, if there's any entry for which
-¶        ¶entry.getKey().equals(key) == true; return true.
+          entry.getKey().equals(key) == true; return true.
 Otherwise, return false.
-«æ\«Why does map.containsKey(p0) return true?
+«æ\«ωΣ
+
+Why does map dot contains key P0 return true?
+
+Because the map looks in index ten.  The key there is reference equal to P0 so it returns true.
+
+ΣWhy does map.containsKey(p0) return true?
 Answer: It looks in index 10, the key there is == p0 so it returns true.©
 «¢  apppppppw««¢uk«©
-What happens after p0.setName("Bob")?
-⑳«æ>««¢xs««¢xc«
+ωΣ
+
+What happens after P0 dot set-name bob?
+
+ΣWhat happens after p0.setName("Bob")?
+ω⑳«æ>««¢xs««¢xc«
