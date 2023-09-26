@@ -34,4 +34,5 @@ if (!(o instanceof Person p)) ¶return false¶; // JEP 394
 ¶    ¶&& ¶Objects.equals¶(¶this¶.¶birthTime¶, p.¶birthTime¶);¶ }¶
 ¶public¶ ¶int¶ ¶hashCode¶() { ¶return¶ ¶Objects¶.¶hash¶(¶name¶, ¶birthTime¶);¶ }¶
 } // ¶close class¶
-ωΣLet's briefly pause here to look at the class definition.  Σ㊿
+ωΣLet's briefly pause here to look at the class definition.  Σω㊿
+/exit
