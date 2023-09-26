@@ -25,24 +25,56 @@ emacs hashmap-draw.txt
                                               | "Value": "puzzle" |
                                               |___________________|
 What happens after p0.setName("Bob")?
-¶©
-¶Since¶ ¶p0¶ ¶is¶ ¶the¶ ¶instance¶ ¶that's¶ ¶in¶ ¶the¶ ¶map¶, ¶the¶ ¶object¶ ¶in¶ ¶the¶ ¶map¶ ¶changes¶.«¢ppppp««æbd«Bob«¢eb«  «æ>bf««¢f«
-¶This¶ ¶is¶ ¶what¶ ¶map¶ ¶looks¶ ¶like¶ ¶after¶ ¶p0.setName("Bob")¶.«¢ak«©
-¶Why¶ ¶does¶ ¶map¶.¶containsKey¶(¶p0¶) ¶return¶ ¶false¶?  ¶Let's¶ ¶follow¶ ¶the steps¶:
-¶1. Calculate hashcode: ¶¶p0¶.¶hashCode¶() == ¶2076879¶
-¶2. Compute index     : ¶¶2076879¶ % ¶11¶ == 2
-¶3. Search at index   : ¶¶map¶ ¶looks¶ ¶for¶ ¶p0¶ ¶in index 2¶.  ¶The list¶ ¶there¶ ¶is empty¶η¶   so¶ ¶it returns false.¶©
+¶Σ
+
+Since P0 is also the instance in the map, the object changes.  This is
+what the map looks like after set-name bob.
+
+Σ¶Since¶ ¶p0¶ ¶is¶ ¶the¶ ¶instance¶ ¶that's¶ ¶in¶ ¶the¶ ¶map¶, ¶the¶ ¶object¶ ¶in¶ ¶the¶ ¶map¶ ¶changes¶.«¢ppppp««æbd«Bob«¢eb«  «æ>bf««¢f«
+¶This¶ ¶is¶ ¶what¶ ¶map¶ ¶looks¶ ¶like¶ ¶after¶ p0.¶setName¶(¶"Bob"¶).«¢ak«ω©
+Σ
+
+Why does map .contains key P0 return false?  Let's follow the steps.
+
+First, we calculate P0's hash-code.  It has changed to a different
+number: this one's two million something where earlier it was one
+billion something.
+
+Next, computing the array index gives us 2.
+
+At step 3, it iterates through the list in P0.  The list is empty, so
+we get false.
+
+Σ¶Why¶ ¶does¶ ¶map¶.¶containsKey¶(p0) ¶return¶ ¶false¶?  Let's follow the steps:
+1. Calculate hashcode: p0.hashCode() == 2076879
+2. Compute index     : 2076879 % 11 == 2
+3. Search at index   : map looks for p0 in index 2.  The list there is emptyη   so it returns false.ω©
 ©NOTE: Delete the previous question and answer the next one
 «¢  ppppppaw«
-«æ\«¶Why does map.containsKey(p1) return false?¶
-  ¶Though p1's hashCode and index point to 10 so the map looks through index 10.¶
-¶However, p1.equals(p0) is false as "Alice".equals("Bob") is false.¶
-«æ\«¶Why was p2.equals(p0) false?  Because map looks in index 2 which is empty.¶
+«æ\«Σ
 
-¶What lessons can we take from this puzzle?¶
-¶ I How can we avoid these situations?¶
-¶II If we encounter this in a codebase, how can we mitigate the damage?¶
+Why does map .contains key P1 return false?  P1's hash-code and index
+point to 10 so the map looks at that list.  However, P1 .equals P0 is
+false since Alice dot equals Bob is false.
 
-¶Avoidance¶
+map .contains key P2 was false for the same reason as before.  The map
+looked through index 2.
+
+ΣWhy does map.containsKey(p1) return false?
+  p1's hashCode and index point to 10 ¶so the map looks through index 10¶.
+However, p1.¶equals¶(p0) is false as "Alice".equals("Bob") is false.
+«æ\«Why was map.containsKey(p2) false?  Because map looks in index 2 which is empty.
+
+ωΣ
+
+What lessons can we take from this puzzle?  There are two parts.
+
+First, avoidance.  Next, mitigation.
+
+ΣWhat ¶lessons¶ ¶can we¶ take ¶from¶ this puzzle?
+ I Avoidance
+‹II Mitigation
+
+ωAvoidance
 ¶---------¶«¢u«1«¢l«④
 ⑳«æ>««¢xs««¢xc«
