@@ -19,21 +19,50 @@ Let's draw a hashmap and explore its internals.
 # ¶We'll¶ ¶use¶ ¶the¶ ¶editor¶ ¶GNU¶ ¶Emacs.¶
 ωΣ
 
-We'll use the edit-er E-max.
+We'll use the editor E-max.
 
 Σemacs has¶hmap-draw.txt¶
-ω¶A hashmap¶ ¶is fundamentally¶ ¶an array¶, ¶so let's draw one.¶
+ωΣ
+
+A hash-map is fundamentally an array.  Let's draw an array of length
+eleven.  Hash-Map array lengths are typically prime numbers.
+
+Σ¶A hashmap¶ ¶is fundamentally¶ ¶an array¶, ¶so let's draw one.¶
+¶HashMap¶ ¶array¶ ¶lengths¶ ¶are¶ ¶typically¶ ¶prime¶ ¶numbers.¶ω«¢akdb«©
+Σ
+
+Each index of the array points to a list.
+
+Σ
 ¶    0     1     2     3     4     5     6     7     8     9    10
     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓
-¶¶Each¶ ¶index of¶ ¶the array,¶ ¶points to¶ ¶a list.¶«¢ak«©
+¶¶Each¶ ¶index of¶ ¶the array,¶ ¶points to¶ ¶a list.¶ω«¢ak«©
 ¶  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
   |   | |   | |   | |   | |   | |   | |   | |   | |   | |   | |   |
   +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
-¶¶And¶ ¶the list¶ ¶is empty¶«¢akpp«©
+¶Σ
+
+And each list is empty.
+
+Σ¶And¶ ¶the list¶ ¶is empty¶«¢akpp«©
 «æx«¶query-replace-regexp¶η¶   ¶η¶░░░¶η!«¢nn«
-¶HashMap put¶ ¶works¶ ¶like¶ ¶this.  HashMap.put(key, value)¶
-¶1. compute key.hashCode()¶ ¶for example¶, (p0.hashCode() = ¶1963862372)¶
-¶2. compute hashCode % array.length (1963862372 % 11 = 10)¶
+ωΣ
+
+Here's how Hash-map dot put works.  It takes two arguments, a key and
+a value.  First it computes the key's hash-code.  In our case, P0's
+hash-code is this big number ending with seventy-two.
+
+Next, it computes the hash-code modulus the array's length.  It
+evaluates to ten here.
+
+Finally, the key and value are inserted into the list at that array
+index.
+
+This is what the map looks like after map dot put P0.
+
+Σ¶HashMap put¶ ¶works¶ ¶like¶ ¶this.  HashMap.put(key, value)¶
+¶1. ¶compute key.hashCode() for example, (p0.hashCode() = 1963862372)㊺
+¶2. ¶compute hashCode % array.length (1963862372 % 11 = 10)
 ¶3. insert¶ ¶the key¶ ¶and value¶ ¶in the list¶ ¶at that index (10)¶«æx«¶goto-char¶η¶320¶η«¢ddd«   «¢nf‹‹‹‹‹«|   |«¢na«©
 ¶                                              |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾   |
                                               | "Key": {          |
@@ -43,4 +72,4 @@ We'll use the edit-er E-max.
                                               |___________________|¶©
 «æ\««¢nnnne«
 
-This is the map with p0 in it.⑳«¢xsxc«
+This is the map with p0 in it.ω⑳«¢xsxc«
