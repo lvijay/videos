@@ -14,40 +14,42 @@ rm -f hashmap-draw.txt hashmap-draw.txt~
 clear
 emacs hashmap-draw.txt
 ¶⑤¶Avoidance¶
-¶---------¶«¢u«1«¢l«⑤
-1. Do not use mutable objects in classes that invoke hashCode
-   - this includes maps like LinkedHashMap, TreeMap, ConcurrentHashMap and
-- sets like HashSet, TreeSet
-«æ\«2. If a mutable object is hashed in your data structure, ensure the reference
-   does not escape.  You can do this by ensuring:
-a. The object you put in the map is not reachable outside
-b. Only return copies of the hashed object.
-   i. This includes making a copy in your regular return methods and
-ii. complex methods like keySet(), entrySet(), iterator()
-«æ\«④
+¶---------¶«¢u«1«¢l«②Σ
+
+Avoidance; is preventing the problems described by this puzzle to
+begin with.  The best problems are ones you don't need to solve
+because you ensured they don't occur.
+
+First, don't over-ride hash-code in mutable objects.  Do not use
+mutable objects in classes that will invoke hashCode against them.
+In addition to Hash-Map, this list includes maps like Linked-Hash-Map, Concurrent-HashMap, and sets like Hash-Set and Tree-Set.
+
+If you must hash A mutable object ensure that the reference does not
+escape.  In our puzzle P0 should not have been available to modify
+later.  Some ways you can do this are
+
+Copy the object being put in the map.  And only return copies of the
+hashed object.  This is easier said than done because it includes
+updating more complex methods like it-er-ay-ter, entry-set, and key-set.
+
+Σ
+¶Avoidance¶ ¶is¶ ¶preventing¶ ¶the¶ ¶problems¶ ¶described¶ ¶by¶ ¶this¶ ¶puzzle¶.  ¶The¶
+¶best¶ ¶problems¶ ¶are¶ ¶ones¶ ¶you¶ ¶don't¶ ¶need¶ ¶to solve¶ ¶because¶ ¶you¶ ¶ensured¶
+¶they¶ ¶don't¶ ¶occur.¶㊺
+
+¶Don't¶ ¶override¶ ¶the has¶hCode ¶method in¶ ¶mutable¶ ¶objects.¶⑤
+¶Do not¶ ¶use¶ ¶mutable¶ ¶objects¶ ¶in classes¶ ¶that¶ ¶invoke¶ ¶hashCode¶
+   - ¶this¶ ¶includes¶ ¶maps¶ ¶like¶ LinkedHashMap, TreeMap, ConcurrentHashMap ¶and¶
+- ¶sets¶ ¶like¶ HashSet, TreeSet
+«æ\«2. ¶If a¶ ¶mutable¶ ¶object¶ ¶is hashed in¶ ¶your¶ ¶data¶ ¶structure¶, ¶ensure¶ ¶the¶ ¶reference¶
+   ¶does¶ ¶not¶ ¶escape¶.  ¶In our¶ ¶example¶, ¶p0¶ ¶should¶ ¶have¶ ¶been¶ ¶unavailable¶ ¶to¶ ¶invoke¶
+¶setName¶ ¶on¶.  ¶You¶ ¶can¶ ¶do¶ ¶this¶ ¶by¶ ¶ensuring¶:
+a. ¶The object¶ ¶you¶ ¶put¶ ¶in the map¶ ¶is not¶ ¶reachable¶ ¶outside¶
+b. ¶Only¶ ¶return¶ ¶copies¶ ¶of the hashed object.¶
+   i. ¶This¶ ¶includes¶ ¶making¶ ¶a¶ ¶copy¶ ¶in¶ ¶your¶ ¶regular¶ ¶return¶ ¶methods¶ ¶and¶
+ii. ¶complex¶ ¶methods¶ ¶like¶ ¶keySet¶(), ¶entrySet¶(), ¶iterator¶()
+«æ\«ω
 
 ¶Mitigation¶
 ¶----------¶«¢u«1«¢l«©
-
-You find yourself maintaining a codebase where mutable objects are
-hashed.  What do you do?  (In my experience the Lombok framework makes
-making these mistakes easy.)
-
-For all mitigation, there are levels of exposure to the problem.
-You're allowed to make fewer changes when the exposure is greater.
-
-Let's start with the least invasive fix.
-
-Change your hashCode implementation.  Use the following:
-
-public int hashCode() { return 1; }
-
-This change guarantees your map will always look in the correct array
-index when looking for an element.  It will kill performance because
-your maps will behave like lists but your behavior will be correct.
-
-The most invasive fix is to remove all your setters and make your
-hashed objects immutable.
-
 «¢xs««¢xc«
-# With that we are done with this HashMap exploration.
