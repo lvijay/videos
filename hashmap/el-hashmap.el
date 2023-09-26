@@ -9,3 +9,5 @@
   (save-buffer)
   (message "saved %s" (buffer-name)))
 (global-set-key (kbd "C-x C-s") 'sb)
+(setq ring-bell-function 'ignore)       ; no beep
+(setq visible-bell nil)
