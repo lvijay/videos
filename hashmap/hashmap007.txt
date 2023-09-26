@@ -40,19 +40,9 @@ What happens after p0.setName("Bob")?
 «æ\«¶Why was p2.equals(p0) false?  Because map looks in index 2 which is empty.¶
 
 ¶What lessons can we take from this puzzle?¶
-¶1. How can we avoid these situations?¶
-¶2. If we encounter this in a codebase, how can we mitigate the damage?¶
+¶ I How can we avoid these situations?¶
+¶II If we encounter this in a codebase, how can we mitigate the damage?¶
 
 ¶Avoidance¶
-¶---------¶«¢u«1«¢l«
-1. Do not use mutable objects in classes that invoke hashCode
-   - this includes classes like LinkedHashMap, TreeMap, ConcurrentHashMap and
-- HashSet, TreeSet
-2. If a mutable object is hashed in your data structure, ensure the reference
-   does not escape.  You can do this by ensuring:
-a. The object you put in the map is not reachable outside
-b. Only return copies of the hashed object.
-   i. This includes making a copy in methods like keySet() and entrySet().
-«æ/«
-
+¶---------¶«¢u«1«¢l«④
 ⑳«æ>««¢xs««¢xc«
