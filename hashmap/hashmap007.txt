@@ -42,8 +42,8 @@ billion something.
 
 Next, computing the array index gives us 2.
 
-At step 3, it iterates through the list in P0.  The list is empty, so
-we get false.
+At step 3, it it-er-ates through the list in P0, finds it is empty,
+and returns false.
 
 Σ¶Why¶ ¶does¶ ¶map¶.¶containsKey¶(p0) ¶return¶ ¶false¶?  Let's follow the steps:
 1. Calculate hashcode: p0.hashCode() == 2076879
@@ -64,17 +64,9 @@ looked through index 2.
   p1's hashCode and index point to 10 ¶so the map looks through index 10¶.
 However, p1.¶equals¶(p0) is false as "Alice".equals("Bob") is false.
 «æ\«Why was map.containsKey(p2) false?  Because map looks in index 2 which is empty.
-
 ωΣ
 
-What lessons can we take from this puzzle?  There are two parts.
+What lessons can we take from this puzzle?
 
-First, avoidance.  Next, mitigation.
-
-ΣWhat ¶lessons¶ ¶can we¶ take ¶from¶ this puzzle?
- I Avoidance
-‹II Mitigation
-
-ωAvoidance
-¶---------¶«¢u«1«¢l«④
-⑳«æ>««¢xs««¢xc«
+ΣLessons
+¶-------¶«¢u«1«¢l«ω⑳«¢xs««¢xc«
