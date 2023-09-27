@@ -13,43 +13,69 @@ screencapture -k -v -g -R 22,154,1400,788 -V45 hashmap004.mov
 rm -f hashmap-draw.txt hashmap-draw.txt~
 clear
 emacs hashmap-draw.txt
-¶⑤¶Avoidance¶
-¶---------¶«¢u«1«¢l«②Σ
-
-Avoidance; is preventing the problems described by this puzzle to
-begin with.  The best problems are ones you don't need to solve
-because you ensured they don't occur.
-
-First, don't over-ride hash-code in mutable objects.  Do not use
-mutable objects in classes that will invoke hashCode against them.
-In addition to Hash-Map, this list includes maps like Linked-Hash-Map, Concurrent-HashMap, and sets like Hash-Set and Tree-Set.
-
-If you must hash A mutable object ensure that the reference does not
-escape.  In our puzzle P0 should not have been available to modify
-later.  Some ways you can do this are
-
-Copy the object being put in the map.  And only return copies of the
-hashed object.  This is easier said than done because it includes
-updating more complex methods like it-er-ay-ter, entry-set, and key-set.
+¶⑤¶Lessons¶
+¶-------¶②Σ
+One, ensure at all times that your hash map keys are immutable.
 
 Σ
-¶Avoidance¶ ¶is¶ ¶preventing¶ ¶the¶ ¶problems¶ ¶described¶ ¶by¶ ¶this¶ ¶puzzle¶.  ¶The¶
-¶best¶ ¶problems¶ ¶are¶ ¶ones¶ ¶you¶ ¶don't¶ ¶need¶ ¶to solve¶ ¶because¶ ¶you¶ ¶ensured¶
-¶they¶ ¶don't¶ ¶occur.¶㊺
+1. ¶Ensure¶ ¶your¶ ¶hash map¶ ¶keys¶ ¶are¶ ¶immutable¶.ω
+Σ
 
-¶Don't¶ ¶override¶ ¶the has¶hCode ¶method in¶ ¶mutable¶ ¶objects.¶⑤
-¶Do not¶ ¶use¶ ¶mutable¶ ¶objects¶ ¶in classes¶ ¶that¶ ¶invoke¶ ¶hashCode¶
-   - ¶this¶ ¶includes¶ ¶maps¶ ¶like¶ LinkedHashMap, TreeMap, ConcurrentHashMap ¶and¶
-- ¶sets¶ ¶like¶ HashSet, TreeSet
-«æ\«2. ¶If a¶ ¶mutable¶ ¶object¶ ¶is hashed in¶ ¶your¶ ¶data¶ ¶structure¶, ¶ensure¶ ¶the¶ ¶reference¶
-   ¶does¶ ¶not¶ ¶escape¶.  ¶In our¶ ¶example¶, ¶p0¶ ¶should¶ ¶have¶ ¶been¶ ¶unavailable¶ ¶to¶ ¶invoke¶
-¶setName¶ ¶on¶.  ¶You¶ ¶can¶ ¶do¶ ¶this¶ ¶by¶ ¶ensuring¶:
-a. ¶The object¶ ¶you¶ ¶put¶ ¶in the map¶ ¶is not¶ ¶reachable¶ ¶outside¶
-b. ¶Only¶ ¶return¶ ¶copies¶ ¶of the hashed object.¶
-   i. ¶This¶ ¶includes¶ ¶making¶ ¶a¶ ¶copy¶ ¶in¶ ¶your¶ ¶regular¶ ¶return¶ ¶methods¶ ¶and¶
-ii. ¶complex¶ ¶methods¶ ¶like¶ ¶keySet¶(), ¶entrySet¶(), ¶iterator¶()
-«æ\«ω
+Two, if you are unable to achieve immutability, ensure your hashed
+references do not escape.  This means once a reference enters your map
+or set, only your map or set must have access to that reference.
 
-¶Mitigation¶
-¶----------¶«¢u«1«¢l«©
-«¢xs««¢xc«
+Σ2. ¶If¶ ¶you¶ ¶cannot¶ ¶ensure¶ ¶immutability¶, ¶keep¶ ¶your¶ ¶hashed¶ ¶references¶ ¶from¶ ¶escaping.¶
+   ¶This¶ ¶means¶ ¶once¶ ¶a¶ ¶reference¶ ¶enters¶ ¶your¶ ¶map/set¶, ¶only¶ ¶your¶ ¶map/set¶ ¶must¶
+¶have¶ ¶access¶ ¶to¶ ¶that¶ ¶reference.¶
+ω«æ\«Σ
+
+Three, how do we solve the problem?  There are multiple answers.
+
+The best thing to do is to remove set-name and set-birth-time.  If you
+can't remove them, remove the mutable properties from your equals and
+hashCode implementations.  If you can't remove them from equals,
+remove them from hash-code.  In this puzzle, Person's hash-code would
+then become a method that only returns objects dot hash which always
+returns 1.
+
+Σ¶3¶. ¶How¶ ¶do we¶ ¶solve¶ ¶the problem¶?  ¶There¶ ¶are¶ ¶multiple¶ ¶answers¶.⑳
+   ¶a¶. ¶The best thing¶ ¶to do is to remove¶ ¶the setter methods.¶
+b. ¶If you can't¶ remove ¶the¶ setter ¶methods¶, remove those properties ¶from your¶
+   equals() and hashCode() implementa¶tions.¶㊵
+‹‹‹c. ¶If you¶ ¶can't remove them¶ ¶from equals()¶, ¶remove¶ ¶them¶ ¶from¶ ¶hashCode()¶
+¶Person's¶ ¶hashCode¶ ¶would¶ ¶then¶ ¶become¶
+«æ\«¶        ¶¶public int hashCode() { return Objects.hash(); }¶⑩ // ¶always¶ ¶returns¶ 1
+ωΣ
+
+The benefit to this approach is we have correct behavior with one
+down-side.  Your map will have the performance characteristics of a
+list.  Slow correctness is often better than fast unpredictable
+incorrectness.  But as with all engineering, you must choose the best
+tradeoff given other constraints.
+
+Σ
+¶   This¶ ¶has¶ ¶the benefit¶ ¶of correct behavior¶ ¶with¶ ¶one¶ ¶downside¶: ¶your¶ ¶map¶ ¶will¶
+¶have¶ ¶the performance¶ ¶characteristics¶ ¶of a list.¶  ¶Slow correctness¶ ¶is¶ ¶often¶
+¶better¶ ¶than¶ ¶fast¶, ¶unpredictable¶ ¶incorrectness¶.  ¶But¶, ¶as with¶ ¶all¶ ¶engineering¶,
+¶you¶ ¶must¶ ¶choose¶ ¶the best¶ ¶trade-off¶ ¶in¶ ¶light¶ ¶of¶ ¶other¶ ¶constraints¶.
+
+ωΣ
+
+This brings us to the end of our exploration of a HashMap.  I hope you
+enjoyed it as much as I enjoyed producing it.
+
+This video was typed out using the Ro-bot-un-us program and voiced by
+Festival TTS.  You can find their links in the description.  They are
+both Free Software.
+
+Σ¶This brings us to the end of our exploration of a HashMap.  I hope you enjoyed
+it as much I have greatly enjoyed producing it.
+
+This video was typed out using the Robotonous program and voiced by
+the Festival TTS Free Software program.  Their links in are the
+description.
+
+Robotonous: https://github.com/lvijay/robotonous
+Festival TTS: https://github.com/festvox/festival¶
+ω⑩«¢xs««¢xc«
