@@ -1,0 +1,69 @@
+keySpeak       = Σ
+keyTab         = τ
+keyBackspace   = ‹
+Terminal window size = 81x21
+----
+«¢l«⑩¶# We'll use jshell to illustrate and explore the puzzle¶
+¶jshell -s¶
+⑮¶public class Person {¶
+¶private String name; private long birthTime;¶
+¶public Person(String name, long birthTime) { this.name = name;
+        this.birthTime = birthTime; }¶
+¶public String getName() { return name; }¶
+¶public void setName(String name) { this.name = name; }¶
+¶public long getBirthTime() { return birthTime; }¶
+¶public void setBirthTime(long birthTime) {
+        this.birthTime = birthTime; }¶
+¶@Override public boolean equals(Object o) {
+        if (o == null) return false;
+        if (!(o instanceof Person p)) return false; // JEP 394
+        return Objects.equals(this.name, p.name) // note use of p
+            && Objects.equals(this.birthTime, p.birthTime); }¶
+¶public int hashCode() { return Objects.hash(name, birthTime); }¶
+} ¶// close class¶
+
+Σ
+
+We create an instance of Person named P0 and, A hash map named map.
+
+Since the puzzle questions relate to one another, it is best they are
+all shown together.
+
+In the first puzzle, we ask if the map contains P0.  In puzzle 2 we
+ask the same question but after invoking map dot put P0.  Next, we
+invoke P0 dot set-name with the argument Bob and ask, for the third
+time, if the map contains P0.
+
+We create a new instance of Person, named P1, with name Alice and
+birth-time 3.  Question 4 asks if map contains P1.  For our final
+question, we create an instance of Person, named P2, with name Bob and
+birthTime 3, and ask if map contains P2.
+
+Now that you've seen the problems, I urge you to pause this video.
+Take your time to think and analyze the problem before coming to A
+solution.  In real-life we are judged more on how well we solve
+problems than how quickly we solve them.
+
+Σvar p0 = new ¶Person("Alice", 3L)¶;
+var map = new ¶HashMap<Person, String>();¶
+¶boolean s1 = map.containsKey(p0);¶ // Question 1
+¶    ¶map.put(p0, "puzzle"); // ¶insert¶ ¶into¶ ¶map¶
+¶boolean s2 = map.containsKey(p0);¶ // Question 2
+¶    ¶p0.setName("Bob"); // ¶change¶ ¶the¶ ¶name¶
+¶boolean s3 = map.containsKey(p0);¶ // Question 3
+var p1 = new Person("Alice", 3L); // new Person instance
+¶boolean s4 = map.containsKey(p1);¶ // Question 4
+var p2 = new Person("Bob", 3L); // new Person instance
+¶boolean s5 = map.containsKey(p2);¶ // Question 5
+ωΣIn print eff, percentage Enn adds A new line.  This printf statement will print the answers, one on each line.
+ΣSysτ.oτ.printf("s1=%s%n«æ‹««¢y««¢y««¢y««¢y««¢y««¢bbbbb«‹5«¢bbbbbbb«‹4«¢bbbbbbb«‹3«¢bbbbbbb«‹2«¢e«",s1,s2,s3,s4,s5);ωΣ
+
+Now is a good time to pause the video and consider your answers.  When
+I hit enter, we will know the answers.  What have you guessed?  And
+why?
+
+Will you get them all correct?  Let's find out!
+
+ΣωΣIn five seconds.
+Σ㊿
+㊿«¢d«

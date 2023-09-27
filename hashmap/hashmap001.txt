@@ -1,0 +1,29 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+¶alias figlet='figlet -w81'¶
+«¢l«⑳ΣLet's do a Hash Map puzzle Σecho ¶-e 'HashMap\nPuzzle'¶ | figlet -cs ¶-fBig¶
+ωΣWhy a puzzle?  We know surprises stick longer in memory.  So if the solution surprises you, you'll remember it longer.  That means puzzle solving is a great way to learn.Σ# ¶Why¶ a ¶puzzle?¶  ¶We¶ ¶know¶ ¶surprises¶ ¶stick¶ ¶longer¶ ¶in¶ ¶memory. ¶ ¶So¶ ¶if¶ ¶a¶ ¶puzzle's¶
+# ¶solution¶ ¶surprises¶ ¶you¶, ¶you'll¶ ¶remember¶ ¶it¶ ¶longer¶ ¶making¶ ¶puzzle¶ ¶solving¶ a
+# ¶great¶ ¶way¶ ¶to¶ ¶learn.¶ω
+ΣI've asked this Java Hash-Map puzzle in interviews since twenty eighteen.  It asks five predicate questions.  Almost no-one has answered all five correctly.
+Σ# ¶I've¶ ¶asked¶ ¶the¶ ¶following¶ ¶Java¶ ¶HashMap¶ ¶puzzle¶ ¶in¶ ¶interviews¶ ¶since¶
+# ¶2018¶.  ¶It¶ ¶asks¶ ⑤¶5¶ ¶true/false¶ questions.  ¶Almost¶ ¶no one¶ ¶has¶ ¶answered¶
+# ¶all¶ ¶of them correctly¶.ω
+
+ΣWill you?  Let's find out!  Good luck!
+Σ# ¶Will you?¶
+# ¶Good luck!¶ω

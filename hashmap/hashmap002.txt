@@ -1,0 +1,38 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+«¢l«⑩ΣAs with our previous video, we will use jay shell to illustrate the puzzle.
+Σ# ¶We'll¶ ¶use¶ ¶jshell¶ to ¶illustrate and explore¶ the ¶puzzle¶
+¶jshell¶ -s
+ω⑩ΣWe have a simple class Person.  It has 2 properties, name and birth time.  Both properties have a simple getter and setter.  Since we want to use this class in a hash map, we override the equals and hash code methods.  We are using one of Java's more recent features: Pattern matching for instance-off introduced in Java seventeen via JEP 3 9 4.  There are no bugs in the get ers, set ers, equals, or hash code methods.
+Σ¶public¶ ¶class¶ Person {
+¶private¶ ¶String¶ ¶name¶; ¶private¶ ¶long¶ ¶birthTime¶;
+¶public¶ Person(¶String name¶, ¶long birthTime¶) { ¶this¶.¶name¶ = ¶name¶;
+¶this¶.¶birthTime¶ = ¶birthTime¶;¶ }¶
+¶public String getName() { return name; }¶
+¶public void setName(String name) { this.name = name; }¶
+¶public long getBirthTime() { return birthTime; }
+    public void setBirthTime(long birthTime) {
+        this.birthTime = birthTime; }¶
+¶@Override¶ ¶public¶ ¶boolean¶ ¶equals¶(¶Object¶ o) {
+¶if (o == null) return false¶;⑳
+if (!(o instanceof Person p)) ¶return false¶; // JEP 394
+¶return¶ ¶Objects.equals¶(¶this¶.¶name¶, p.¶name¶) // note use of p
+¶    ¶&& ¶Objects.equals¶(¶this¶.¶birthTime¶, p.¶birthTime¶);¶ }¶
+¶public¶ ¶int¶ ¶hashCode¶() { ¶return¶ ¶Objects¶.¶hash¶(¶name¶, ¶birthTime¶);¶ }¶
+} // ¶close class¶
+ωΣLet's briefly pause here to look at the class definition.  Σω㊿
+/exit

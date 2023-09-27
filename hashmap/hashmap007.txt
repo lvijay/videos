@@ -1,0 +1,72 @@
+keySpeak     = Σ
+keyTab       = τ
+keyNewline   = η
+keyBackspace = ‹
+keyAlt       = æ
+Terminal window size = 81x21
+Same hashcode: vv, wW; uo, vP
+
+rectangle = x,y,w,h = 22,154,1400,788
+screencapture -k -v -g -R 22,154,1400,788 -V45 hashmap004.mov
+----
+¶alias emacs='~/Applications/Emacs.app/Contents/MacOS/emacs-nw --no-init-file --no-splash --eval "(load (expand-file-name \"~/other-code/videos/hashmap/el-hashmap.el\"))"'
+rm -f hashmap-draw.txt hashmap-draw.txt~
+emacs hashmap-draw.txt
+¶②¶A hashmap is fundamentally an array, so let's draw one.
+    0     1     2     3     4     5     6     7     8     9    10
+    ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓     ↓
+  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+
+  |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |░░░| |   |
+  +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ +---+ |   |
+                                              |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾   |
+                                              | "Key": {          |
+                                              |   "name":"Alice"  |
+                                              |   "birthTime":3 } |
+                                              | "Value": "puzzle" |
+                                              |___________________|
+What happens after p0.setName("Bob")?
+¶Σ
+
+Since P0 is also the instance in the map, the object changes.  This is
+what the map looks like after set-name bob.
+
+Σ¶Since¶ ¶p0¶ ¶is¶ ¶the¶ ¶instance¶ ¶that's¶ ¶in¶ ¶the¶ ¶map¶, ¶the¶ ¶object¶ ¶in¶ ¶the¶ ¶map¶ ¶changes¶.«¢ppppp««æbd«Bob«¢eb«  «æ>bf««¢f«
+¶This¶ ¶is¶ ¶what¶ ¶map¶ ¶looks¶ ¶like¶ ¶after¶ p0.¶setName¶(¶"Bob"¶).«¢ak«ω©
+Σ
+
+Why does map .contains key P0 return false?  Let's follow the steps.
+
+First, we calculate P0's hash-code.  It has changed to a different
+number: this one's two million something where earlier it was one
+billion something.
+
+Next, computing the array index gives us 2.
+
+At step 3, it it-er-ates through the list in P0, finds it is empty,
+and returns false.
+
+Σ¶Why¶ ¶does¶ ¶map¶.¶containsKey¶(p0) ¶return¶ ¶false¶?  Let's follow the steps:
+1. Calculate hashcode: p0.hashCode() == 2076879
+2. Compute index     : 2076879 % 11 == 2
+3. Search at index   : map looks for p0 in index 2.  The list there is emptyη   so it returns false.ω©
+©NOTE: Delete the previous question and answer the next one
+«¢  ppppppaw«
+«æ\«Σ
+
+Why does map .contains key P1 return false?  P1's hash-code and index
+point to 10 so the map looks at that list.  However, P1 .equals P0 is
+false since Alice dot equals Bob is false.
+
+map .contains key P2 was false for the same reason as before.  The map
+looked through index 2.
+
+ΣWhy does map.containsKey(p1) return false?
+  p1's hashCode and index point to 10 ¶so the map looks through index 10¶.
+However, p1.¶equals¶(p0) is false as "Alice".equals("Bob") is false.
+«æ\«Why was map.containsKey(p2) false?  Because map looks in index 2 which is empty.
+ωΣ
+
+What lessons can we take from this puzzle?
+
+ΣLessons
+¶-------¶«¢u«1«¢l«ω⑳«¢xs««¢xc«
