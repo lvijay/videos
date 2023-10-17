@@ -1,0 +1,83 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢v
+----
+cd ~/other-code/self-modify
+jshell -q --startup SelfModify.jsh
+⑳«¢l«Σ
+
+Today, we are modifying the contents of a final String.
+
+Σ// Today we are modifying the contents of a final String.
+ωΣ
+
+Here's a final String.  We print it and its hashCode.
+
+Σfinal String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";ω
+theTarget; theTarget.hashCode();
+⑳Σ
+
+Next we call a method named do-the-deed.  And now when we print the
+string again, it has changed but its hashCode hasn't.  How?
+
+ΣdoTheDeed();
+ωtheTarget; theTarget.hashCode();
+⑳Σ
+
+I know you have a few questions.  First, does the new string have the
+same hashCode?
+
+Σ
+"0123456789:;<=>?@ABCDEFGHIJKLMNOPQRS#:".hashCode();ω
+Σ
+
+It does not.  Next, did I use reflection to change the string?  Note
+first that the method do-the-deed does not take any arguments and does
+not have a reference to the the-target instance.  But let's give the
+reflection approach a shot anyway.
+
+ΣωΣThese are the fields in the String class.  We need the field, "value";
+
+ΣString.class.getDeclaredFields();⑳
+ωΣ
+
+We save the field in a variable.
+
+Σvar stringValue = String.class.getDeclaredField("value");
+stringValue.get(doTheDeed);ω
+Σ
+
+However, when we access that field, we get an illegal access
+exception.
+
+In the older Javas, this was easy to fix.  Just set accessible to true.
+
+ΣstringValue.setAccessible(true);ω
+Σ
+
+But we now get an inaccessible object exception.  Modern Java is
+stricter about its controls.
+
+Σ// Modern Java is strict
+ωΣ
+
+There are many solutions.  I've written about two ways to achieve this
+in my blog.  The link is in the description.  The String would change
+but its hashCode would also change.  This video shows a third way.
+
+Σ// There are many solutions.  My blog has 2 ways to pull this off
+// https://medium.com/galileo-onwards/java-self-modify-ecae04189196.
+// This video shows a 3rd way.
+ω⑳«¢d«
