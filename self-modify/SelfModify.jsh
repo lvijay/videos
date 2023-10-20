@@ -3,6 +3,7 @@ import static java.nio.file.Files.newBufferedReader;
 import static java.nio.file.Files.newByteChannel;
 import static java.nio.file.StandardOpenOption.READ;
 import static java.nio.file.StandardOpenOption.WRITE;
+import static java.nio.file.Paths.get;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -15,17 +16,17 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.LongStream;
+import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 
-public class AsciiOrNUL extends Charset {
-  public static final AsciiOrNUL INSTANCE = new AsciiOrNUL();
-
-  AsciiOrNUL() {
+public class AsciiOrNULCharset extends Charset {
+  AsciiOrNULCharset() {
     super("vc", new String[0]);
   }
 
   @Override
   public boolean contains(Charset cs) {
-    return cs instanceof AsciiOrNUL;
+    return cs instanceof AsciiOrNULCharset;
   }
 
   @Override
@@ -68,7 +69,7 @@ public class AsciiOrNUL extends Charset {
   }
 }
 
-AsciiOrNUL ASCII_OR_NUL = new AsciiOrNUL();
+AsciiOrNULCharset ASCII_OR_NUL = new AsciiOrNULCharset();
 
 // {
 //   final String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";
@@ -85,14 +86,9 @@ AsciiOrNUL ASCII_OR_NUL = new AsciiOrNUL();
 // }
 
 void doTheDeed() throws IOException {
-  try (var channel=newByteChannel(Paths.get("/proc/self/mem"),READ,WRITE)) {
+  try (var channel=newByteChannel(get("/proc/self/mem"),READ,WRITE)) {
     newBufferedReader(Paths.get("/proc/self/maps"), US_ASCII).lines()
       .map(line -> line.split("\\s+"))
-      // address         perms offset   dev   inode pathname
-      // 00e24000-011f7000   rw-p  00000000 00:00 0   [heap]
-      // ...
-      // 35b1a21000-35b1a22000 rw-p  00000000 00:00 0
-      // 35b1c00000-35b1dac000 r-xp  00000000 08:02 135870 /usr/bin/g++
       .filter(l -> l.length == 5) // only memory locations
       .filter(l -> l[1].startsWith("rw")) // read-write permissions
       .map(l -> l[0].split(Pattern.quote("-"))) // take address
@@ -103,14 +99,15 @@ void doTheDeed() throws IOException {
         try {
           channel.position(from);
           var buf = ByteBuffer.allocate(4096);
-          if (channel.read(buf) == -1) { return; } // end of stream
-          var block = new String(buf.array(), ASCII_OR_NUL);
-          var match = Pattern.compile("(?:#:){18}").matcher(block);
-          if (!match.find()) { return; }
-          channel.position(from + match.start());
-          byte[] v = new byte[match.end() - match.start()];
-          for (int i=0; i<v.length; ++i) { v[i] = (byte) ('0' + i); }
-          channel.write(ByteBuffer.wrap(v));
+          if (channel.read(buf) == -1) return; // stream end
+          var array = buf.array();
+          var page = new String(array, new AsciiOrNULCharset());
+          var match = Pattern.compile("(#:){18}").matcher(page);
+          if (match.find()) {
+            channel.position(from + match.start());
+            var dest = "colorless green ideas sleep furiously";
+            channel.write(ByteBuffer.wrap(dest.getBytes()));
+          }
         } catch (IOException e) { throw new RuntimeException(e); }
       });
   }
