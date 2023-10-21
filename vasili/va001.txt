@@ -1,0 +1,49 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢y
+----
+© SETUP
+«¢x«h«æx«⑤delete-region
+
+
+⑳  In 2022, President Vladimir Putin,
+worried about ¶NATO's¶ missiles in
+its border, invaded Ukraine.
+Typo⑤‹‹‹‹«æ\««¢p««¢p««¢p««æm««æf««¢f«›››196«æf««æf««æd««æd« John F. Kennedy©
+«¢n««æm««æf««æf««¢f«››››USSR«¢n««¢e««¢b««æ‹«Cuba«¢e«
+Kennedy, it turned out, was right
+to be worried.
+
+  USSR's nuclear armed submarines
+were just off Cuba's coast.
+Disregarding the risks of nuclear
+war, Kennedy gave the order to
+attack these submarines.  Angered,
+USSR ordered the submarines to fire
+their nukes at the US.
+
+  Soviet nuclear missile protocol
+required that the 3 fleet commanders
+on deck agree to firing a nuke.  Two
+commanders gave the order but one
+didn't.  That one man averted a
+nuclear war, prevented World War III
+and saved human life on this planet.
+
+  He is the reason we are alive today.
+
+  That man was Vasili Arkhipov.
+  
+© TEARDOWN
