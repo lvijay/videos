@@ -1,0 +1,35 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢V
+----
+© SETUP
+¶cd ~/other-code/self-modify¶
+¶jshell -q --startup SelfModify.jsh¶
+⑳¶/exit¶⑳
+clear
+# ¶Time¶ ¶for¶ ¶some¶ ¶Operating¶ ¶System¶ ¶Theory¶
+# ¶-------------------------------------¶
+# 1. Computers have a temporary memory store called Random Access Memory.
+#    RAM for short.
+# 2. Programs are stored on disk.  They contain instructions particular
+#    to their Operating System.  That's why Windows programs are different
+#    from Mac OS X programs which are different from the various flavors
+#    of GNU/Linux and so on.
+# 3. Operating Systems run programs by copying their contents into RAM
+#    and executing those contents.
+
+㊿© TEARDOWN
+«¢l«⑳
+«¢d«

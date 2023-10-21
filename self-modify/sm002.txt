@@ -1,0 +1,125 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢V
+----
+¶cd ~/other-code/self-modify¶
+¶jshell -q --startup SelfModify.jsh¶
+⑳«¢l«⑩Σ
+
+Here's the method do-the-deed.  It takes no arguments and returns nothing.
+
+Σ¶void doTheDeed() throws IOException {¶ω
+Σ
+
+First, we open the process's accessible memory in ram.  Note that we
+also request write permissions.
+
+Σ«¢u«¶  try (var channel=newByteChannel(get("/proc/self/mem"),READ,WRITE)) {¶ω
+Σ
+
+Next, we reed this process's mapped memory regions line by line.
+
+Σ«¢u«¶    newBufferedReader(Paths.get("/proc/self/maps"), US_ASCII).lines()¶ω
+Σ
+
+Since every line is space separated, we split it on whitespace.
+
+Σ«¢u«¶      .map(line -> line.split("\\s+"))¶ω
+Σ
+
+We filter out lines that refer to a file.
+
+Σ«¢u«¶      .filter(l -> l.length == 5)¶ // only memory locationsω
+Σ
+
+We only include memory locations that we can both reed and write to.
+
+Σ«¢u«¶      .filter(l -> l[1].startsWith("rw"))¶ // read-write permissionsω
+Σ
+
+Next we focus on the first field, the memory address field.  The start
+address and the end address are hyphen separated.
+
+Σ«¢u«¶      .map(l -> l[0].split(Pattern.quote("-")))¶ // take addressω
+Σ
+
+We parse the address elements to Long.  We parse them as
+hex-uh-decimals.
+
+Σ«¢u«¶      .map(a -> Arrays.stream(a)¶ // parse to long array
+«¢u«¶        .mapToLong(s -> Long.parseLong(s, 16)).toArray())¶ω
+Σ
+
+We it-er-ate through the memory page by page.  Every page is four
+thousand ninety six bytes long.
+
+Σ«¢u«¶      .flatMapToLong(b -> LongStream.iterate(b[0], i->i<b[1], i->i+4096))¶ω
+Σ
+
+The variable from is the page's starting address.
+
+The first thing we do is move the file pointer to the page's starting
+byte, given by from.
+
+Σ«¢u«¶      .forEach(from -> {¶⑩
+«¢u«¶        try {¶
+«¢u«¶          channel.position(from);¶ω
+Σ
+
+We create A byte buffer to hold the memory contents
+
+Σ«¢u«¶          var buf = ByteBuffer.allocate(4096);¶ω
+Σ
+
+We reed the memory page into the buffer, exiting if we hit
+end-of-file.  EOF is un-likely.
+
+Σ«¢u«¶          if (channel.read(buf) == -1) return;¶ω
+Σ
+
+This part needs explaining.  We create a string from the page's
+contents using a special character-set class called
+ascii-or-Null-char-set.  We will look at the character-set class
+later.  Briefly, it creates A string that, given A byte array, retains
+only the ascii characters.  Non ascii characters are read as the
+null character, or zero.
+
+Σ«¢u«¶          var page = new String(buf.array(), new AsciiOrNULCharset());¶ω
+Σ
+
+We search for the original string in each memory page.  We use a
+regular expression to find the string, returning if the page doesn't
+contain the original string.
+
+Σ«¢u«¶          var match = Pattern.compile("(#:){18}").matcher(page);¶⑩
+«¢u«¶          if (!match.find()) return;¶ω
+Σ
+
+Once we find the string, we move the file pointer to the string's
+match position because we'll be writing the replacement there.
+
+Σ«¢u«¶          channel.position(from + match.start());¶ω
+Σ
+
+We use Chomsky's famous sentence as our replacement string.
+
+Σ«¢u«¶          var dest = "colorless green ideas sleep furiously";¶⑩⑩⑩
+«¢u«¶          channel.write(ByteBuffer.wrap(dest.getBytes()));¶
+«¢u«¶        } catch (IOException e) { throw new RuntimeException(e); }¶
+«¢u«¶      })¶;
+«¢u«¶    }¶
+«¢u«}
+ω㊿«¢l«⑳
+«¢d«

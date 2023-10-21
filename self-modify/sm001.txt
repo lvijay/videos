@@ -12,72 +12,46 @@ keyNewline     = ␍
 keyTab         = ␉
 keyBackspace   = ‹
 keyDelete      = ›
-chordPaste     = ¢v
+chordPaste     = ¢V
 ----
-cd ~/other-code/self-modify
+¶cd ~/other-code/self-modify
 jshell -q --startup SelfModify.jsh
-⑳«¢l«Σ
+¶
+⑳«¢l«⑳Σ
 
-Today, we are modifying the contents of a final String.
+Today, we are modifying the contents of A final String.  Here's a
+final String and its hashCode.
 
-Σ// Today we are modifying the contents of a final String.
-ωΣ
+Σ// ¶Today¶ ¶we are¶ ¶modifying¶ ¶the contents¶ ¶of a final String.¶
+¶final¶ ¶String¶ ¶theTarget¶ = "¶[#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:]¶";
+¶theTarget; theTarget¶.h¶ashCode();¶ω
+Σ
 
-Here's a final String.  We print it and its hashCode.
-
-Σfinal String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";ω
-theTarget; theTarget.hashCode();
-⑳Σ
-
-Next we call a method named do-the-deed.  And now when we print the
-string again, it has changed but its hashCode hasn't.  How?
+Next we call A method named do-the-deed.  It runs for a few seconds
+but once it's done, we see that the string has changed but its
+hashCode hasn't.
 
 ΣdoTheDeed();
-ωtheTarget; theTarget.hashCode();
-⑳Σ
-
-I know you have a few questions.  First, does the new string have the
-same hashCode?
-
-Σ
-"0123456789:;<=>?@ABCDEFGHIJKLMNOPQRS#:".hashCode();ω
-Σ
-
-It does not.  Next, did I use reflection to change the string?  Note
-first that the method do-the-deed does not take any arguments and does
-not have a reference to the the-target instance.  But let's give the
-reflection approach a shot anyway.
-
-ΣωΣThese are the fields in the String class.  We need the field, "value";
-
-ΣString.class.getDeclaredFields();⑳
+theTarget; theTarget.hashCode();
 ωΣ
 
-We save the field in a variable.
+How was it done?  Answer: I read jay-shell's memory in ram, looked for
+the string's contents and updated it in memory.
 
-Σvar stringValue = String.class.getDeclaredField("value");
-stringValue.get(doTheDeed);ω
+Σ// ¶How'd I do it¶?  ¶Answer:¶
+// ¶I read jshell's¶ ¶memory¶ ¶in RAM¶, ¶looked¶ ¶for¶ ¶"#:#: ... #:#:"¶, ¶and¶
+// ¶wrote¶, ¶"colorless green ideas sleep furiously"¶ ¶there¶.ω
 Σ
 
-However, when we access that field, we get an illegal access
-exception.
+There are other solutions too.  See the link in the description for
+two other solutions.  While those solutions are particular to the Java
+Platform this solution is programming ecosystem independent but works
+only on the guh-noo slash linux operating system.  It won't work on
+others as is.
 
-In the older Javas, this was easy to fix.  Just set accessible to true.
-
-ΣstringValue.setAccessible(true);ω
-Σ
-
-But we now get an inaccessible object exception.  Modern Java is
-stricter about its controls.
-
-Σ// Modern Java is strict
-ωΣ
-
-There are many solutions.  I've written about two ways to achieve this
-in my blog.  The link is in the description.  The String would change
-but its hashCode would also change.  This video shows a third way.
-
-Σ// There are many solutions.  My blog has 2 ways to pull this off
-// https://medium.com/galileo-onwards/java-self-modify-ecae04189196.
-// This video shows a 3rd way.
-ω⑳«¢d«
+Σ// ¶There¶ ¶are¶ ¶other¶ ¶solutions¶ ¶too¶.  ¶My¶ ¶blog¶ ¶has¶ ¶2¶ ¶ways¶ ¶to¶ ¶pull¶ ¶this¶ ¶off¶
+// ¶See the link in¶ ¶the description¶.
+// ¶https://medium.com/galileo-onwards/java-self-modify-ecae04189196¶
+// ¶While¶ ¶those¶ ¶solutions¶ ¶are¶ ¶particular¶ ¶to¶ ¶the JVM¶ ¶this¶ ¶one¶ ¶will¶ ¶only¶ ¶work¶
+// ¶on¶ ¶the¶ ¶GNU¶/¶Linux¶ ¶OS¶.
+ω«¢l«⑳«¢d«
