@@ -14,44 +14,52 @@ keyBackspace   = ‹
 keyDelete      = ›
 chordPaste     = ¢V
 ----
-¶cd ~/other-code/self-modify
+¶bind 'set enable-bracketed-paste off'
+cd ~/other-code/self-modify
 jshell -q --startup SelfModify.jsh
 ¶
-⑳«¢l«⑳Σ
-
-Today, we are modifying the contents of A final String.  Here's a
-final String and its hashCode.
-
-Σ// ¶Today¶ ¶we are¶ ¶modifying¶ ¶the contents¶ ¶of a final String.¶
-¶final¶ ¶String¶ ¶theTarget¶ = "¶[#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:]¶";
-¶theTarget; theTarget¶.h¶ashCode();¶ω
+⑳«¢l«⑳©
+/* ¶A self-modifying Java program¶ */
+¶/* ----------------------------- */¶
 Σ
 
-Next we call A method named do-the-deed.  It runs for a few seconds
-and once it's done, we see that the string has changed but its
+Today we see a Java program that changes a final String.
+
+We'll first see the program in action and then see the code.
+
+Here's a final String and its hashCode.
+
+Σ// ¶Today¶ ¶we see¶ ¶a Java¶ ¶program¶ ¶that¶ ¶changes¶ ¶a final String.¶
+¶final¶ ¶String¶ ¶theTarget¶ = "¶[#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:]¶";
+¶theTarget; theTarget¶.h¶ashCode();¶
+ωΣ
+
+Next we call A method named mod if eye memory.  It runs for a few
+seconds and once it's done, we see that the string has changed but its
 hashCode hasn't.
 
-ΣdoTheDeed();
+ΣmodifyMemory();
 theTarget; theTarget.hashCode();
 ωΣ
 
-How was it done?  Answer: I read jay-shell's memory in ram, looked for
-the string's contents and updated it in memory.
+We pulled this off by reading the jay-shell process's memory in ram,
+looked for the string's contents and updating it in memory.
 
-Σ// ¶How'd I do it¶?  ¶Answer:¶
-// ¶I read jshell's¶ ¶memory¶ ¶in RAM¶, ¶looked¶ ¶for¶ ¶"#:#: ... #:#:"¶, ¶and¶
-// ¶wrote¶, ¶"colorless green ideas sleep furiously"¶ ¶there¶.ω
-Σ
+Σ// ¶How was it done¶?  ¶Answer:¶
+// ¶read jshell's¶ ¶memory¶ ¶in RAM¶, ¶looked¶ ¶for¶ ¶"#:#: ... #:#:"¶, ¶and¶
+// ¶replaced¶ ¶it¶ ¶with¶, ¶"colorless green ideas sleep furiously"¶.
+ωΣ
 
 There are other solutions too.  See the link in the description for
-two other solutions.  While those solutions are particular to the Java
-Platform this solution is programming ecosystem independent but works
-only on the guh-noo slash linux operating system.  It won't work on
-others as is.
+two such.  While those solutions are particular to the Java Platform
+this solution is programming ecosystem independent but works only on
+the geh-noo slash linux operating system.  It won't work on other
+O.S.-es as is.
 
-Σ// ¶There¶ ¶are¶ ¶other¶ ¶solutions¶ ¶too¶.  ¶My¶ ¶blog¶ ¶has¶ ¶2¶ ¶ways¶ ¶to¶ ¶pull¶ ¶this¶ ¶off¶
-// ¶See the link in¶ ¶the description¶.
+Σ©
+// ¶There¶ ¶are¶ ¶other¶ ¶solutions¶ ¶too¶.  ¶The link¶ ¶below¶ ¶and¶ ¶in¶ ¶the¶
+// ¶description¶ ¶shows¶ ¶2¶ ¶other¶ ¶ways¶ ¶to¶ ¶pull¶ ¶it¶ ¶off¶.
 // ¶https://medium.com/galileo-onwards/java-self-modify-ecae04189196¶
-// ¶While¶ ¶those¶ ¶solutions¶ ¶are¶ ¶particular¶ ¶to¶ ¶the JVM¶ ¶this¶ ¶one¶ ¶will¶ ¶only¶ ¶work¶
-// ¶on¶ ¶the¶ ¶GNU¶/¶Linux¶ ¶OS¶.
+// ¶While¶ ¶those¶ ¶solutions¶ ¶are¶ ¶particular¶ ¶to¶ ¶the JVM¶ ¶this¶ ¶one¶ ¶will¶ ¶only¶
+// ¶work¶ ¶on¶ ¶the¶ ¶GNU¶/¶Linux¶ ¶OS¶.
 ω«¢l«⑳«¢d«

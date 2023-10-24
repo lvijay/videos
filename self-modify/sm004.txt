@@ -1,0 +1,48 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢V
+----
+© SETUP
+¶setterm -linewrap on
+cd ~/other-code/self-modify
+clear
+¶⑳cat /proc/self/maps | tee catmaps
+emacs -Q -nw catmaps
+⑳Σ
+
+First we disable line wrap.
+
+Σ«¢x«xtωΣ
+
+Every line is a page in memory.  Each line has six columns.  They are
+
+address, permissions, offset, device, eye-node, and file
+
+Σ«¢o«¶address, permissions, offset, device, inode, file¶«¢f«©
+ωΣ
+
+The first field is address range.  It has the start and end addresses
+separated by a hyphen.  The addresses are represented in
+hex-ah-decimal.
+
+Σ«¢ ««æf««¢f««æf«ω©
+Σ
+
+The second field shows the permissions on the page.  It's the usual
+you-nix terms with R meaning reed, W meaning write, X meaning
+executable.  I don't know what P means.
+
+Σ«¢g«
+㊿«␛«~«¢x««¢c«

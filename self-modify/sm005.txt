@@ -1,0 +1,38 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢V
+----
+¶cd ~/other-code/self-modify¶
+¶jshell -q --startup SelfModify.jsh¶
+⑳«¢l«⑩Σ
+
+That's it, really.  It's just a simple program that reads a file,
+looks for a string, and writes to a file.
+
+Skill is knowing which file to read and where to write.
+
+I have create A kit-hub gist with the full program.  The link is in
+the description.
+
+Thank you!
+
+Σ// ¶That's¶ ¶it¶, ¶really¶.  ¶It's¶ ¶a simple¶ ¶program¶ ¶that¶ ¶reads¶ ¶a file¶, ¶looks¶
+// ¶for¶ ¶a string¶, ¶and¶ ¶updates¶ ¶the file¶.
+// ¶The skill¶ ¶lies¶ ¶in¶ ¶knowing¶ ¶which¶ ¶file¶ ¶to¶ ¶read¶ ¶and¶ ¶where¶ ¶to¶ ¶write¶ ¶it¶.
+// ¶A¶ ¶GitHub¶ ¶gist¶ ¶with¶ ¶the¶ ¶full¶ ¶program¶ ¶is¶ ¶in¶ ¶the description¶.
+
+// Thank you!ω
+㉚«¢l«⑳
+«¢d«

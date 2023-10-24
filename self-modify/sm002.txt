@@ -18,9 +18,10 @@ chordPaste     = ¢V
 ¶jshell -q --startup SelfModify.jsh¶
 ⑳«¢l«⑩Σ
 
-Here's the method do-the-deed.  It takes no arguments and returns nothing.
+Here's the method mod-if-eye-memory.  It takes no arguments and
+returns nothing.
 
-Σ¶void doTheDeed() throws IOException {¶ω
+Σ¶void modifyMemory() throws IOException {¶ω
 Σ
 
 First, we open the process's accessible memory in ram.  Note that we
@@ -29,9 +30,18 @@ also request write permissions.
 Σ«¢u«¶  try (var channel=newByteChannel(get("/proc/self/mem"),READ,WRITE)) {¶ω
 Σ
 
-Next, we reed this process's mapped memory regions line by line.
+Next, we reed this process's mapped memory regions line by line.  The
+comment lines describe its format.  Briefly, every row describes a
+page in memory.  The columns are space separated.  Column one is the
+page's starting and ending address in hexadecimal.  Column two the
+page's permissions, column 3 file offset and so on.  See proc's man
+page for more details.
 
-Σ«¢u«¶    newBufferedReader(Paths.get("/proc/self/maps"), US_ASCII).lines()¶ω
+Σ«¢u«¶    // File format: https://man7.org/linux/man-pages/man5/proc.5.html¶
+«¢u«¶    // address           perms offset  dev   inode       pathname¶
+«¢u«¶    // 00400000-00452000 r-xp 00000000 08:02 173521 /usr/bin/dbus-daemon¶
+«¢u«¶    // 35b1a21000-35b1a22000 rw-p 00000000 00:00 0¶
+«¢u«¶    newBufferedReader(Paths.get("/proc/self/maps"), US_ASCII).lines()¶ω
 Σ
 
 Since every line is space separated, we split it on whitespace.
@@ -91,10 +101,9 @@ end-of-file.  EOF is un-likely.
 
 This part needs explaining.  We create a string from the page's
 contents using a special character-set class called
-ascii-or-Null-char-set.  We will look at the character-set class
-later.  Briefly, it creates A string that, given A byte array, retains
-only the ascii characters.  Non ascii characters are read as the
-null character, or zero.
+ascii-or-Null-char-set.  Briefly, it creates A string that retains
+only the ascii characters.  Non ascii characters are read as the null
+character, or zero.  See the gist in the description for details.
 
 Σ«¢u«¶          var page = new String(buf.array(), new AsciiOrNULCharset());¶ω
 Σ
@@ -121,5 +130,27 @@ We use Chomsky's famous sentence as our replacement string.
 «¢u«¶      })¶;
 «¢u«¶    }¶
 «¢u«}
-ω㊿«¢l«⑳
+ωΣ
+
+Let's pause for a few seconds and look at the code.
+
+Σω㊿Σ
+
+That's it, really.  It's just a simple program that reads a file,
+looks for a string, and writes to a file.
+
+Skill is knowing which file to read and where to write.
+
+I have create A kit-hub gist with the full program.  The link is in
+the description.
+
+Thank you!
+
+Σ// ¶That's¶ ¶it¶, ¶really¶.  ¶It's¶ ¶a simple¶ ¶program¶ ¶that¶ ¶reads¶ ¶a file¶, ¶looks¶
+// ¶for¶ ¶a string¶, ¶and¶ ¶updates¶ ¶the file¶.
+// ¶The skill¶ ¶lies¶ ¶in¶ ¶knowing¶ ¶which¶ ¶file¶ ¶to¶ ¶read¶ ¶and¶ ¶where¶ ¶to¶ ¶modify¶ ¶it¶.
+// ¶A¶ ¶GitHub¶ ¶gist¶ ¶with¶ ¶the¶ ¶full¶ ¶program¶ ¶is¶ ¶in¶ ¶the description¶.
+
+// Thank you!ω
+㉚«¢l«⑳
 «¢d«
