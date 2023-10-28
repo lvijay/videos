@@ -12,72 +12,54 @@ keyNewline     = ␍
 keyTab         = ␉
 keyBackspace   = ‹
 keyDelete      = ›
-chordPaste     = ¢v
+chordPaste     = ¢V
 ----
+¶bind 'set enable-bracketed-paste off'
 cd ~/other-code/self-modify
 jshell -q --startup SelfModify.jsh
-⑳«¢l«Σ
+¶
+⑳«¢l«⑳©
+/* ¶A self-modifying Java program¶ */
+¶/* ----------------------------- */¶
+Σ
 
-Today, we are modifying the contents of a final String.
+Today we see a Java program that changes a final String.
 
-Σ// Today we are modifying the contents of a final String.
+We'll first see the program in action and then see the code.
+
+Here's a final String and its hashCode.
+
+Σ// ¶Today¶ ¶we see¶ ¶a Java¶ ¶program¶ ¶that¶ ¶changes¶ ¶a final String.¶
+¶final¶ ¶String¶ ¶theTarget¶ = "¶[#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:]¶";
+¶theTarget; theTarget¶.h¶ashCode();¶
 ωΣ
 
-Here's a final String.  We print it and its hashCode.
+Next we call A method named mod if eye memory.  It runs for a few
+seconds and once it's done, we see that the string has changed but its
+hashCode hasn't.
 
-Σfinal String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";ω
+ΣmodifyMemory();
 theTarget; theTarget.hashCode();
-⑳Σ
-
-Next we call a method named do-the-deed.  And now when we print the
-string again, it has changed but its hashCode hasn't.  How?
-
-ΣdoTheDeed();
-ωtheTarget; theTarget.hashCode();
-⑳Σ
-
-I know you have a few questions.  First, does the new string have the
-same hashCode?
-
-Σ
-"0123456789:;<=>?@ABCDEFGHIJKLMNOPQRS#:".hashCode();ω
-Σ
-
-It does not.  Next, did I use reflection to change the string?  Note
-first that the method do-the-deed does not take any arguments and does
-not have a reference to the the-target instance.  But let's give the
-reflection approach a shot anyway.
-
-ΣωΣThese are the fields in the String class.  We need the field, "value";
-
-ΣString.class.getDeclaredFields();⑳
 ωΣ
 
-We save the field in a variable.
+We pulled this off by reading the jay-shell process's memory in ram,
+looked for the string's contents and updating it in memory.
 
-Σvar stringValue = String.class.getDeclaredField("value");
-stringValue.get(doTheDeed);ω
-Σ
-
-However, when we access that field, we get an illegal access
-exception.
-
-In the older Javas, this was easy to fix.  Just set accessible to true.
-
-ΣstringValue.setAccessible(true);ω
-Σ
-
-But we now get an inaccessible object exception.  Modern Java is
-stricter about its controls.
-
-Σ// Modern Java is strict
+Σ// ¶How was it done¶?  ¶Answer:¶
+// ¶read jshell's¶ ¶memory¶ ¶in RAM¶, ¶looked¶ ¶for¶ ¶"#:#: ... #:#:"¶, ¶and¶
+// ¶replaced¶ ¶it¶ ¶with¶, ¶"colorless green ideas sleep furiously"¶.
 ωΣ
 
-There are many solutions.  I've written about two ways to achieve this
-in my blog.  The link is in the description.  The String would change
-but its hashCode would also change.  This video shows a third way.
+There are other solutions too.  See the link in the description for
+two such.  While those solutions are particular to the Java Platform
+this solution is programming ecosystem independent but works only on
+the geh-noo slash linux operating system.  It won't work on other
+O.S.-es as is.
 
-Σ// There are many solutions.  My blog has 2 ways to pull this off
-// https://medium.com/galileo-onwards/java-self-modify-ecae04189196.
-// This video shows a 3rd way.
-ω⑳«¢d«
+Σ©
+// ¶There¶ ¶are¶ ¶other¶ ¶solutions¶ ¶too¶.  ¶The link¶ ¶below¶ ¶and¶ ¶in¶ ¶the¶
+// ¶description¶ ¶shows¶ ¶2¶ ¶other¶ ¶ways¶ ¶to¶ ¶pull¶ ¶it¶ ¶off¶.
+// ¶https://medium.com/galileo-onwards/java-self-modify-ecae04189196¶
+// ¶While¶ ¶those¶ ¶solutions¶ ¶are¶ ¶particular¶ ¶to¶ ¶the JVM¶ ¶this¶ ¶one¶ ¶will¶ ¶only¶
+// ¶work¶ ¶on¶ ¶the¶ ¶GNU¶/¶Linux¶ ¶OS¶.
+ω«¢l«⑳«¢d«

@@ -1,9 +1,11 @@
+// -*- mode: java; -*-
+
 import static java.nio.charset.StandardCharsets.US_ASCII;
 import static java.nio.file.Files.newBufferedReader;
 import static java.nio.file.Files.newByteChannel;
+import static java.nio.file.Paths.get;
 import static java.nio.file.StandardOpenOption.READ;
 import static java.nio.file.StandardOpenOption.WRITE;
-import static java.nio.file.Paths.get;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -20,9 +22,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Collectors;
 
 public class AsciiOrNULCharset extends Charset {
-  AsciiOrNULCharset() {
-    super("vc", new String[0]);
-  }
+  public AsciiOrNULCharset() { super("ASCIIorNUL", new String[0]); }
 
   @Override
   public boolean contains(Charset cs) {
@@ -69,24 +69,21 @@ public class AsciiOrNULCharset extends Charset {
   }
 }
 
-AsciiOrNULCharset ASCII_OR_NUL = new AsciiOrNULCharset();
-
-// {
-//   final String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";
-//
-//   System.out.printf("trgt: '%s', hashcode: %d%n",
-//     theTarget,
-//     theTarget.hashCode());
-//
-//   doTheDeed();
-//
-//   System.out.printf("trgt: '%s', hashcode: %d%n",
-//     theTarget,
-//     theTarget.hashCode());
-// }
-
-void doTheDeed() throws IOException {
-  try (var channel=newByteChannel(get("/proc/self/mem"),READ,WRITE)) {
+void modifyMemory() throws IOException {
+  try (var channel=newByteChannel(Paths.get("/proc/self/mem"),READ,WRITE)) {
+    // File format: https://man7.org/linux/man-pages/man5/proc.5.html
+    // address           perms offset  dev   inode       pathname
+    // 00400000-00452000 r-xp 00000000 08:02 173521      /usr/bin/dbus-daemon
+    // ...
+    // 00e03000-00e24000 rw-p 00000000 00:00 0           [heap]
+    // 35b1800000-35b1820000 r-xp 00000000 08:02 135522  /usr/lib64/ld-2.15.so
+    // 35b1a1f000-35b1a20000 r--p 0001f000 08:02 135522  /usr/lib64/ld-2.15.so
+    // 35b1a20000-35b1a21000 rw-p 00020000 08:02 135522  /usr/lib64/ld-2.15.so
+    // ...
+    // 35b1a21000-35b1a22000 rw-p 00000000 00:00 0
+    // f2c6ff8c000-7f2c7078c000 rw-p 00000000 00:00 0    [stack:986]
+    // 7fffb2c0d000-7fffb2c2e000 rw-p 00000000 00:00 0   [stack]
+    // 7fffb2d48000-7fffb2d49000 r-xp 00000000 00:00 0   [vdso]
     newBufferedReader(Paths.get("/proc/self/maps"), US_ASCII).lines()
       .map(line -> line.split("\\s+"))
       .filter(l -> l.length == 5) // only memory locations
@@ -112,3 +109,19 @@ void doTheDeed() throws IOException {
       });
   }
 }
+
+/*
+ * {
+ *   final String theTarget = "#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:#:";
+ *
+ *   System.out.printf("trgt: '%s', hashcode: %d%n",
+ *     theTarget,
+ *     theTarget.hashCode());
+ *
+ *   modifyMemory();
+ *
+ *   System.out.printf("trgt: '%s', hashcode: %d%n",
+ *     theTarget,
+ *     theTarget.hashCode());
+ * }
+ */

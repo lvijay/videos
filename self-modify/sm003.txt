@@ -1,0 +1,154 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ¢V
+----
+© SETUP
+¶bind 'set enable-bracketed-paste off'
+setterm -linewrap on
+cd ~/other-code/self-modify
+clear
+jshell -q --startup SelfModify.jsh
+¶⑳¶/exit¶⑳
+clear
+Σ
+
+Time for some operating systems theory.  Programs contain instructions
+specific to their O.S..  That's why windows programs are different from
+Mac O.S. X programs and geh-Noo Linux and so on.
+
+These are jay-shell's instructions.  We won't spend much time on them.
+The interesting parts are the last two columns.  They describe the
+program's assembly instructions.
+
+Σ# ¶Time¶ ¶for¶ ¶some¶ ¶Operating¶ ¶Systems¶ ¶Theory¶
+# ¶--------------------------------------¶
+
+# a. ¶Programs¶ ¶contain¶ ¶instructions¶ ¶specific¶ ¶to¶ ¶their¶ ¶OS¶.  ¶That's¶ ¶why¶
+#¶    ¶¶Windows programs¶ ¶are¶ ¶different¶ ¶from¶ ¶Mac OS X programs¶ ¶which¶ ¶are¶
+#¶    ¶¶different¶ ¶from¶ ¶the various¶ ¶GNU/Linux flavors¶.
+
+# ¶Here¶ ¶are¶ ¶jshell's¶ ¶instructions¶
+¶objdump¶ -¶d¶ `¶which¶ ¶jshell¶`
+ωclear⑤
+Σ
+
+Programs often depend on other programs and files.  Those files are
+sometimes called libraries.
+
+These are jay-shell's library dependencies.
+
+Σ# b. ¶Programs¶ ¶often¶ ¶depend¶ ¶on¶ ¶other¶ ¶programs¶ ¶and¶ ¶files¶.  (¶These¶ ¶files¶
+#¶    ¶¶are¶ ¶sometimes¶ ¶called¶ ¶libraries¶.)
+# ¶Here¶ ¶are¶ ¶jshell's¶ ¶library¶ ¶dependencies¶.
+¶ldd¶ `¶which jshell¶`
+ωΣ
+
+They are executed in a specialized temporary store called Random
+access memory or ram for short.  Random means the O.S. can read and
+write at arbitrary locations.
+
+This computer has 16 gigabytes of memory.
+
+Σ# c. ¶They¶ ¶have¶ ¶different¶ ¶sizes¶.  ¶For¶ ¶example¶, ¶OpenLibre¶ ¶is¶ ¶much¶ ¶larger¶
+#¶    ¶¶than¶ ¶puTTY¶.¶exe¶
+# d. ¶Programs¶ ¶are¶ ¶executed¶ ¶in¶ ¶memory¶.  ¶Memory¶ ¶is¶ ¶a temporary¶ ¶storage¶
+#¶    ¶¶system¶ ¶in your¶ ¶computer¶.  ¶Data¶ ¶can¶ ¶be¶ ¶read¶ ¶or¶ ¶written¶ ¶anywhere¶ ¶in¶
+#¶    ¶¶it¶.  ¶This¶ ¶memory¶ ¶is¶ ¶called¶ ¶Random¶ ¶Access¶ ¶Memory¶ (¶RAM¶).
+
+# ¶This¶ ¶computer's¶ ¶memory¶ ¶size¶ ¶is 16 Gb¶.
+¶cat¶ /¶proc¶/¶meminfo¶ | ¶grep¶ ¶MemTotal¶
+ωΣ
+
+An O.S. is a special program responsible for running and managing
+other programs.  To run a program, the O.S. copies the program and its
+dependent libraries into memory.
+
+Σ# e. ¶An Operating System¶ ¶is¶ ¶a special program¶ ¶that¶ ¶executes¶ ¶other¶
+#¶    ¶¶programs¶ ¶by¶ ¶copying¶ ¶them¶ ¶and¶ ¶the libraries¶ ¶they¶ ¶depend¶ ¶upon¶ ¶into¶
+#¶    ¶¶memory¶.ω
+Σ
+
+To better manage the computer's memory, The O.S divides the entire
+memory into manageable chunks called pages.  On my computer, one page
+is four thousand ninety-six bytes.
+
+Σ# f. ¶To¶ ¶better¶ ¶manage¶ ¶the computer's¶ ¶memory¶, ¶Operating¶ ¶Systems¶ ¶divide¶
+#¶    ¶¶the entire memory¶ ¶space¶ ¶into¶ ¶manageable¶ ¶chunks¶ ¶called¶ ¶pages¶.  ¶On¶
+#¶    ¶¶my¶ ¶computer¶ ¶one¶ ¶page¶ ¶is¶ ¶4096¶ ¶bytes¶.
+getconf ¶PAGESIZE¶
+ωΣ
+
+With 16 gigabytes of memory and a 4 kilobyte page, that's over four
+million pages.
+
+When the O.S. runs a program, it splits the program into pages and
+each page is copied into different parts of memory.  Since the pages
+need not be adjacent to one another, the O.S. maintains a mapping of
+program page to memory page.
+
+Σ# g. ¶When¶ ¶the OS¶ ¶loads¶ ¶a program¶ ¶into¶ ¶memory¶, ¶the program¶ ¶is split¶
+#¶    ¶¶into¶ ¶pages¶ ¶which¶ ¶are¶ ¶copied¶ ¶into¶ ¶various¶ ¶parts¶ ¶of¶ ¶memory¶.
+# h. ¶Since¶ ¶the¶ ¶program¶ ¶need¶ ¶not¶ be ¶in¶ ¶adjacent¶ ¶pages¶, ¶the OS¶ ¶must¶
+#¶    ¶¶maintain¶ ¶a mapping¶ ¶of memory¶ ¶location¶ ¶to program¶ ¶content¶.
+ωΣ
+
+A running program is called a process.  For instance, every tab of the
+Goo-gle Chrome browser is a separate process.
+
+Σ# i. A ¶running¶ ¶program¶ ¶is¶ ¶called¶ ¶a process¶.  ¶This¶ ¶distinction¶ ¶is¶
+#¶    ¶¶needed¶ ¶because¶ ¶many¶ ¶instances¶ ¶of¶ ¶the same program¶ ¶can¶ ¶be¶ ¶running¶
+#¶    ¶¶at¶ ¶the same time¶.  ¶For¶ ¶instance¶, ¶each¶ ¶tab¶ ¶of¶ ¶Google¶ ¶Chrome's¶
+#¶    ¶¶browser¶ ¶is¶ ¶a separate¶ ¶process¶.
+ωΣ
+
+Each process is given A separate P.I.D.  Geh-noo linux manages every
+process's dee-tails in the folder slash proc slash P.I.D.
+
+Σ# j. ¶To¶ ¶manage¶ ¶processes¶, ¶they¶ ¶are¶ ¶each¶ ¶given¶ ¶a process-id¶ (¶PID¶).
+#¶    ¶¶GNU¶/¶Linux¶ ¶manages¶ ¶every¶ ¶process's¶ ¶details¶ ¶in¶ ¶the /proc/[pid]¶
+#¶    ¶¶folder¶.
+ωΣ
+
+A process can access its own details in a special folder named self.
+
+Σ# k. ¶A process¶ ¶can¶ ¶access¶ ¶its¶ ¶own¶ ¶details¶ ¶in¶ ¶the special folder¶
+#¶    ¶/¶proc¶/¶self¶.
+ls /proc/self
+ωΣ
+
+There are two files in this folder relevant to us.  These are the maps
+and mem files.
+
+The mem file provides contiguous access to the process's memory and
+the maps file describes the mapping between a process and its address
+in memory.
+
+Σ# l. We won't go through the entire details of /proc/self here.  The
+#¶    ¶two parts relevant to us are /proc/self/maps and /proc/self/mem.
+# n. /proc/self/mem provides contiguous access to the process's memory
+#¶    ¶and
+# m. /proc/self/maps describes the mapping between a process and its
+#¶    ¶location in memory.
+ωΣ
+
+The following displays the memory map of the cat program.
+
+Σcat /proc/self/maps
+ω⑩Σ
+
+This is unreadable.  Let's save it to A file to look at it closely.
+
+Σ# This is unreadable.  Let's save to a file.
+clear⑩ω
