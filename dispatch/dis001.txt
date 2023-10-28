@@ -1,0 +1,23 @@
+«¢l«## How well do you know Java's method dispatch?
+jshell -s
+⑩class Fruit {
+public String taste = "---";
+}
+class Melon extends Fruit {
+public String taste = "squishy";
+}
+class Watermelon extends Melon {
+public String taste = "sweet";
+}
+public class Dispatch {
+public void describe(Object o)     { print("object", "inedible.");}②«¢b« «¢e«
+public void describe(Fruit f)      { print("fruit", f.taste);}②«¢b«      «¢e«
+public void describe(Melon m)      { print("melon", m.taste);}②«¢b«      «¢e«
+public void describe(Watermelon w) { print("watermelon", w.taste);}②«¢b« «¢e«
+}
+void print(String what, String desc) {
+System.out.println("This " + what + " is " + desc);
+}
+Melon m = new Watermelon();
+new Dispatch().describe(m); // what does this print?㉚
+«¢d«
