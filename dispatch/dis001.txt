@@ -1,23 +1,49 @@
-«¢l«## How well do you know Java's method dispatch?
+keySpeak: Σ
+----
+«¢l«©
+Σ
+
+How well do you know Java's method dispatch?  Let's explore it with
+our trusted java tool, jay-shell.  Jay-shell was introduced in Java 9.
+
+We declare 3 classes with a simple theme.  The first class, named
+Fruit, has an instance member named taste.  Since an abstract fruit
+does not have any taste, we don't define its taste.  The next class is
+Melon which extends Fruit.  Its taste is squishy.
+
+The third and last class is Watermelon.  It extends Melon and its
+taste is sweet.
+
+Now we come to the puzzle-defining class.  We have a class named
+Dispatch that has a method named described in 3 overloaded variants.
+All methods take only one argument.  One of Fruit, Melon, or
+Watermelon.  Their method bodies are similar too.  In each case they
+call a print method with two strings.  The first string is the
+argument's class and the second is the instance member taste.
+
+The method print is a simple method that prints to the system console.
+
+Σ## How well do you know Java's method dispatch?
 jshell -s
-⑩class Fruit {
-public String taste = "---";
-}
-class Melon extends Fruit {
-public String taste = "squishy";
-}
-class Watermelon extends Melon {
-public String taste = "sweet";
-}
-public class Dispatch {
-public void describe(Object o)     { print("object", "inedible.");}②«¢b« «¢e«
-public void describe(Fruit f)      { print("fruit", f.taste);}②«¢b«      «¢e«
-public void describe(Melon m)      { print("melon", m.taste);}②«¢b«      «¢e«
+㊿class Fruit                    { public String taste = "---";}②«¢b«     «¢e«
+class Melon extends Fruit      { public String taste = "squishy";}②«¢b« «¢e«
+class Watermelon extends Melon { public String taste = "sweet";}②«¢b«   «¢e«
+class Dispatch {
+public void describe(Fruit f)      { print("fruit",      f.taste);}②«¢b« «¢e«
+public void describe(Melon m)      { print("melon",      m.taste);}②«¢b« «¢e«
 public void describe(Watermelon w) { print("watermelon", w.taste);}②«¢b« «¢e«
-}
-void print(String what, String desc) {
+public static void print(String what, String desc) {
 System.out.println("This " + what + " is " + desc);
 }
+}
 Melon m = new Watermelon();
-new Dispatch().describe(m); // what does this print?㉚
-«¢d«
+new Dispatch().describe(m); /* what does this print?
+Question 1: Which method is invoked?
+    is it the method that takes Fruit?  Melon?  or Watermelon?
+Question 2: What does it print?  We have 9 choices:
+(a) This fruit is --- (b) This fruit is squishy (c) This fruit is sweet
+(d) This melon is --- (e) This melon is squishy (f) This melon is sweet
+(g) This watermelon is --- (h) This watermelon is squishy
+(i) This watermelon is sweet
+*/
+㊿«¢d«

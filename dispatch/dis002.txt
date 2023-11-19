@@ -1,0 +1,6 @@
+«¢l«©
+The puzzle illustrates two properties of Java
+
+1. Java's method disptach is static
+2. Class instance members do not inherit
+
