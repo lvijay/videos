@@ -1,0 +1,34 @@
+keyCommentLine = ©
+keyChord       = «
+keyCopy        = ¶
+keySpeak       = Σ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+«¢a«4«¢l««¢a«5«¢l««¢a«3«¢c«rm redis/dump.rdb
+«¢l«⑳©
+¶# start¶ ¶a redis server¶ ¶on port¶ 6379
+¶/opt/homebrew/opt/redis/bin/redis-server redis.¶conf
+⑮«¢a«4⑤# start a proxy on 1234
+socat -d2 «§tcp«4-«§listen«:1234,reuseaddr,fork TCP4:localhost:6379
+⑤«¢a«5# test the proxy
+redis-cli -p 1234 get key-314
+¶redis-cli -p 1234 ¶set key-314 100
+¶redis-cli -p 1234 get key-314¶
+⑩«¢a«4⑤«¢c«②# replace the server connection with an error and alert
+¶socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from' | awk "{d=\$0;s1=\"osascript -e 'display notification \\\"Client connected from\";s2=d;s3=\"\\\" with title \\\"Bad Connection\\\"'\";cmd=s1 \" \" s2 \" \" s3;print(cmd);acticmd=\"osascript -e 'tell application \\\"Finder\\\" to activate'\";print(acticmd);system(acticmd);system(cmd);}"¶⑤
+«¢a«5⑤# client connections to the server should fail
+# look at the top right for a notification
+¶redis-cli -p 1234 get key-314¶©
+©socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from'
+©
+©# socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork TCP4:localhost:6379 | grep --line-buffered 'accepting connection from' | awk "{d=\$0;s1=\"osascript -e 'display notification \\\"\";s2=d;s3=\"\\\" with title \\\"Connected\\\"'\";cmd=s1 \" \" s2 \" \" s3;print(cmd);system(cmd);}"
