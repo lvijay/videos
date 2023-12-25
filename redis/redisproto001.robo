@@ -1,0 +1,27 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+
+# Redis is a simple, thread-safe, key-value store.  It's typically
+# used as a cache.  While Redis has many uses beyond cache usage, in
+# today's video we are only exploring Redis's client-server protocol.
+
+# This is part of a series that explores network protocols.  Redis is
+# an excellent place to start because the client server interactions
+# are extremely simple.  To describe a design as simple is the highest
+# praise.
+
+# Let's begin
