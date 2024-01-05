@@ -1,0 +1,43 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐
+mouseRight     = ◑
+mouseMove      = ∏∐
+----
+∏387,164∐◐④«¢l»∏680,164∐◐④«¢c»«¢l»∏942,164∐◐④«¢c»«¢l»⊂rm redis/dump.rdb
+redis-server redis.conf⊃
+②∏387,164∐◐④© come back to the first tab
+∏87,64∐© move mouse cursor out of view
+# Let's look at redis's client-server protocol.
+
+# redis-cli communicates over TCP
+# We'll intercept messages the client and server exchange using the
+# wonderful tool ɛ1:socatɜ.④
+∏680,164∐◐④socat -v TCP4-LISTEN:8888,fork TCP:localhost:6379
+⑤∏387,164∐◐④# Let's run some redis operations
+redis-cli -p 8888 get marco
+# Now let's see the messages exchanged
+∏680,164∐◐④∏87,64∐⑫∏387,164∐◐④∏87,64∐©
+redis-cli -p 8888 set marco polo
+# ⊂Back to socat's output⊃
+∏680,164∐◐④∏87,64∐⑫∏387,164∐◐④∏87,64∐©
+redis-cli -p 8888 get marco
+# ⊂socat's output beckons⊃
+∏680,164∐◐④∏87,64∐⑫∏387,164∐◐④∏87,64∐©
+redis-cli -p 8888 del marco
+# ⊂socat says...⊃
+∏680,164∐◐④∏87,64∐⑫∏387,164∐◐④∏87,64∐©

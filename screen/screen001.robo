@@ -1,0 +1,51 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
+mouseMove      = ∏∐
+----
+«¢l»③©
+# Welcome to this tutorial of GNU Screen.
+# What is GNU Screen, you ask?
+
+# It's a program to manage multiple terminals on a single window
+# without reaching for the mouse.  It has some great features such as
+
+# 1. create multiple terminals
+# 2. give names to your different terminals
+# 3. receive an alert when there's a message on some terminal
+# 4. have a separate clipboard between screen terminals
+# 5. terminal sessions can last across UI restarts
+# 6. receive an alert when there's silence on some terminal
+
+Before starting screen, create the following file ɛ31:.screenrcɜ in
+your home directory.  You can copy it from the gist in the
+description.
+
+cat > screenrc << ENDL
+shell bash
+startup_message off
+vbell on
+
+defutf8 on
+defscrollback 2048
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+ENDL
+

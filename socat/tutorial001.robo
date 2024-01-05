@@ -1,0 +1,18 @@
+keyCommentLine = ©
+keyChord       = »«
+keyCopy        = ⊂⊃
+keySpeak       = ♭♩
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+----
+# This is a tutorial on socat, a ⊂powerful⊃ tool for exploring networks
+# »¢a«#abcd efgh»æbb«⑨»¢e«

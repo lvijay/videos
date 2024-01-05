@@ -25,10 +25,11 @@ redis-cli -p 1234 get key-314
 ¶redis-cli -p 1234 ¶set key-314 100
 ¶redis-cli -p 1234 get key-314¶
 ⑩«¢a«4⑤«¢c«②# replace the server connection with an error and alert
-¶socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from' | awk "{d=\$0;s1=\"osascript -e 'display notification \\\"Client connected from\";s2=d;s3=\"\\\" with title \\\"Bad Connection\\\"'\";cmd=s1 \" \" s2 \" \" s3;print(cmd);acticmd=\"osascript -e 'tell application \\\"Finder\\\" to activate'\";print(acticmd);system(acticmd);system(cmd);}"¶⑤
-«¢a«5⑤# client connections to the server should fail
-# look at the top right for a notification
-¶redis-cli -p 1234 get key-314¶©
-©socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from'
-©
+socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from' | awk '{cmd="osascript -e '"'"'tell App \"Terminal\" to display dialog \"Bad Connection from: " $10 "\"'"'"'"; system(cmd)}'⑤
+«¢a«5⑤# client connections should fail
+# watch out for a notification
+¶redis-cli -p 1234 get ¶key-314⑤
+㉚
+©#socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork EXEC:'echo ERR' | grep --line-buffered 'accepting connection from'
+©#
 ©# socat 2>&1 -d2 TCP4-LISTEN:1234,reuseaddr,fork TCP4:localhost:6379 | grep --line-buffered 'accepting connection from' | awk "{d=\$0;s1=\"osascript -e 'display notification \\\"\";s2=d;s3=\"\\\" with title \\\"Connected\\\"'\";cmd=s1 \" \" s2 \" \" s3;print(cmd);system(cmd);}"

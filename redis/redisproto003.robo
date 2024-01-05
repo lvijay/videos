@@ -1,0 +1,55 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
+mouseMove      = ∏∐
+----
+∏387,164∐◐◁④«¢l»∏680,164∐◐◁④«¢c»«¢l»④⊂socat -v TCP4-LISTEN:8888,fork TCP:localhost:6379⊃
+© start proxy
+∏942,164∐◐◁④«¢c»«¢l»⊂rm redis/dump.rdb
+redis-server redis.conf⊃
+②∏387,164∐◐◁④© come back to the first tab
+∏87,64∐© move mouse cursor out of view
+ɛ:# Let's start looking at redis's client-server protocol.
+client$
+client$ # redis-cli communicates over TCP
+client$ # We'll intercept messages the client and server exchange using the
+client$ # wonderful tool ɜɛ1:socatɜɛ:.
+client$ # Let's run some redis operations
+client$ redis-cli -p 8888 get marco
+(nil)
+client$ # Now let's see the messages exchanged
+client$ redis-cli -p 8888 set marco polo
+OK
+client$ # Back to socat's output
+client$ redis-cli -p 8888 get marco
+"polo"
+client$ # socat's output beckons
+client$ redis-cli -p 8888 del marco
+(integer) 1
+client$ # socat says...ɜ
+⑤# Now that we understand the protocol, let's test.
+# We know we've understood the protocol if we can send redis commands
+# directly via TCP to the server and get the same results.
+echo -ne '*2\r\n$3\r\nget\r\n$5\r\nmarco\r\n' \
+        | socat - TCP:localhost:8888
+echo -ne '*3\r\n$3\r\nset\r\n$5\r\nmarco\r\n$4\r\npolo\r\n' \
+        | socat - TCP:localhost:8888
+⊂echo -ne '*2\r\n$3\r\nget\r\n$5\r\nmarco\r\n'⊃ \
+   ⊂     | socat - TCP:localhost:8888⊃
+# Let's look at socat④
+∏680,164∐◐◁④

@@ -2,6 +2,7 @@ keyCommentLine = ©
 keyChord       = «»
 keyCopy        = ⊂⊃
 keySpeak       = ♩♭
+keyPrint       = ɛɜ
 keySpeakWait   = ω
 keyControl     = ¢
 keyAlt         = æ
@@ -13,15 +14,42 @@ keyTab         = ␉
 keyBackspace   = ‹
 keyDelete      = ›
 chordPaste     = ⌘v
+mouseMove      = ∏∐
+mouseLeft      = ◐
 ----
+∏387,164∐◐④«¢l»∏680,164∐◐④«¢c»«¢l»∏942,164∐◐④«¢c»«¢l»⊂rm redis/dump.rdb⊃
+②∏387,164∐◐④© come back to the first tab
+∏87,64∐© move mouse cursor out of view
+# Redis is a simple, thread-safe, key-value store typically used as a
+# cache.  In today's video we are only exploring Redis's client-server
+# protocol.
 
-# Redis is a simple, thread-safe, key-value store.  It's typically
-# used as a cache.  While Redis has many uses beyond cache usage, in
-# today's video we are only exploring Redis's client-server protocol.
+# This is a series that explores ɛ4;1:network protocolsɜ.  Redis is an
+# excellent place to start because the client server interactions are
+# extremely simple.
 
-# This is part of a series that explores network protocols.  Redis is
-# an excellent place to start because the client server interactions
-# are extremely simple.  To describe a design as simple is the highest
-# praise.
+# ɛ1:Setup:ɜ start the redis server
+# Let's start the redis server on a terminal
+«¢§␉»③redis-server redis.conf
+⑳«¢␉»③# Before looking at the protocol, let's quickly look at some Redis
+# operations.
 
-# Let's begin
+# 1. get keys
+# 2. set keys
+# 3. delete keys
+
+# Redis lets you set and get keys with corresponding values.
+# get'ing a key that does not exist returns nil.
+redis-cli get marco
+# The ɛ31;4;1:(nil)ɜ means the key, ɛ31;4;1:marcoɜ, isn't in Redis.
+# Here's how we set a key, value pair
+redis-cli set marco polo
+# Let's verify
+redis-cli get marco
+# ɛ4:redis-cliɜ is a tool provided with redis.  It communicates with a
+# redis server using the redis protocol.  By default, it connects to
+# localhost:6739.
+
+# Finally, here's how we delete keys
+redis-cli del marco
+redis-cli del marco # deleting an absent key returns ɛ31;4;1:(integer) 0ɜ
