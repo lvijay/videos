@@ -1,0 +1,61 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
+mouseMove      = ∏∐
+----
+# Here we are in a new screen.  Note the black line at the bottom?⑤
+# That's the status line.  It is not a default setting.  We saw the
+# configuration in the .screenrc file.
+
+# This screen is now managing only one terminal.  To create a new
+# screen, type Ctrl a, then c.
+«¢a»①c©
+«¢l»⑤# All screen commands are prefixed with the combination key, Ctrl a,
+# which we shorten as C-a.  We are on a second terminal now.
+
+# Let's create a 3rd terminal.  C-a c«¢a»①c©
+«¢l»# Here we are on the third terminal.  Creating terminals is great
+# but how do we switch between terminals?
+
+# There are 3 ways to switch between terminals.  The first is to cycle
+# through all your terminals (in a forward or reverse order), next,
+# you can directly switch to it by its number, and finally, you can
+# switch to it by name.  We'll look at the 3rd one in a later chapter.
+
+# The command to move to the previous terminal is C-a p.  Terminals
+# cycle so when you're at the first terminal, switching back takes you
+# to the last.  Let's go through one whole cycle.«¢a»①p②«¢a»①p②«¢a»①p②
+
+# The command to move to the next terminal is C-a n.  It behaves the
+# same as moving backwards so no demo :-)
+
+# We can also switch to a terminal by its number.  For example, this
+# terminal's number is 2.  To switch, we type C-a ' and enter the
+# terminal's number.  Let's go to terminal 1.«¢a»②'②1
+
+# As with all terminals, C-d exits a terminal.  Terminals indexes do
+# not fill when deleted.  They keep their existing number.  Let's kill
+# this one.
+«¢d»⑤
+
+# See?  Terminal 2 is still terminal 2.  There's a gap between index
+# 0 and 2.  Creating a new terminal will create it with index 1.
+
+# You can change a terminal's number with C-a :number.  Let's make this
+# terminal's id 7.«¢a»②:②number 7␍
+⑩clear

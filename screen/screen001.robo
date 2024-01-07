@@ -19,33 +19,32 @@ mouseRight     = ◑▷
 mouseMove      = ∏∐
 ----
 «¢l»③©
-# Welcome to this tutorial of GNU Screen.
-# What is GNU Screen, you ask?
+# Welcome to this tutorial of «§GNU S»creen.
+# What is «§GNU S»creen, you ask?
 
 # It's a program to manage multiple terminals on a single window
-# without reaching for the mouse.  It has some great features such as
+# without reaching for the mouse.  It has some great features such as:
 
-# 1. create multiple terminals
-# 2. give names to your different terminals
-# 3. receive an alert when there's a message on some terminal
+# 1. create and manage multiple terminals
+# 2. name your terminals
+# 3. receive an alert when a process prints its output
 # 4. have a separate clipboard between screen terminals
 # 5. terminal sessions can last across UI restarts
-# 6. receive an alert when there's silence on some terminal
+# 6. receive an alert when some process stops printing
 
-Before starting screen, create the following file ɛ31:.screenrcɜ in
-your home directory.  You can copy it from the gist in the
-description.
+# Screen's defaults aren't great so before starting screen, we'll
+# first customize it.  Create a file named ɛ31:.screenrcɜ in your home
+# directory.  You can also download it from the gist in the
+# description.
 
-cat > screenrc << ENDL
-shell bash
-startup_message off
-vbell on
-
-defutf8 on
-defscrollback 2048
-
-hardstatus on
-hardstatus alwayslastline
-hardstatus string "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
-ENDL
-
+ɛ:cat > ~/.screenrc << ENDL
+> shell bash
+> startup_message off
+> 
+> defutf8 on
+> defscrollback 2048
+> 
+> hardstatus on
+> hardstatus alwayslastline
+> hardstatus string "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
+> ENDLɜ
