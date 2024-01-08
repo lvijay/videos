@@ -18,3 +18,20 @@ mouseLeft      = ◐◁
 mouseRight     = ◑▷
 mouseMove      = ∏∐
 ----
+∏1067,858∐◐◁⑧∏1452,858∐© gain focus«¢a»①7④©
+«¢a»①7«¢a»①A‹‹‹‹bash␍④«¢l»④©
+# Having several terminals, all named "bash", can quickly get unwieldy
+# Screen lets us name terminals.  In my typical usage, for example, my
+# first two terminals (indexes 0 and 1) are always named ɛ4&200:pyɜ and ɛ4:manɜ.
+# The former runs a Python repl and I use the latter to read man pages.
+
+# To name a terminal, use ɛ1:C-a Aɜ and type the desired name.  Let's name
+# this terminal.«¢a»①A‹‹‹‹demo␍④  To switch to a terminal by its name, use
+# ɛ1;4:C-a 'ɜ followed by the terminal's name.  A name prefix is sufficient
+# Let's go to terminal 0 and come back.
+
+# Watch the status line below.④«¢a»①'①b①a①s①h④␍⑤«¢a»①'①d④␍④
+
+# And with that out of the way, let's turn to notifications.
+
+clear④

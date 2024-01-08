@@ -20,7 +20,7 @@ mouseMove      = ∏∐
 ----
 «¢l»③©
 # Welcome to this tutorial of «§GNU S»creen.
-# What is «§GNU S»creen, you ask?
+# What is «§GNU S»creen?
 
 # It's a program to manage multiple terminals on a single window
 # without reaching for the mouse.  It has some great features such as:
@@ -32,19 +32,19 @@ mouseMove      = ∏∐
 # 5. terminal sessions can last across UI restarts
 # 6. receive an alert when some process stops printing
 
-# Screen's defaults aren't great so before starting screen, we'll
-# first customize it.  Create a file named ɛ31:.screenrcɜ in your home
-# directory.  You can also download it from the gist in the
-# description.
+# Screen's defaults aren't great so before starting screen we'll first
+# customize it.  Create a file named ɛ31&100:.screenrcɜ in the home directory
+# and add the below contents to it.  You can also download it from the
+# gist in the description.
 
-ɛ:cat > ~/.screenrc << ENDL
-> shell bash
-> startup_message off
-> 
-> defutf8 on
-> defscrollback 2048
-> 
-> hardstatus on
-> hardstatus alwayslastline
-> hardstatus string "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"
-> ENDLɜ
+cat > ~/.screenrc << ENDL
+shell bash
+startup_message off
+
+defutf8 on
+defscrollback 2048
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%⊂>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%⊃<"
+ENDL

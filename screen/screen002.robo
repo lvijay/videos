@@ -20,12 +20,14 @@ mouseMove      = ∏∐
 
 comment: all the mouse highlights
 ----
-∏391,553∐◐◁⑧© gain focus
-∏391,553∐◐∏532,553∐③◁⑧◐◁© shell bash
-∏391,581∐◐∏660,581∐③◁⑧◐◁© startup_message off
-∏391,639∐◐∏533,639∐③◁⑧◐◁© defutf8 on
-∏391,667∐◐∏648,667∐③◁⑧◐◁© defscrollback 2048
-∏391,723∐◐∏1385,774∐③◁⑧◐◁© hardstatus⑤
+∏1067,858∐◐◁⑧∏1452,858∐© gain focus«¢a»①7④©
+∏232,614∐◐∏373,614∐③◁⑧◐◁© shell bash
+∏232,642∐◐∏501,642∐③◁⑧◐◁© startup_message off
+∏232,698∐◐∏374,698∐③◁⑧◐◁© defutf8 on
+∏232,726∐◐∏489,726∐③◁⑧◐◁© defscrollback 2048
+∏232,784∐◐∏419,784∐③◁⑧◐◁© hardstatus on
+∏232,814∐◐∏586,814∐③◁⑧◐◁© hardstatus alwayslastline
+∏232,839∐◐∏1229,839∐③◁⑧◐◁© hardstatus string ...
 # With that, let's start screen.
 screen
 «¢l»⑨

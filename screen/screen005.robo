@@ -1,0 +1,63 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
+mouseMove      = ∏∐
+----
+∏1067,858∐◐◁⑧∏1452,858∐© gain focus«¢a»①7④©
+# Screen offers two kinds of notifications
+
+# 1. Notifications on chatter and
+# 2. Notifications on silence
+
+# We'll kick off both now but since the silence notification triggers
+# only when there's 30 seconds of silence, we'll start it and attend
+# to it in time. Note in passing that orchtestrating such an alert is
+# a challenge.  That's how hard we work to produce these videos.
+
+# Let's create and name the terminals for both notification types.
+
+«¢a»①c⑥«¢a»①A②«¢u»①chatter
+# To enable monitoring on a terminal, type ɛ1;4&300:C-a Mɜ.
+# Note the status line below.«¢a»①M②
+sleep 10 && echo chatter
+«¢a»①c⑥«¢a»①A②«¢u»①silence
+# While we wait for the ɛ2:chatterɜ terminal to chatter, let's generate
+# some messages here.  A notification should popup when there are no
+# messages for 30 seconds.
+
+# We enable silence monitoring with ɛ1;4:C-a _ɜ.  Note the status line.«¢a»①_③
+# Expect our chatter notification in 3‹2‹1‹0.
+for i in {1..10}; do sleep 1; done
+«¢a»①7③©
+# Here's another great screen feature.  You can run screen sessions.
+# Suppose you ɛ1:sshɜ into some remote server.  You run some jobs on
+# it.  Unexpectedly your ssh session terminates.  What happens with
+# the processes?  With ɛ1:screenɜ you needn't worry.  The processes
+# will continue to run in the background.
+
+# Exiting your current screen while leaving all its terminals open
+# is known as ɛ4:detatchingɜ from screen.  You execute it with ɛ1;4:C-a dɜ
+
+# Let's detach and rejoin the screen.«¢a»①d④
+
+# To see the list of screens, run ɛ1;4:screen -lsɜ
+screen -ls©
+
+# To reattach to a running screen, use ɛ1;4:screen -rɜ ɛ1;4:ɜɛ4;31:idɜ where
+# ɛ4;31:idɜ is the screen's PID listed above.  Let's restore.
+screen -r 
