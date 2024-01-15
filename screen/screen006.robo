@@ -1,0 +1,30 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
+mouseMove      = ∏∐
+----
+∏1067,858∐◐◁⑧∏1452,858∐© gain focus«¢a»①7④©
+# Let's visit the alerted terminals.
+«¢a»①2④
+
+«¢a»①1④
+
+# And with that, we come to the end of this tutorial.
+
+# You can explore more of screen with ɛ1;4:C-a ?ɜ⑥
+㉚

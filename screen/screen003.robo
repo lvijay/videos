@@ -24,10 +24,10 @@ mouseMove      = ∏∐
 # configuration in the .screenrc file.
 
 # This screen is now managing only one terminal.  To create a new
-# screen, type ɛ4&200:Ctrl aɜ, then ɛ4:cɜ.
+# screen, type ɛ1;4&200:Ctrl aɜ, then ɛ1;4:cɜ.
 «¢a»①c©
 «¢l»⑤# All screen commands are prefixed with the combination key, Ctrl a,
-# which we shorten as ɛ4:C-aɜ.  We are on a second terminal now.
+# which we shorten as ɛ1;4:C-aɜ.  We are on a second terminal now.
 
 # Let's create a 3rd terminal.«¢a»①c©
 «¢l»# Here we are on the third terminal.  Creating terminals is great
@@ -38,18 +38,18 @@ mouseMove      = ∏∐
 # you can directly switch to it by its number, and finally, you can
 # switch to it by name.  We'll look at the 3rd one in a later chapter.
 
-# The command to move to the previous terminal is ɛ4:C-a pɜ.  Terminals
+# The command to move to the previous terminal is ɛ1;4:C-a pɜ.  Terminals
 # cycle so when you're at the first terminal, switching back takes you
 # to the last.  Let's go through one whole cycle.«¢a»①p②«¢a»①p②«¢a»①p②
 
-# The command to move to the next terminal is ɛ4:C-a nɜ.  It behaves the
+# The command to move to the next terminal is ɛ1;4:C-a nɜ.  It behaves the
 # same as moving backwards so no demo :-)
 
 # We can also switch to a terminal by its number.  For example, this
-# terminal's index is 2.  To switch, we type ɛ4:C-aɜ and type the index.
+# terminal's index is 2.  To switch, we type ɛ1;4:C-aɜ and type the index.
 # Let's go to terminal 1.«¢a»②1
 
-# As with all terminals, ɛ4:C-dɜ exits a terminal.  Terminals indexes do
+# As with all terminals, ɛ1;4:C-dɜ exits a terminal.  Terminals indexes do
 # not fill when deleted.  They keep their existing number.  Let's kill
 # this one.
 «¢d»⑤
@@ -57,7 +57,7 @@ mouseMove      = ∏∐
 # See?  Terminal 2 is still terminal 2.  There's a gap between index
 # 0 and 2.  Creating a new terminal will create it with index 1.
 
-# You can change a terminal's number with ɛ4:C-a :numberɜ ɛ4;31:Nɜ.  Where
+# You can change a terminal's number with ɛ1;4:C-a :numberɜ ɛ4;31:Nɜ.  Where
 # ɛ4;31:Nɜ is the new index.  Let's make this terminal's index 7.«¢a»②:②number 7␍
 ⑩clear
 ⑨

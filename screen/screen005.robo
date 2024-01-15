@@ -19,45 +19,83 @@ mouseRight     = ◑▷
 mouseMove      = ∏∐
 ----
 ∏1067,858∐◐◁⑧∏1452,858∐© gain focus«¢a»①7④©
-# Screen offers two kinds of notifications
+©⊂# Welcome to this tutorial of GNU Screen.⊃
+⊂# What is GNU Screen?⊃
+
+⊂# It's a program to manage multiple terminals on a single window⊃
+⊂# without reaching for the mouse.  It has some great features such as:⊃
+
+⊂# 1. create and manage multiple terminals⊃
+⊂# 2. name your terminals⊃
+⊂# 3. receive an alert when a process prints its output⊃
+⊂# 4. have a separate clipboard between screen terminals⊃
+⊂# 5. terminal sessions can last across UI restarts⊃
+⊂# 6. receive an alert when some process stops printing⊃
+
+⊂# Screen's defaults aren't great so before starting screen we'll first⊃
+# customize it.  Create a file named ɛ31&100:.screenrcɜ in the home directory
+⊂# and add the below contents to it.  You can also download it from the⊃
+⊂# gist in the description.⊃
+
+⊂cat > ~/.screenrc << ENDL⊃
+⊂shell bash⊃
+⊂startup_message off⊃
+
+⊂defutf8 on⊃
+⊂defscrollback 2048⊃
+
+⊂hardstatus on⊃
+⊂hardstatus alwayslastline⊃
+⊂hardstatus string "%>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%<"⊃
+⊂ENDL⊃
+screen
+④«¢a»①c⑥«¢a»①A②‹‹‹‹demo␍«¢a»①:number 7©
+
+④# Screen offers two kinds of notifications
 
 # 1. Notifications on chatter and
 # 2. Notifications on silence
 
 # We'll kick off both now but since the silence notification triggers
 # only when there's 30 seconds of silence, we'll start it and attend
-# to it in time. Note in passing that orchtestrating such an alert is
-# a challenge.  That's how hard we work to produce these videos.
+# to it in time. Note in passing that orchestrating such an alert is
+# challenging.  We work hard to produce these videos.
 
 # Let's create and name the terminals for both notification types.
 
 «¢a»①c⑥«¢a»①A②«¢u»①chatter
 # To enable monitoring on a terminal, type ɛ1;4&300:C-a Mɜ.
 # Note the status line below.«¢a»①M②
-sleep 10 && echo chatter
+sleep 40 && echo chatter
 «¢a»①c⑥«¢a»①A②«¢u»①silence
-# While we wait for the ɛ2:chatterɜ terminal to chatter, let's generate
-# some messages here.  A notification should popup when there are no
+# While we wait for the 'chatter' terminal to chatter, let's generate
+# some messages here.  A notification should pop up when there are no
 # messages for 30 seconds.
 
-# We enable silence monitoring with ɛ1;4:C-a _ɜ.  Note the status line.«¢a»①_③
-# Expect our chatter notification in 3‹2‹1‹0.
-for i in {1..10}; do sleep 1; done
-«¢a»①7③©
+# We enable silence monitoring with ɛ1;4&1:C-a _ɜ.  That's underscore.  Note
+# the status line.«¢a»①_③
+# Expect our chatter notification in 3...③⑩2...③⑩1...③⑩0.⑩⑩⑩
+for i in {1..49}; do sleep 1; echo $i; done
+⑨«¢a»①7③©
 # Here's another great screen feature.  You can run screen sessions.
-# Suppose you ɛ1:sshɜ into some remote server.  You run some jobs on
-# it.  Unexpectedly your ssh session terminates.  What happens with
-# the processes?  With ɛ1:screenɜ you needn't worry.  The processes
-# will continue to run in the background.
+# Suppose you ssh into some remote server.  You run some jobs on it.
+# Unexpectedly your ssh session terminates.  What happens with the
+# processes?  With screen you needn't worry.  The processes will
+# continue to run.
 
-# Exiting your current screen while leaving all its terminals open
-# is known as ɛ4:detatchingɜ from screen.  You execute it with ɛ1;4:C-a dɜ
+# Exiting your current screen while leaving its terminals as is, is
+# known as ɛ4:detachingɜ.  You detach with ɛ1;4:C-a dɜ
 
 # Let's detach and rejoin the screen.«¢a»①d④
 
-# To see the list of screens, run ɛ1;4:screen -lsɜ
+# To see the list of screens, run ɛ1;4:screen -lsɜ①
 screen -ls©
 
-# To reattach to a running screen, use ɛ1;4:screen -rɜ ɛ1;4:ɜɛ4;31:idɜ where
-# ɛ4;31:idɜ is the screen's PID listed above.  Let's restore.
-screen -r 
+# To reattach to a running screen, use ɛ1;4:screen -r ɜɛ1;4:ɜɛ4;31:idɜ where
+# ɛ4;31:idɜ is the screen's PID listed above.  Since there's only one screen
+# we can restore without any argument to ɛ1;4&1:-rɜ.④
+screen -r
+
+# We should expect the silence notification now.
+⑩
+clear
