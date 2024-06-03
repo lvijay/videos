@@ -20,17 +20,17 @@ mouseMove      = ∏∐
 ----
 «¢l»③©
 # Welcome to this tutorial of «§GNU S»creen.
-# What is «§GNU S»creen?
+# ⊂What is GNU Screen?⊃«⌘v»
 
-# It's a program to manage multiple terminals on a single window
-# without reaching for the mouse.  It has some great features such as:
+⊂# It's a program to manage multiple terminals on a single window⊃«⌘v»
+⊂# without reaching for the mouse.  It has some great features such as:⊃«⌘v»
 
-# 1. create and manage multiple terminals
-# 2. name your terminals
-# 3. receive an alert when a process prints its output
-# 4. have a separate clipboard between screen terminals
-# 5. terminal sessions can last across UI restarts
-# 6. receive an alert when some process stops printing
+# ⊂1. create and manage multiple terminals⊃«⌘v»
+# ⊂2. name your terminals⊃«⌘v»
+# ⊂3. receive an alert when a process prints its output⊃«⌘v»
+# ⊂4. have a separate clipboard between screen terminals⊃«⌘v»
+# ⊂5. terminal sessions can last across UI restarts⊃«⌘v»
+# ⊂6. receive an alert when some process stops printing⊃«⌘v»
 
 # Screen's defaults aren't great so before starting screen we'll first
 # customize it.  Create a file named ɛ31&100:.screenrcɜ in the home directory
@@ -45,6 +45,6 @@ defutf8 on
 defscrollback 2048
 
 hardstatus on
-hardstatus alwayslastline
-hardstatus string "%⊂>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%⊃<"
+⊂hardstatus alwayslastline⊃«⌘v»
+⊂hardstatus string "%⊂>%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?%⊃<"⊃«⌘v»
 ENDL
