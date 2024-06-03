@@ -5,9 +5,10 @@ emacs-nw -Q -nl pom.xml⑩
   ⊂<groupId>org.mockito</groupId>⊃
 ⊂<artifactId>mockito-core</artifactId>⊃
 ⊂<version>5.11.0</version>⊃
-⊂</dependency>⊃«c:i»
-⑩<!-- fix the java version«c: »«c:a»①«c:w»⑤«a:gg»⑤17⏎②«c:u»«a:f»«c:d»«c:n»«c:d»©
+⊂</dependency>⊃④«c:i»④«c:xs»©
+⑩«a:gg»⑤17⏎④«c:ao»<!-- fix the java version«c:ak»②«c:d»⑤②«c:u»«a:f»«c:d»②«c:n»②«c:d»©
 © Save the file and exit emacs
+«c:r»②FIXME②⏎②«c:nu»②«a:d»②https://www.lvijay.com©
 «c:xs»«c:xc»
 ㉚# now run jshell
 # We don't use ⊂mvn exec:exec -Dexec.executable=jshell⊃ because it
