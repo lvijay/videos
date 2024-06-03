@@ -1,0 +1,22 @@
+mvn -o ⊂archetype:generate⊃ -D⊂groupId=com.lvijay.videos⊃ -D⊂artifactId=mockito-magic⊃ -D⊂archetypeArtifactId=maven-archetype-quickstart⊃ -D⊂archetypeVersion=1⊃.4 -D⊂interactiveMode=false⊃
+㊿㊿cd ⊂mockito-magic⊃①
+emacs-nw -Q -nl pom.xml⑩
+⑩⑩⑩«c:s»①<dependency>①«a:m»«ca:o»<!-- Add the mockito dependency -->⑩«a:m»«c:k»⊂<dependency>⊃
+  ⊂<groupId>org.mockito</groupId>⊃
+⊂<artifactId>mockito-core</artifactId>⊃
+⊂<version>5.11.0</version>⊃
+⊂</dependency>⊃«c:i»
+⑩<!-- fix the java version«c: »«c:a»①«c:w»⑤«a:gg»⑤17⏎②«c:u»«a:f»«c:d»«c:n»«c:d»©
+© Save the file and exit emacs
+«c:xs»«c:xc»
+㉚# now run jshell
+# We don't use ⊂mvn exec:exec -Dexec.executable=jshell⊃ because it
+# breaks JShell's readline features so
+# we go old school and pass the classpath to jshell
+mvn dependency:copy-dependencies
+## copies dependencies to folder target/dependency
+«s:mockito-classpath»=`echo ⊂target/dependency⊃/*.jar | tr ' ' :`
+echo ⊂$MOCKITO_CLASSPATH⊃
+jshell -class-path ⊂$MOCKITO_CLASSPATH⊃
+⑩clear«c:l»⑩‹‹‹‹‹⑩⑩⑩
+«c:d»
