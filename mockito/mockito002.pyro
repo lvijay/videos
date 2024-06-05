@@ -1,0 +1,73 @@
+©jshell ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+/reset
+⑳⊂import org.mockito.Mockito;
+Mockito.mock(List.class);⊃
+
+⑩⑩«c:l»⑩© prelims done, start program
+import org.mockito.Mockito;
+var list = Mockito.mock(List.class);
+/* Mockito is 3 simple steps
+ * 1. create a mock instance with `Mockito.mock' */
+var list = Mockito.mock(List.class);
+/* 2. declare what you're mocking with `Mockito.when' and
+ * 3. define the behavior with `.thenReturn` */
+Mockito.when(list.size()).thenReturn(29);
+// now list.size() will return 29
+list.size()
+/* There are other variants to the API but even this
+ * shouldn't work.  Here's Mockito::when's signature: */
+Mockito.when(␉⑳«c:u»©
+/* Basically, it's
+ * <code>public static ... when(Object o) { ...}② «c:t»</code>
+ *⑩
+ * How does it work?  In fact, if you think about it, it shouldn't
+ * work at all because Java is a pass-by-value language.⑩
+ * Let's quickly look at pass-by-value.
+ *⑤
+ * PASS-BY-VALUE
+ * ------------- */
+⑤public <T> List<T> cantChangeArg(List<T> arg) {
+// changes to `arg' will not reflect outside the method.
+printf("arg=%s", arg);
+arg = null;
+printf("arg=%s", arg);
+return arg;
+}
+⑫void printf(String format, Object... args) {
+System.out.printf(format + "%n", args);
+}
+var iLst = List.of(3,1,41,59);
+⑤printf("List=%s", iLst);
+⑤cantChangeArg(iLst);
+⑤printf("List=%s", iLst);
+/* as you can see, iLst is unchanged.  Because changes to
+ * a reference inside a method cannot change the reference
+ * itself.
+ *
+ * This setup makes sense when you slightly change the method
+ * invocation as follows. */
+cantChangeArg(List.of(2,7,18,281));
+/* We cannot expect `List.of(...)' to be changed when
+ * executing `arg = null;' inside `cantChangeArg'.
+ *
+ * As another consequence of pass-by-value, a method cannot
+ * know the source of its arguments.  They could be a local
+ * variable, an element of an array, created anew, or even
+ * null.  The method cannot know.
+ *
+ * But this is exactly Mockito's behavior. */
+Mockito.when(list.get(0)).thenReturn("hello, world!");
+/* How does `Mockito.when' know what argument was passed to
+ * it?  In fact, before you mock a method, its value is the
+ * default value based on its return type. */
+printf("list.get(0)=%s", list.get(0)); // mocked earlier
+⑫printf("list.get(1)=%s", list.get(1)); // expected: null
+⑫/* Just as `printf' receives `null', the arument received
+ * by `Mockito.when(list.get(1))' must also be `null'. Which
+ * begs the question: how does Mockito correctly mock
+ * `list.get(2)`, not something else?
+ */
+⑫«c:l»/* "A willingness to be puzzled by the simplest phenomena is
+ *  the very beginning of science."
+ *               -- Noam Chomsky, Powers and Prospects, 1996
+ */

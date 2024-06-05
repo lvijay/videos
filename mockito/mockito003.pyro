@@ -1,0 +1,80 @@
+«c:l»/* "A willingness to be puzzled by the simplest phenomena is
+ *  the very beginning of science."
+ *            -- Noam Chomsky, Powers and Prospects, 1996 */
+/* Let's start with what we know:
+ * (1) Mockito sets up the behavior of a mock instance with
+ *     `Mockito.when(mockInstance.method(args))'
+ * (2) Java is a pass-by-value language so (1) shouldn't work
+
+ * Upon his inquisition's insistence Galileo, fearing for
+ * his life, accepted that the earth stood firm but, it is
+ * said, he mumbled, "And yet, it moves".
+ *
+ * When we face two contradictory facts, something else must
+ * be at work. Since pass-by-value is inviolable, Mockito
+ * must be doing something else.
+ *
+ * Let's try a simple experiment.
+ */
+Map<String, String> map = Mockito.mock(Map.class);
+0 == map.size()
+null == map.getOrDefault("key", "val");
+// compare this behavior with an actual HashMap
+new HashMap<String, String>().getOrDefault("k", "v");
+// On to the experiment
+map.getOrDefault("key", "val");
+Mockito.when(null).thenReturn("foo");
+/* `Mockito.when(null)' works as if it were passed the mock
+ * instance.  Thus it must be that Mockito.when isn't doing
+ * something with the mock instance but the mock instance
+ * itself must be identifying itself.
+ *
+ * Let's write our own Mockito.  For simplicity, our mockito
+ * will only mock a special interface, MList. */
+interface MList {
+int size();
+String get(int i);
+}
+class MMockito {
+static MList mock() { /* we'll come back to this */
+return null; } «c:t»
+static ThenReturn when(Object o) {
+return v -> v; /* TBD */
+}
+static interface ThenRun {
+void thenReturn(Object value);
+}
+«c:c»©
+class MMockito {
+static class MLst implements MList {
+private int sizeval;
+private Map<Integer, String> getval = new HashMap<>();
+public int size() {
+MOCK = this;
+METHOD = "size";
+return sizeval;
+}
+public String get(int i) {
+MOCK = this;
+METHOD = "get";
+ARGUMENT = i;
+return getval.get(i);
+}
+}
+static MList mock() {return new MLst();}
+static MLst MOCK = null;
+static String METHOD = null;
+static Integer ARGUMENT = null;
+static ThenReturn when(Object o) {
+return v -> {
+switch (METHOD) {
+case "size": MOCK.sizeval = (int) v; break;
+case "get": MOCK.getval.put(ARGUMENT, (String) v); break;
+default: throw new IllegalStateException();
+};
+};
+}
+static interface ThenReturn {
+void thenReturn(Object value);
+}
+}
