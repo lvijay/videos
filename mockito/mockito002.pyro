@@ -1,5 +1,5 @@
-©jshell ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
-/reset
+jshell ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+©/reset
 ⑳⊂import org.mockito.Mockito;
 Mockito.mock(List.class);⊃
 
@@ -67,7 +67,4 @@ printf("list.get(0)=%s", list.get(0)); // mocked earlier
  * begs the question: how does Mockito correctly mock
  * `list.get(2)`, not something else?
  */
-⑫«c:l»/* "A willingness to be puzzled by the simplest phenomena is
- *  the very beginning of science."
- *               -- Noam Chomsky, Powers and Prospects, 1996
- */
+⑫«c:l»⑫

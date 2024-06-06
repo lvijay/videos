@@ -26,8 +26,8 @@ map.getOrDefault("key", "val");
 Mockito.when(null).thenReturn("foo");
 /* `Mockito.when(null)' works as if it were passed the mock
  * instance.  Thus it must be that Mockito.when isn't doing
- * something with the mock instance but the mock instance
- * itself must be identifying itself.
+ * something with its method parameter but the mock instance
+ * is somehow identifying itself.
  *
  * Let's write our own Mockito.  For simplicity, our mockito
  * will only mock a special interface, MList. */
@@ -41,11 +41,11 @@ return null; } «c:t»
 static ThenReturn when(Object o) {
 return v -> v; /* TBD */
 }
-static interface ThenRun {
+«c:c»©
+static interface ThenReturn {
 void thenReturn(Object value);
 }
-«c:c»©
-class MMockito {
+②class MMockito {
 static class MLst implements MList {
 private int sizeval;
 private Map<Integer, String> getval = new HashMap<>();
@@ -74,7 +74,25 @@ default: throw new IllegalStateException();
 };
 };
 }
+}
 static interface ThenReturn {
 void thenReturn(Object value);
 }
-}
+// Let's test
+var mylist1 = MMockito.mock();
+mylist1.get(3);
+mylist1.get(1);
+mylist1.get(41);
+mylist1.size();
+MMockito.when(mylist1.size()).thenReturn(123);
+mylist1.size() == 123;
+var mylist2 = MMockito.mock();
+MMockito.when(mylist2.size()).thenReturn(2718);
+mylist2.size() == 2718;
+mylist2.get(29);
+MMockito.when(mylist2.get(29)).thenReturn("m229");
+"m229".equals(mylist2.get(29));
+null == mylist1.get(29);
+mylist1.get(31);
+MMockito.when(null).thenReturn("m131");
+mylist1.get(31).equals("m131");
