@@ -18,6 +18,6 @@ mvn dependency:copy-dependencies
 ## copies dependencies to folder target/dependency
 «s:mockito-classpath»=`echo ⊂target/dependency⊃/*.jar | tr ' ' :`
 echo ⊂$MOCKITO_CLASSPATH⊃
-jshell -class-path ⊂$MOCKITO_CLASSPATH⊃
+jshell -class-path ⊂$MOCKITO_CLASSPATH⊃ --feedback concise -R-ea
 ⑩clear«c:l»⑩‹‹‹‹‹⑩⑩⑩
-«c:d»
+©«c:d»

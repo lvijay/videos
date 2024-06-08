@@ -1,5 +1,5 @@
-jshell ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
-©/reset
+©jshell -R-ea -q ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+/reset
 ⑳⊂import org.mockito.Mockito;
 Mockito.mock(List.class);⊃
 
@@ -39,6 +39,8 @@ System.out.printf(format + "%n", args);
 var iLst = List.of(3,1,41,59);
 ⑤printf("List=%s", iLst);
 ⑤cantChangeArg(iLst);
+assert iLst == iLst⏎⑤©the reference hasn't changed
+assert iLst.equals(List.of(3,1,41,59))⏎©neither has the value
 ⑤printf("List=%s", iLst);
 /* as you can see, iLst is unchanged.  Because changes to
  * a reference inside a method cannot change the reference
@@ -61,7 +63,9 @@ Mockito.when(list.get(0)).thenReturn("hello, world!");
  * it?  In fact, before you mock a method, its value is the
  * default value based on its return type. */
 printf("list.get(0)=%s", list.get(0)); // mocked earlier
+assert "hello, world!".equals(list.get(0));
 ⑫printf("list.get(1)=%s", list.get(1)); // expected: null
+assert null == list.get(1);
 ⑫/* Just as `printf' receives `null', the arument received
  * by `Mockito.when(list.get(1))' must also be `null'. Which
  * begs the question: how does Mockito correctly mock

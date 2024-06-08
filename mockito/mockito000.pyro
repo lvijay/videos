@@ -1,0 +1,21 @@
+# Mocking is one of the greatest inventions in Software testing
+# theory.
+figlet -fbig Mockito
+©# ⊂___  ___           _    _ _⊃
+©# ⊂|  \/  |          | |  (_) |⊃
+©# ⊂| .  . | ___   ___| | ___| |_ ___⊃
+©# ⊂| |\/| |/ _ \ / __| |/ / | __/ _ \⊃
+©# ⊂| |  | | (_) | (__|   <| | || (_) |⊃
+©# ⊂\_|  |_/\___/ \___|_|\_\_|\__\___/⊃
+# Mockito is a Java mock library. It has a unique API, simulating
+# pass-by-reference semantics in a pass-by-value language.
+
+# In today's  video we take a  brief look at the  API and explore
+# explore its puzzling  nature.  We finish by  solving the puzzle
+# as we often  do in these videos -- by  implementing our own toy
+# Mockito library.  As  usual, we will use the  Java shell jshell
+# tool so you can try along on your own jshell terminal.
+
+# Let's go.
+
+# We use maven to pull Mockito's dependencies and start jshell.
