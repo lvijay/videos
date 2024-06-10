@@ -1,0 +1,77 @@
+jshell -R-ea -q ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+㉚
+⊂
+import org.mockito.Mockito;
+Mockito.mock(List.class);
+
+interface MList {
+    int size();
+    String get(int i);
+}
+interface ThenReturn {
+    void thenReturn(Object value);
+}
+class ToyMockito {
+    public static class MLst implements MList {
+        int sizeval;
+        Map<Integer, String> getval = new HashMap<>();
+        @Override
+        public int size() {
+            THENRETURN = v -> sizeval = (int) v;
+            return sizeval;
+        }
+        @Override
+        public String get(int i) {
+            THENRETURN = v -> getval.put(i, (String) v);
+            return getval.get(i); // return the old value
+        }
+    }
+    public static MList mock() { return new MLst(); }
+    public static ThenReturn when(Object o) { return THENRETURN; }
+    static ThenReturn THENRETURN = null;
+}
+⊃
+«c:l»㉚©
+/* Let's look at the ToyMockito class in more detail */
+⊂class ToyMockito {
+    public static ThenReturn THENRETURN = null;
+    public static class MLst implements MList {
+        public int sizeval;
+        public Map<Integer, String> getval = new HashMap<>();
+        public int size() {
+            THENRETURN = v -> sizeval = (int) v;
+            return sizeval;
+        }
+        public String get(int i) {
+            THENRETURN = v -> getval.put(i, (String) v);
+            return getval.get(i);
+        }
+    }
+    public static ThenReturn when(Object o) { return THENRETURN; }
+    public static MList mock() { return new MLst(); }
+}⊃㉚
+var mocklist = ToyMockito.mock();
+㉚ToyMockito.when(㉚
+        mocklist.size()mocklist.size()
+    )㉚.thenReturn(123);
+mocklist.sizeval
+㉚// we have to cast it②«c:u»①((ToyMockito.MLst) mocklist).sizeval
+㉚/*
+* And that's all, really.  We have reverse engineered an amazing
+* framework by being puzzled by its seemingly obvious behavior.
+* I do not know the Mockito's API authors names but they have
+* done an amazing job designing this API.  Once the API is
+* available, it is possible to come up with possible
+* implementations.
+*
+* Obligatory promotion.
+*
+* If you liked this video, please click on the subscribe button
+* and enable notifications.  I try to release videos weekly.
+* Click the like button, share your thoughts with comments.
+*
+* And if you learnt something new, share it with folks with
+* similar interests.
+*/
+㉚/exit
+㉚
