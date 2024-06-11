@@ -1,9 +1,6 @@
-jshell -R-ea -q ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+jshell -R-ea -q
 ㉚
 ⊂
-import org.mockito.Mockito;
-Mockito.mock(List.class);
-
 interface MList {
     int size();
     String get(int i);
@@ -31,6 +28,7 @@ class ToyMockito {
     static ThenReturn THENRETURN = null;
 }
 ⊃
+0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38
 «c:l»㉚©
 /* Let's look at the ToyMockito class in more detail */
 ⊂class ToyMockito {
@@ -51,27 +49,22 @@ class ToyMockito {
     public static MList mock() { return new MLst(); }
 }⊃㉚
 var mocklist = ToyMockito.mock();
-㉚ToyMockito.when(㉚
-        mocklist.size()mocklist.size()
-    )㉚.thenReturn(123);
-mocklist.sizeval
-㉚// we have to cast it②«c:u»①((ToyMockito.MLst) mocklist).sizeval
-㉚/*
-* And that's all, really.  We have reverse engineered an amazing
-* framework by being puzzled by its seemingly obvious behavior.
-* I do not know the Mockito's API authors names but they have
-* done an amazing job designing this API.  Once the API is
-* available, it is possible to come up with possible
-* implementations.
-*
-* Obligatory promotion.
-*
-* If you liked this video, please click on the subscribe button
-* and enable notifications.  I try to release videos weekly.
-* Click the like button, share your thoughts with comments.
-*
-* And if you learnt something new, share it with folks with
-* similar interests.
-*/
+㉚ToyMockito.when(mocklist.size⊂()⊃㉚)㉚.thenReturn(123);
+㉚«c:u»①((ToyMockito.MLst) mocklist).sizeval
+㉚/* And that's all, really.  We have reverse engineered an amazing
+ * framework by being puzzled by its seemingly obvious behavior.
+ * I do not know Mockito's authors' names but they have done an
+ * amazing job designing it.  By simulating pass-by-reference in
+ * a pass-by-value language, they have created a magical library.
+ *
+ * Obligatory comments
+ * ⊂-------------------⊃
+ *
+ * If you enjoyed this video, click the subscribe button and
+ * enable notifications.  I try to release videos weekly.  Share
+ * your thoughts by leaving comments.
+ *
+ * And if you learnt something new, chances are your friends
+ * will too.  Do share. */
 ㉚/exit
-㉚
+㉚㉚㉚㉚
