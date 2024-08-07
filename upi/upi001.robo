@@ -17,3 +17,9 @@ chordPaste     = ⌘v
 mouseMove      = ∏∐
 mouseLeft      = ◐
 ----
+# Let's explore how UPI works.
+# Here's a typical UPI transaction experience.
+
+# You see a QR code.  You scan it with your phone.  You type in the
+# amount to pay.  You key in your secret pass code.  The money is
+# transferred.  How does it work?

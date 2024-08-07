@@ -1,0 +1,46 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseMove      = ∏∐
+mouseLeft      = ┫┛
+----
+mvn -o ⊂archetype:generate⊃ -D⊂groupId=com.lvijay.videos⊃ -D⊂artifactId=mockito-magic⊃ -D⊂archetypeArtifactId=maven-archetype-quickstart⊃ -D⊂archetypeVersion=1⊃.4 -D⊂interactiveMode=false⊃
+㊿㊿cd ⊂mockito-magic⊃①
+emacs-nw -Q -nl pom.xml⑩
+⑩⑩⑩«¢s»①<dependency>①«æm»«¢æo»<!-- Add the mockito dependency -->⑩«æm»«¢k»⊂<dependency>⊃
+  ⊂<groupId>org.mockito</groupId>⊃
+⊂<artifactId>mockito-core</artifactId>⊃
+⊂<version>5.11.0</version>⊃
+⊂</dependency>⊃«¢i»
+⑩<!-- fix the java version«¢ »«¢a»①«¢w»⑤«ægg»⑤17␍②«¢u»«æf»«¢d»«¢n»«¢d»©
+© Save the file and exit emacs
+«¢xs»«¢xc»
+㉚# now run jshell
+# We don't use ⊂mvn exec:exec -Dexec.executable=jshell⊃ because it
+# breaks JShell's readline.
+
+# We go old school by passing the classpath to jshell
+mvn ⊂dependency:copy-dependencies⊃
+## ⊂copies⊃ ⊂dependencies to⊃ folder ⊂target/dependency⊃
+«§mockito-classpath»=`echo ⊂target/dependency⊃/*.jar | tr ' ' :`
+echo ⊂$MOCKITO_CLASSPATH⊃
+jshell -class-path ⊂$MOCKITO_CLASSPATH⊃
+⑩clear«¢l»⑩‹‹‹‹‹⑩⑩⑩
+Computing robot actions...
+...took 0s
+starting in 3 seconds
+starting in 2 seconds
+starting in 1 seconds

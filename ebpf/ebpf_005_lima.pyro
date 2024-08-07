@@ -1,0 +1,7 @@
+export PS='\W$ '
+«c:l»㉚# don't worry if you get this error
+# the server was already running.  Just do
+# the following
+limactl stop learning-ebpf
+㉚㉚㉚㉚limactl start learning-ebpf
+㉚㉚㉚㉚

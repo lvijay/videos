@@ -1,0 +1,5 @@
+# We're in a gnu/linux vm now
+uname -a
+# Let's write our first eBPF program
+⑳clear
+⑳

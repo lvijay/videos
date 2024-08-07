@@ -1,0 +1,41 @@
+keyCommentLine = ©
+keyChord       = «»
+keyCopy        = ⊂⊃
+keySpeak       = ♩♭
+keyPrint       = ɛɜ
+keySpeakWait   = ω
+keyControl     = ¢
+keyAlt         = æ
+keyShift       = §
+keyMeta        = ⌘
+keyEscape      = ␛
+keyNewline     = ␍
+keyTab         = ␉
+keyBackspace   = ‹
+keyDelete      = ›
+chordPaste     = ⌘v
+mouseMove      = ∏∐
+mouseLeft      = ┫┛
+----
+©jshell ⊂--class-path `echo target/dependency/*.jar | tr ' ' :`⊃
+©⑳⊂import org.mockito.Mockito;
+©Mockito.mock(List.class);⊃
+
+⑩⑩«¢l»⑩© prelims done, start program
+import org.mockito.Mockito;
+var list = Mockito.mock(List.class);
+/* Mockito is 3 simple steps
+ * 1. create a mock instance with Mockito.mock */
+var list = Mockito.mock(List.class);
+/* 2. declare what you're mocking with Mockito.when and finally
+ * 3. define the behavior with .thenReturn */
+Mockito.when(list.size()).thenReturn(29);
+// now list.size() will return 29
+list.size()
+/* There are other variants to the API but even this
+ * shouldn't work.  How does Mockito.when work?  How
+ * would you write it?  Here's its signature: */
+Mockito.when(␉②«¢u»©
+/* Basically, it's
+ * <code>public static OngoingStubbing when(Object o) ... </code>
+ */

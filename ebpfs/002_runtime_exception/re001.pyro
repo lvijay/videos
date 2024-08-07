@@ -1,0 +1,34 @@
+«c:l»# What happens if there's an error in our BPF listener?
+⑳cat > listen-error.py << END
+import sys
+from bcc import BPF
+
+program = r"""
+int div_by_0(void *ctx) {
+  int c = 1 / 0;
+  return 0;
+}
+"""
+
+b = BPF(text=program)
+syscall = b.get_syscall_fnname("execve")
+b.attach_kprobe(event=syscall, fn_name=fn_name)
+
+b.trace_print()
+END
+⑳# First, we test a single one
+sudo python3 attach-execve.py hello &
+⑳sleep 1
+⑳
+kill %
+⑳
+⑳⑳# our program works.  Can we run 2?
+⑳sudo python3 attach-execve.py hello &
+⑳
+sudo python3 attach-execve.py world
+⑳⑳
+kill %
+⑳
+# Our question is answered.
+# We can't attach multiple to same event
+# syscall, in this case⑳

@@ -1,0 +1,28 @@
+export PS='~$ '
+㉚
+# 0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38
+«c:l»㉚©
+# What files compress better?
+# similar or diverse data?
+# Compress and find out
+# 1. Diverse data (random bytes)
+dd if=/dev/urandom of=diverse \
+    count=1 bs=10M
+㉚㉚# File 2: 1KB x 10240
+for i in {1..10240}; do
+  < diverse head -c 1024
+done > repeats
+㉚㉚㉚㉚㉚㉚㉚㉚㉚㉚# compare compression size
+< repeats gzip -9c | wc -c
+㉚㉚< diverse gzip -9c | wc -c
+㉚㉚# compression ratio equals
+# (orig - new size) / orig size
+RS=`< repeats gzip -9c | wc -c`
+㉚DS=`< diverse gzip -9c | wc -c`
+㉚FS=10485760 # 10MB
+㉚bc -S3 -e "100*($FS-$RS)/$FS"
+㉚bc -S3 -e "100*($FS-$DS)/$FS"
+㉚㉚# Conclusion
+# Repeat data: 99% compression
+# Diverse data: no compression
+㉚㉚㉚㉚㉚

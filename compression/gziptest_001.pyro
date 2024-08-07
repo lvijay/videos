@@ -1,0 +1,59 @@
+export PS1='$ '
+ls
+㊿rm *
+alias lslh='ls -lh | sed "s/vlakshminarayanan/vijay/g;s/staff/user/g"'
+⑩«c:l»©
+# We saw that repeating patterns compress well.
+# Does this hold at scale? Let's find out.
+dd count=1 of=1024KiB bs=1M   if=/dev/urandom
+⑳dd count=1 of=512KiB  bs=512K if=1024KiB
+⑳dd count=1 of=256KiB  bs=256K if=512KiB
+⑳dd count=1 of=128KiB  bs=128K if=256KiB
+⑳dd count=1 of=64KiB   bs=64K  if=128KiB
+⑳dd count=1 of=32KiB   bs=32K  if=64KiB
+⑳dd count=1 of=16KiB   bs=16K  if=32KiB
+⑳dd count=1 of=8KiB    bs=8K   if=16KiB
+⑳dd count=1 of=4KiB    bs=4K   if=8KiB
+⑳dd count=1 of=2KiB    bs=2K   if=4KiB
+⑳dd count=1 of=1KiB    bs=1K   if=2KiB
+# Each file's size is as indicated by its name
+wc -c *
+⑳# compression ratio = (new_size - old) / old_size
+function compratio() {
+  O=`< $1 wc -c`
+  N=`< $1 gzip -9c | wc -c`
+  bc -S3 -e "100*($O-$N)/$O"|awk '{printf "%.3f%%\n",$1}'
+}
+# Let's assert that random data don't compress well
+compratio 1KiB
+②compratio 2KiB
+②compratio 4KiB
+②compratio 8KiB
+②compratio 16KiB
+②compratio 32KiB
+②compratio 64KiB
+②compratio 128KiB
+②compratio 256KiB
+②compratio 512KiB
+②compratio 1024KiB
+②②for fle in *KiB; do
+  count=`bc -e "4096/($(< $fle wc -c)/1024)"`
+  for i in `seq 1 $count`; do
+    cat $fle
+  done > "4m$fle"
+done
+㊿㊿㊿㊿# All these files are 4MiB in size
+«c:l»ls -lh⑩
+⑩«c:l»lslh
+⑩«c:l»# Now the fun part.  Let's see their compression ratios.
+compratio 4m1KiB
+⑳compratio 4m2KiB
+⑳compratio 4m4KiB
+⑳compratio 4m8KiB
+⑳compratio 4m16KiB
+⑳compratio 4m32KiB
+⑳compratio 4m64KiB
+⑳compratio 4m128KiB
+⑳compratio 4m256KiB
+⑳compratio 4m512KiB
+⑳compratio 4m1024KiB

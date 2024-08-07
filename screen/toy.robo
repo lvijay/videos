@@ -14,6 +14,16 @@ keyTab         = ␉
 keyBackspace   = ‹
 keyDelete      = ›
 chordPaste     = ⌘v
+mouseLeft      = ◐◁
+mouseRight     = ◑▷
 mouseMove      = ∏∐
-mouseLeft      = ◐
 ----
+«¢l»③©
+# Welcome to this tutorial of «§GNU S»creen.
+# ⊂What is GNU Screen?⊃
+
+⊂# It's a program to manage multiple terminals on a single window⊃
+⊂# without reaching for the mouse.  It has some great features such as:⊃
+
+# ⊂1. create and manage multiple terminals⊃
+# ⊂2. name your terminals⊃
